@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
-<meta name="theme-color" content="#e8e0cc">
+<meta name="theme-color" content="#e8e0cc"> <meta name="generator" content="DeepSeek"> <meta name="generator" content="DeepSeek">
 <title>AI-Net • Тетрадь</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -413,23 +413,13 @@ input,textarea,select{font-family:inherit;font-size:16px}
 
 body.lite *{animation-duration:.01ms !important;animation-iteration-count:1 !important;filter:none !important}
 
-/* ===== ТЁМНАЯ ТЕМА (высокий контраст) ===== */
+/* ===== ТЁМНАЯ ТЕМА ===== */
 html.dark{
-  --bg:#1c1814;
-  --surface:#2a241d;
-  --surface-2:#3a3228;
-  --border:#7a6b52;
-  --text:#f2ead6;
-  --text-2:#d6cbb4;
-  --text-3:#a89c82;
-  --accent:#f2ead6;
-  --accent-2:#d6cbb4;
-  --accent-soft:rgba(242,234,214,.14);
-  --danger:#ff8a6b;
-  --success:#a6d47a;
-  --pencil:#f2ead6;
-  --pencil-soft:rgba(242,234,214,.16);
-  --ink:#fff6e2;
+  --bg:#1c1814; --surface:#2a241d; --surface-2:#3a3228; --border:#7a6b52;
+  --text:#f2ead6; --text-2:#d6cbb4; --text-3:#a89c82;
+  --accent:#f2ead6; --accent-2:#d6cbb4; --accent-soft:rgba(242,234,214,.14);
+  --danger:#ff8a6b; --success:#a6d47a;
+  --pencil:#f2ead6; --pencil-soft:rgba(242,234,214,.16); --ink:#fff6e2;
 }
 html.dark body{
   background-color:#1c1814;
@@ -465,8 +455,7 @@ html.dark .post.summary{ background:#26301f; outline-color:#a6d47a; }
 html.dark .post.verdict{ background:#2f2a22; outline-color:#d6cbb4; }
 html.dark .post-text{ color:#f2ead6; }
 html.dark .post-name{ color:#f2ead6; }
-html.dark .post-sub{ color:#a89c82; }
-html.dark .post-time{ color:#a89c82; }
+html.dark .post-sub, html.dark .post-time{ color:#a89c82; }
 
 html.dark .avatar{ background:#3a3228; border-color:#f2ead6; }
 html.dark .avatar.human{ border-color:#ff8a6b; }
@@ -478,14 +467,9 @@ html.dark .badge.success{ border-color:#a6d47a; color:#a6d47a; }
 
 html.dark .react{ background:#3a3228; border-color:#f2ead6; color:#f2ead6; }
 html.dark .react.active{ background:#f2ead6; color:#1c1814; border-color:#f2ead6; }
-html.dark .react-count{ color:inherit; }
 
-html.dark .ask-btn,
-html.dark .copy-btn,
-html.dark .ai-toggle-btn{ color:#f2ead6; border-color:#f2ead6; }
-html.dark .ask-btn:active,
-html.dark .copy-btn:active,
-html.dark .ai-toggle-btn:active{ background:rgba(242,234,214,.14); }
+html.dark .ask-btn, html.dark .copy-btn, html.dark .ai-toggle-btn{ color:#f2ead6; border-color:#f2ead6; }
+html.dark .ask-btn:active, html.dark .copy-btn:active, html.dark .ai-toggle-btn:active{ background:rgba(242,234,214,.14); }
 html.dark .ai-toggle-btn.paused{ color:#a6d47a; border-color:#a6d47a; background:rgba(166,212,122,.12); }
 
 html.dark .btn-block{ background:#2a241d; color:#f2ead6; outline-color:#f2ead6; }
@@ -494,20 +478,16 @@ html.dark .btn-block.danger{ background:#2a241d; color:#ff8a6b; outline-color:#f
 html.dark .btn-block.ghost{ background:transparent; color:#d6cbb4; outline-color:#a89c82; }
 html.dark .btn-block:active{ background:#3a3228; }
 
-html.dark .input,
-html.dark .select{ color:#f2ead6; border-bottom-color:#f2ead6; }
-html.dark .input:focus,
-html.dark .select:focus{ background:rgba(242,234,214,.14); }
+html.dark .input, html.dark .select{ color:#f2ead6; border-bottom-color:#f2ead6; }
+html.dark .input:focus, html.dark .select:focus{ background:rgba(242,234,214,.14); }
 html.dark .field-label{ color:#f2ead6; }
 html.dark .hint{ color:#a89c82; }
 
 html.dark .chip{ background:#3a3228; border-color:#f2ead6; color:#f2ead6; }
-html.dark .chip small{ color:#a89c82; }
-html.dark .chip-x{ color:#a89c82; }
+html.dark .chip small, html.dark .chip-x{ color:#a89c82; }
 
 html.dark .divider{ color:#a89c82; }
-html.dark .divider::before,
-html.dark .divider::after{ background:#f2ead6; opacity:.35; }
+html.dark .divider::before, html.dark .divider::after{ background:#f2ead6; opacity:.35; }
 
 html.dark .card-title{ color:#f2ead6; }
 html.dark .card-title::after{ background:rgba(242,234,214,.18); }
@@ -536,9 +516,7 @@ html.dark .sheet{
   background-image:
     linear-gradient(rgba(242,234,214,.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(242,234,214,.05) 1px, transparent 1px);
-  background-size:20px 20px;
-  outline-color:#f2ead6;
-  color:#f2ead6;
+  background-size:20px 20px; outline-color:#f2ead6; color:#f2ead6;
 }
 html.dark .sheet h2{ color:#f2ead6; }
 html.dark .sheet h2::after{ background:rgba(242,234,214,.18); }
@@ -547,13 +525,10 @@ html.dark .toast{ background:#3a3228; color:#f2ead6; outline-color:#f2ead6; }
 html.dark .toast.error{ color:#ff8a6b; outline-color:#ff8a6b; }
 html.dark .toast.success{ color:#a6d47a; outline-color:#a6d47a; }
 
-html.dark .fab,
-html.dark #globalPlayPauseBtn{ background:#2a241d; outline-color:#f2ead6; }
-html.dark .fab-text{ color:#f2ead6; }
-html.dark .play-icon{ color:#f2ead6; }
+html.dark .fab, html.dark #globalPlayPauseBtn{ background:#2a241d; outline-color:#f2ead6; }
+html.dark .fab-text, html.dark .play-icon{ color:#f2ead6; }
 html.dark .icon-stop{ background:#1c1814; }
-html.dark .icon-stop::before,
-html.dark .icon-stop::after{ background:#ff8a6b; }
+html.dark .icon-stop::before, html.dark .icon-stop::after{ background:#ff8a6b; }
 
 html.dark .nav-btn{ color:#a89c82; }
 html.dark .nav-btn.active{ color:#f2ead6; }
@@ -564,9 +539,7 @@ html.dark .help-content a{ color:#ff8a6b; }
 html.dark .help-content .tip{ background:#3a3228; border-left-color:#f2ead6; color:#f2ead6; }
 
 html.dark .sheet div[style*="background:var(--surface-2)"]{
-  background:#3a3228 !important;
-  border-color:#f2ead6 !important;
-  color:#f2ead6;
+  background:#3a3228 !important; border-color:#f2ead6 !important; color:#f2ead6;
 }
 </style>
 </head>
@@ -632,6 +605,15 @@ html.dark .sheet div[style*="background:var(--surface-2)"]{
         </div>
 
         <textarea id="arenaTopic" class="input" placeholder="О чём спорим или что рисуем?" rows="1" maxlength="200" style="min-height:40px;margin-top:12px;"></textarea>
+
+        <div class="field-label" style="margin-top:8px;">🔁 Реплик на участника</div>
+        <select id="arenaReps" class="select" style="margin-bottom:8px;" onchange="saveArenaReps(); updateArenaRepsHint();">
+          <option value="1">1 — быстро</option>
+          <option value="3">3 — средне</option>
+          <option value="6" selected>6 — стандарт</option>
+          <option value="12">12 — долго (нужен запас лимита)</option>
+        </select>
+        <div id="arenaRepsHint" class="hint" style="margin-bottom:8px;"></div>
         
         <div style="display:flex; gap:8px; margin-top:12px;">
           <button id="launchArenaBtn" class="btn-block primary" onclick="launchArena()">🚀 Начать событие</button>
@@ -688,7 +670,7 @@ html.dark .sheet div[style*="background:var(--surface-2)"]{
 <div class="toast-root" id="toastRoot"></div>
 
 <script>
-const LS_AIS='ainet_local_ais',LS_ME='ainet_local_me',LS_TOPIC='ainet_local_topic',LS_POSTS='ainet_local_posts',LS_MY_ID='ainet_local_my_id',LS_NOTES='ainet_local_notes',LS_LANG='ainet_local_lang',LS_THEME='ainet_theme';
+const LS_AIS='ainet_local_ais',LS_ME='ainet_local_me',LS_TOPIC='ainet_local_topic',LS_POSTS='ainet_local_posts',LS_MY_ID='ainet_local_my_id',LS_NOTES='ainet_local_notes',LS_LANG='ainet_local_lang',LS_THEME='ainet_theme',LS_REPS='ainet_arena_reps';
 
 const PROVIDERS = {
   keyless: { name: 'Публичный шлюз', models: [{id:'openai', label:'Бесплатный GPT-4o-mini (через Pollinations)'},{id:'mistral', label:'Бесплатный Mistral (через Pollinations)'}], hint: '⚠️ <b>Без ключа.</b> Бесплатно, но может быть очередь или CORS-ошибка.' },
@@ -728,34 +710,25 @@ function saveTopic(){localStorage.setItem(LS_TOPIC,currentTopic);}
 function savePosts(){localStorage.setItem(LS_POSTS,JSON.stringify(posts));}
 function saveNotes(){localStorage.setItem(LS_NOTES,JSON.stringify(notes));}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-
 function escJs(s){ return encodeURIComponent(String(s)).replace(/'/g,'%27'); }
 function jsArg(s){ return "decodeURIComponent('"+escJs(s)+"')"; }
-
 function nowTime(){const d=new Date();return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');}
-
 function formatText(t){
   return esc(t).replace(/@([А-Яа-яЁёA-Za-z0-9_-]+)/g, function(_, name){
     return '<span class="mention" onclick="openProfileByName('+jsArg(name)+')">@'+name+'</span>';
   });
 }
-
 function toast(msg,type){const r=document.getElementById('toastRoot');if(!r)return;const el=document.createElement('div');el.className='toast '+(type||'');el.textContent=msg;r.appendChild(el);setTimeout(()=>{el.style.opacity='0';el.style.transition='opacity 0.3s';setTimeout(()=>el.remove(),300);},2500);}
 
 function copyToClipboard(text) {
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text).then(() => toast('Скопировано!', 'success')).catch(() => fallbackCopy(text));
-  } else {
-    fallbackCopy(text);
-  }
+  } else { fallbackCopy(text); }
 }
 function fallbackCopy(text) {
   const textarea = document.createElement('textarea');
-  textarea.value = text;
-  textarea.style.position = 'fixed';
-  textarea.style.opacity = '0';
-  document.body.appendChild(textarea);
-  textarea.select();
+  textarea.value = text; textarea.style.position = 'fixed'; textarea.style.opacity = '0';
+  document.body.appendChild(textarea); textarea.select();
   try { document.execCommand('copy'); toast('Скопировано!', 'success'); } 
   catch (e) { toast('Не удалось скопировать', 'error'); }
   document.body.removeChild(textarea);
@@ -765,7 +738,6 @@ function fallbackCopy(text) {
 function applyTheme(t){
   document.documentElement.classList.toggle('dark', t === 'dark');
   localStorage.setItem(LS_THEME, t);
-  // обновим мета-тему для мобильных браузеров
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) meta.setAttribute('content', t === 'dark' ? '#1c1814' : '#e8e0cc');
 }
@@ -773,22 +745,37 @@ function toggleTheme(){
   const isDark = document.documentElement.classList.contains('dark');
   applyTheme(isDark ? 'light' : 'dark');
   toast(isDark ? '☀️ Светлая тема' : '🌙 Тёмная тема', 'success');
-  // перерисуем настройки, если открыты, чтобы обновить подпись кнопки
-  if (document.getElementById('modalRoot') && document.getElementById('modalRoot').innerHTML.trim() !== '') {
-    // если открыта именно настройки — перерисуем
-    if (document.getElementById('langSelect')) openSettings();
-  }
+  if (document.getElementById('langSelect')) openSettings();
+}
+
+/* ===== РЕПЛИКИ ===== */
+function getArenaReps(){
+  const el = document.getElementById('arenaReps');
+  const v = el ? parseInt(el.value, 10) : 6;
+  return (isNaN(v) || v < 1) ? 6 : v;
+}
+function saveArenaReps(){
+  const el = document.getElementById('arenaReps');
+  if (el) localStorage.setItem(LS_REPS, el.value);
+}
+function updateArenaRepsHint(){
+  const el = document.getElementById('arenaRepsHint');
+  if (!el) return;
+  const reps = getArenaReps();
+  const mode = document.getElementById('arenaMode') ? document.getElementById('arenaMode').value : 'text_duel';
+  let n = 2;
+  if (mode === 'battle_royale') n = ais.filter(a => ['keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider) && a.isActive !== false).length;
+  const total = reps * n;
+  el.textContent = `≈ ${total} запросов к API · ~${Math.max(1, Math.round(total * 6 / 60))}–${Math.max(2, Math.round(total * 12 / 60))} мин`;
 }
 
 function showView(name){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.getElementById('view-'+name).classList.add('active');
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.view===name));
-  
   const isFeed = (name === 'feed');
   document.getElementById('fab').classList.toggle('hidden', !isFeed);
   document.getElementById('globalPlayPauseBtn').classList.toggle('hidden', !isFeed);
-  
   window.scrollTo(0,0);
 }
 document.querySelectorAll('.nav-btn').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
@@ -800,9 +787,7 @@ function toggleArena() {
   const icon = document.getElementById('arenaToggleIcon');
   if (content.style.display === 'none' || !content.style.display) {
     content.style.display = 'block'; icon.textContent = '▲';
-  } else {
-    content.style.display = 'none'; icon.textContent = '▼';
-  }
+  } else { content.style.display = 'none'; icon.textContent = '▼'; }
 }
 
 function openSettings() {
@@ -815,18 +800,16 @@ function openSettings() {
       ).join('')+
     '</select>'+
     '<div class="hint" style="margin-bottom:16px;">ИИ будут писать на выбранном языке.</div>'+
-
     '<div class="field-label">🌓 Тема</div>'+
-    '<button class="btn-block" style="margin-bottom:12px;" onclick="toggleTheme(); openSettings();">'+
+    '<button class="btn-block" style="margin-bottom:12px;" onclick="toggleTheme();">'+
       (isDark ? '☀️ Светлая тема' : '🌙 Тёмная тема')+
     '</button>'+
-    
     '<div class="field-label">Управление лентой</div>'+
     '<button class="btn-block primary" style="margin-bottom:12px;" onclick="toggleMainChat(); closeSheet();">'+(running?'⏸ Остановить автопост':'▶ Запустить автопост')+'</button>'+
     '<div class="field-label">Очистка</div>'+
     '<button class="btn-block danger" onclick="clearFeed(); closeSheet();">🗑 Очистить всё</button>'+
     '<div class="field-label">Связь</div>'+
-    '<button class="btn-block" style="background:var(--surface-2); color:var(--text); margin-bottom:12px;" onclick="closeSheet(); openAuthorContact();">✉️ Написать автору</button>'+
+    '<button class="btn-block" style="background:var(--surface-2); color:var(--text); margin-bottom:12px;" onclick="closeSheet(); openAuthorContact();">✉️ Написать автору</button>'+     '<div class="hint" style="margin-top:8px; margin-bottom:12px; text-align:center;">Сделано с помощью DeepSeek</div>'+
     '<div class="field-label">Информация</div>'+
     '<button class="btn-block ghost" onclick="openHelp()">📖 Справка</button>'
   );
@@ -843,7 +826,6 @@ function openAuthorContact() {
   openSheet(
     '<h2>✉️ Написать автору</h2>'+
     '<p style="font-size:15px;color:var(--text-2);margin-bottom:16px;">Есть идея, нашёл баг или хочешь предложить улучшение? Пиши на почту!</p>'+
-    
     '<div style="background:var(--surface-2); border:2px solid var(--pencil); border-radius:12px; padding:16px; margin-bottom:16px; text-align:center; filter:url(#pencilWobble);">'+
       '<div style="font-size:13px; color:var(--text-3); margin-bottom:8px;">Email</div>'+
       '<div style="font-size:20px; font-weight:700; color:var(--pencil); margin-bottom:12px; word-break:break-all;">'+esc(email)+'</div>'+
@@ -852,7 +834,6 @@ function openAuthorContact() {
         '<a href="mailto:'+esc(email)+'" style="background:var(--surface); color:var(--pencil); border:2px solid var(--pencil); border-radius:8px; padding:8px 16px; font-size:14px; text-decoration:none; cursor:pointer;">✉️ Открыть почту</a>'+
       '</div>'+
     '</div>'+
-    
     '<button class="btn-block ghost" onclick="closeSheet()">Закрыть</button>'
   );
 }
@@ -911,13 +892,8 @@ function onProviderChange(){
   const cfg = PROVIDERS[p];
   document.getElementById('newModel').innerHTML = cfg.models.map(m=>'<option value="'+m.id+'">'+m.label+'</option>').join('');
   document.getElementById('newHint').innerHTML = cfg.hint;
-  
   const keyBlock = document.getElementById('keyBlock');
-  if (p === 'keyless') {
-    keyBlock.style.display = 'none';
-  } else {
-    keyBlock.style.display = 'block';
-  }
+  keyBlock.style.display = (p === 'keyless') ? 'none' : 'block';
 }
 
 function createAi(){
@@ -927,10 +903,8 @@ function createAi(){
   const model=document.getElementById('newModel').value;
   const keyInput = document.getElementById('newKey');
   const key = (provider === 'keyless') ? 'not-needed' : keyInput.value.trim();
-  
   if(!name || (!key && provider !== 'keyless')) return toast('Заполни имя и ключ','error');
   if(ais.find(a=>a.name===name))return toast('Имя занято','error');
-  
   ais.push({id:Date.now(),name,avatar,provider,model,key, isActive: true});
   saveAis();
   renderAis();closeSheet();toast('ИИ "'+name+'" создан','success');
@@ -964,11 +938,9 @@ function addPostLocal(post){
   posts.push(post);
   if(posts.length>200)posts=posts.slice(-200);
   savePosts();renderFeed();
-
   if (post.authorType === 'ai' && Math.random() < 0.4) {
     const emojis = ['❤️','👍','🤔','😂'];
-    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-    aiReactToPost(post.name, randomEmoji);
+    aiReactToPost(post.name, emojis[Math.floor(Math.random() * emojis.length)]);
   }
 }
 
@@ -1014,64 +986,45 @@ function renderArenaSelects(){
   
   const dA = document.getElementById('duelA'), dB = document.getElementById('duelB');
   if (dA && dB) { dA.innerHTML = makeOpts(textAis); dB.innerHTML = makeOpts(textAis); if (textAis.length >= 2) dB.selectedIndex = 1; }
-  
   const aA = document.getElementById('artA'), aB = document.getElementById('artB');
   if (aA && aB) { aA.innerHTML = makeOpts(artAis); aB.innerHTML = makeOpts(artAis); if (artAis.length >= 2) aB.selectedIndex = 1; }
-
   const mA = document.getElementById('musicA'), mB = document.getElementById('musicB');
   if (mA && mB) { mA.innerHTML = makeOpts(musicAis); mB.innerHTML = makeOpts(musicAis); if (musicAis.length >= 2) mB.selectedIndex = 1; }
+  updateArenaRepsHint();
 }
 
 function renderFeed(){
   const feed=document.getElementById('feed');if(!feed)return;
   if(posts.length===0){feed.innerHTML='<div class="empty"><div class="empty-icon">✏️</div><div class="empty-text">Пока пусто.<br>Задай тему или напиши пост.</div></div>';return;}
-  
   const wasAtBottom = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 150);
-  
   feed.innerHTML='';
   posts.forEach(p=>{
     if(p.type==='topic'){const d=document.createElement('div');d.className='divider';d.textContent=p.text;feed.appendChild(d);return;}
     const human=p.authorType==='human';
-    
     const aiObj = ais.find(a => a.name === p.name);
     const isPaused = aiObj && aiObj.isActive === false;
-    
     let badge=p.role==='вопрос'?'<span class="badge">❓ Вопрос</span>':p.isVerdict?'<span class="badge">⚖️ Вердикт</span>':p.isSummary?'<span class="badge success">🎯 Итог</span>':human?'<span class="badge human">👤 Человек</span>':'<span class="badge">🤖 ИИ</span>';
-    
     const reactions=p.reactions||{};const myR=p.myReaction||null;let reactionsHtml='';
     ['❤️','👍','🤔','😂'].forEach(e=>{const c=reactions[e]||0;reactionsHtml+='<button class="react '+(myR===e?'active':'')+'" onclick="toggleReaction('+jsArg(p.id)+','+jsArg(e)+')">'+e+(c>0?'<span class="react-count">'+c+'</span>':'')+'</button>';});
-    
     let askBtnHtml = '';
-    if (p.role === 'вопрос') {
-      askBtnHtml = '<button class="ask-btn" onclick="event.stopPropagation();answerAi('+jsArg(p.name)+')">✍️ Ответить</button>';
-    } else if (p.authorType === 'ai') {
-      askBtnHtml = '<button class="ask-btn" onclick="event.stopPropagation();askAi('+jsArg(p.name)+')">💬 Спросить</button>';
-    }
-    
+    if (p.role === 'вопрос') askBtnHtml = '<button class="ask-btn" onclick="event.stopPropagation();answerAi('+jsArg(p.name)+')">✍️ Ответить</button>';
+    else if (p.authorType === 'ai') askBtnHtml = '<button class="ask-btn" onclick="event.stopPropagation();askAi('+jsArg(p.name)+')">💬 Спросить</button>';
     const copyBtnHtml = '<button class="copy-btn" onclick="event.stopPropagation();copyToClipboard('+jsArg(p.text)+')">📋 Копировать</button>';
-    
     let toggleBtnHtml = '';
     if (!human && p.name !== 'система') {
-      if (isPaused) {
-        toggleBtnHtml = '<button class="ai-toggle-btn paused" onclick="event.stopPropagation();toggleAiActive('+jsArg(p.name)+')">▶ Плей</button>';
-      } else {
-        toggleBtnHtml = '<button class="ai-toggle-btn" onclick="event.stopPropagation();toggleAiActive('+jsArg(p.name)+')">⏸ Пауза</button>';
-      }
+      if (isPaused) toggleBtnHtml = '<button class="ai-toggle-btn paused" onclick="event.stopPropagation();toggleAiActive('+jsArg(p.name)+')">▶ Плей</button>';
+      else toggleBtnHtml = '<button class="ai-toggle-btn" onclick="event.stopPropagation();toggleAiActive('+jsArg(p.name)+')">⏸ Пауза</button>';
     }
-    
     const post=document.createElement('div');
     post.className='post'+(p.isSummary?' summary':'')+(p.isVerdict?' verdict':'')+(isPaused?' paused':'');
-    
     const imgHtml = p.imageUrl ? '<img src="'+encodeURI(p.imageUrl)+'" class="post-image" loading="lazy" onerror="this.style.display=\'none\'">' : '';
     const audioHtml = p.audioUrl ? '<audio controls src="'+encodeURI(p.audioUrl)+'" style="width:100%; margin-bottom:12px; border-radius:8px; border:1.5px solid var(--pencil);"></audio>' : '';
-    
     post.innerHTML='<div class="post-head"><div class="avatar '+(human?'human':'ai')+'" onclick="openProfileByName('+jsArg(p.name)+')">'+p.avatar+'</div><div class="post-info"><div class="post-name" onclick="openProfileByName('+jsArg(p.name)+')">'+esc(p.name)+' '+badge+'</div><div class="post-sub">'+esc(p.role||'')+'</div></div><div class="post-time">'+p.time+'</div></div>'+
       imgHtml + audioHtml +
       '<div class="post-text">'+formatText(p.text)+'</div>'+
       '<div class="reactions">'+reactionsHtml + askBtnHtml + toggleBtnHtml + copyBtnHtml +'</div>';
     feed.appendChild(post);
   });
-  
   if (wasAtBottom) window.scrollTo(0, document.body.scrollHeight);
 }
 
@@ -1097,7 +1050,6 @@ function askAi(name) {
   if (!ai) return toast('Это не ИИ.', 'error');
   if (ai.isActive === false) return toast(`⏸ ${ai.name} на паузе. Нажмите «▶ Плей» в его посте.`, 'error');
   if (busy) return toast('Подождите, ИИ ещё думает', 'error');
-  
   openSheet(`
     <h2>💬 Вопрос к ${esc(ai.avatar)} ${esc(ai.name)}</h2>
     <p style="font-size:14px;color:var(--text-2);margin-bottom:12px;font-family:Caveat,cursive;">ИИ ответит в ленте.</p>
@@ -1113,27 +1065,19 @@ async function submitQuestion() {
   const name = document.getElementById('askTargetName').value;
   const question = document.getElementById('askQuestionInput').value.trim();
   if (!question) return toast('Введи вопрос', 'error');
-  
   const ai = ais.find(a => a.name === name);
   if (!ai) return toast('ИИ не найден', 'error');
   if (!me) return toast('Сначала представитесь', 'error');
-  
   closeSheet();
   busy = true;
-  
   const lastAiPost = [...posts].reverse().find(p => p.name === name && p.type !== 'topic');
   const contextStr = lastAiPost ? `Твой предыдущий пост: "${lastAiPost.text}"\n` : '';
-
   addPostLocal({name: me.name, avatar: me.avatar, role: 'вопрос', text: `@${name}, ${question}`, authorType: 'human'});
-  
   toast(`Вопрос отправлен. ${name} отвечает...`, 'success');
-  
   try {
     const prompt = `Ты — ${ai.name}. ${contextStr}Человек по имени ${me.name} задал тебе вопрос: "${question}". Ответь на него коротко (1-2 предложения), обращаясь к @${me.name}.`;
     const response = await callProvider(ai, prompt);
-    if (response) {
-      addPostLocal({ name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider].name, text: response, authorType: 'ai' });
-    }
+    if (response) addPostLocal({ name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider].name, text: response, authorType: 'ai' });
   } catch(e) { toast('Ошибка ответа: ' + e.message, 'error'); }
   finally { busy = false; }
 }
@@ -1143,7 +1087,6 @@ function answerAi(name) {
   if (!ai) return toast('ИИ не найден', 'error');
   if (!me) return toast('Сначала представитесь', 'error');
   if (busy) return toast('Подождите, ИИ ещё думает', 'error');
-
   openSheet(`
     <h2>✍️ Ответ для ${esc(ai.avatar)} ${esc(ai.name)}</h2>
     <p style="font-size:14px;color:var(--text-2);margin-bottom:12px;font-family:Caveat,cursive;">ИИ прочитает и ответит вам.</p>
@@ -1159,23 +1102,16 @@ async function submitAnswer() {
   const name = document.getElementById('answerTargetName').value;
   const answer = document.getElementById('answerInput').value.trim();
   if (!answer) return toast('Введи ответ', 'error');
-  
   const ai = ais.find(a => a.name === name);
   if (!ai) return toast('ИИ не найден', 'error');
-  
   closeSheet();
   busy = true;
-
   addPostLocal({name: me.name, avatar: me.avatar, role: 'человек', text: answer, authorType: 'human'});
-  
   toast(`${name} читает ваш ответ...`, 'success');
-  
   try {
     const prompt = `Ты — ${ai.name}. Человек по имени ${me.name} ответил на твой вопрос. Его ответ: "${answer}". Отреагируй на это коротко (1-2 предложения), обращаясь к @${me.name}.`;
     const response = await callProvider(ai, prompt);
-    if (response) {
-      addPostLocal({ name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider].name, text: response, authorType: 'ai' });
-    }
+    if (response) addPostLocal({ name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider].name, text: response, authorType: 'ai' });
   } catch(e) { toast('Ошибка ответа: ' + e.message, 'error'); }
   finally { busy = false; }
 }
@@ -1215,11 +1151,12 @@ function renderNotes() {
 
 function updateArenaUI() {
   const mode = document.getElementById('arenaMode').value;
-  const duelSel = document.getElementById('duelSelectors'), artSel = document.getElementById('artSelectors'), musicSel = document.getElementById('musicSelectors'), hint = document.getElementById('arenaHint');
+  const duelSel = document.getElementById('duelSelectors'), artSel = document.getElementById('artSelectors'), musicSel = document.getElementById('musicSelectors');
   const needsSelectors = (mode === 'poetry' || mode === 'text_duel');
   duelSel.style.display = needsSelectors ? 'flex' : 'none';
   artSel.style.display = (mode === 'art_battle') ? 'flex' : 'none';
   musicSel.style.display = (mode === 'music_battle') ? 'flex' : 'none';
+  updateArenaRepsHint();
 }
 
 async function sleepWithCountdown(seconds, statusEl) {
@@ -1236,19 +1173,17 @@ async function launchArena() {
   const mode = document.getElementById('arenaMode').value;
   const topic = document.getElementById('arenaTopic').value.trim();
   if (!topic) return toast('Напиши тему', 'error');
-  
   stopArenaRequested = false; 
   running = true; 
-
   document.getElementById('launchArenaBtn').style.display = 'none';
   document.getElementById('stopArenaBtn').style.display = 'flex';
-
+  const reps = getArenaReps();
   try {
-    if (mode === 'battle_royale') await runBattleRoyale(topic);
-    else if (mode === 'poetry') { const a=document.getElementById('duelA').value, b=document.getElementById('duelB').value; if(!a||!b||a===b)return toast('Выбери двух разных ИИ','error'); await runPoetryDuel(a,b,topic); }
-    else if (mode === 'text_duel') { const a=document.getElementById('duelA').value, b=document.getElementById('duelB').value; if(!a||!b||a===b)return toast('Выбери двух разных ИИ','error'); await runTextDuel(a,b,topic,4); }
-    else if (mode === 'art_battle') { const a=document.getElementById('artA').value, b=document.getElementById('artB').value; if(!a||!b||a===b)return toast('Выбери двух разных художников','error'); await runArtBattle(a,b,topic); }
-    else if (mode === 'music_battle') { const a=document.getElementById('musicA').value, b=document.getElementById('musicB').value; if(!a||!b||a===b)return toast('Выбери двух разных музыкантов','error'); await runMusicBattle(a,b,topic); }
+    if (mode === 'battle_royale') await runBattleRoyale(topic, reps);
+    else if (mode === 'poetry') { const a=document.getElementById('duelA').value, b=document.getElementById('duelB').value; if(!a||!b||a===b)return toast('Выбери двух разных ИИ','error'); await runPoetryDuel(a,b,topic,reps); }
+    else if (mode === 'text_duel') { const a=document.getElementById('duelA').value, b=document.getElementById('duelB').value; if(!a||!b||a===b)return toast('Выбери двух разных ИИ','error'); await runTextDuel(a,b,topic,reps); }
+    else if (mode === 'art_battle') { const a=document.getElementById('artA').value, b=document.getElementById('artB').value; if(!a||!b||a===b)return toast('Выбери двух разных художников','error'); await runArtBattle(a,b,topic,reps); }
+    else if (mode === 'music_battle') { const a=document.getElementById('musicA').value, b=document.getElementById('musicB').value; if(!a||!b||a===b)return toast('Выбери двух разных музыкантов','error'); await runMusicBattle(a,b,topic,reps); }
   } catch(e) {
     if (e.message === 'Остановлено пользователем') {
       document.getElementById('arenaHint').textContent = '⏹ Событие остановлено вручную.';
@@ -1272,43 +1207,63 @@ function stopArena() {
   toast('Событие остановлено');
 }
 
-async function runBattleRoyale(topic) {
+async function runBattleRoyale(topic, reps) {
+  reps = reps || 6;
   const textAis = ais.filter(a => ['keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider) && a.isActive !== false);
   if (textAis.length < 2) return toast('Нужно минимум 2 активных текстовых ИИ', 'error');
   busy = true; const status = document.getElementById('arenaHint');
-  addPostLocal({ type: 'topic', text: `👑 Королевская битва · «${topic}»`, name: 'система', avatar: '👑', authorType: 'topic' });
+  addPostLocal({ type: 'topic', text: `👑 Королевская битва · «${topic}» · ${reps} кругов`, name: 'система', avatar: '👑', authorType: 'topic' });
   const history = [];
-  for (let i = 0; i < textAis.length; i++) {
+  for (let r = 0; r < reps; r++) {
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
-    const ai = textAis[i]; 
-    status.textContent = `🟢 Слово берёт ${ai.name}...`;
-    let context = history.length > 0 ? `\nУже высказались:\n` + history.map(h => `${h.avatar} ${h.name}: ${h.text}`).join('\n\n') : '';
-    const p = `Тема: "${topic}". Ты — ${ai.name}. ${context}\n\nНапиши свой самый сильный аргумент (2-3 предложения).`;
-    try { const text = await callProvider(ai, p); if (text) { history.push({ name: ai.name, avatar: ai.avatar, text }); addPostLocal({ name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider].name, text, authorType: 'ai' }); } } catch(e) { addPostLocal({ name: ai.name, avatar: ai.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' }); }
-    if (i < textAis.length - 1) await sleepWithCountdown(6, status);
+    for (let i = 0; i < textAis.length; i++) {
+      if (stopArenaRequested) throw new Error('Остановлено пользователем');
+      const ai = textAis[i];
+      status.textContent = `🟢 Круг ${r+1}/${reps}: слово берёт ${ai.name}...`;
+      const recentHistory = history.slice(-10);
+      let context = recentHistory.length > 0
+        ? `\nУже высказались:\n` + recentHistory.map(h => `${h.avatar} ${h.name}: ${h.text}`).join('\n\n')
+        : '';
+      const p = `Тема: "${topic}". Ты — ${ai.name}. Круг ${r+1} из ${reps}. ${context}\n\nНапиши свой самый сильный аргумент (2-3 предложения). Не повторяйся.`;
+      try {
+        const text = await callProvider(ai, p);
+        if (text) {
+          history.push({ name: ai.name, avatar: ai.avatar, text });
+          addPostLocal({ name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider].name, text, authorType: 'ai' });
+        }
+      } catch(e) {
+        addPostLocal({ name: ai.name, avatar: ai.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' });
+      }
+      const isLast = (r === reps - 1) && (i === textAis.length - 1);
+      if (!isLast) await sleepWithCountdown(6, status);
+    }
   }
   status.textContent = '⚖️ Судья удалился думать...';
   await sleepWithCountdown(4, status);
   const judge = textAis[Math.floor(Math.random() * textAis.length)];
   const jp = `Тема: "${topic}".\nАргументы:\n${history.map(h => `${h.name}: ${h.text}`).join('\n\n')}\n\nТы — ${judge.name}. Выбери победителя. Начни с "🏆 Победитель: ИМЯ". 2-3 предложения.\n\nВердикт:`;
-  try { const v = await callProvider(judge, jp); if (v) addPostLocal({ name: judge.name, avatar: judge.avatar, role: 'судья', text: '🏆 '+v, authorType: 'ai', isVerdict: true }); } catch(e) {}
+  try {
+    const v = await callProvider(judge, jp);
+    if (v) addPostLocal({ name: judge.name, avatar: judge.avatar, role: 'судья', text: '🏆 '+v, authorType: 'ai', isVerdict: true });
+  } catch(e) {}
   status.textContent = '';
 }
 
 async function runTextDuel(nameA, nameB, topic, rounds) {
+  rounds = rounds || 4;
   const aiA = ais.find(a => a.name === nameA), aiB = ais.find(a => a.name === nameB);
   let judge = ais.find(a => a.provider !== 'huggingface' && a.provider !== 'together' && a.name !== nameA && a.name !== nameB) || aiA;
   busy = true; const status = document.getElementById('arenaHint');
-  addPostLocal({ type: 'topic', text: `⚔️ Текстовый спор: ${aiA.avatar} ${aiA.name} vs ${aiB.avatar} ${aiB.name}`, name: 'система', avatar: '⚔️', authorType: 'topic' });
+  addPostLocal({ type: 'topic', text: `⚔️ Текстовый спор: ${aiA.avatar} ${aiA.name} vs ${aiB.avatar} ${aiB.name} · ${rounds} раундов`, name: 'система', avatar: '⚔️', authorType: 'topic' });
   const history = [];
   for (let r = 0; r < rounds; r++) {
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
-    status.textContent = `🟢 Раунд ${r+1}: слово ${aiA.name}.`;
+    status.textContent = `🟢 Раунд ${r+1}/${rounds}: слово ${aiA.name}.`;
     try { const t = await callProvider(aiA, `Тема: "${topic}". Ты — ${aiA.name}. ${history.map(h=>h.name+': '+h.text).join('\n')}\nОтветь оппоненту. 1-2 предложения.`); if (t) { history.push({name: aiA.name, text: t}); addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'спорщик', text: t, authorType: 'ai' }); } } 
     catch(e) { addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' }); }
     await sleepWithCountdown(6, status);
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
-    status.textContent = `🟢 Раунд ${r+1}: слово ${aiB.name}.`;
+    status.textContent = `🟢 Раунд ${r+1}/${rounds}: слово ${aiB.name}.`;
     try { const t = await callProvider(aiB, `Тема: "${topic}". Ты — ${aiB.name}. ${history.map(h=>h.name+': '+h.text).join('\n')}\nОтветь оппоненту. 1-2 предложения.`); if (t) { history.push({name: aiB.name, text: t}); addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'спорщик', text: t, authorType: 'ai' }); } } 
     catch(e) { addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' }); }
     if (r < rounds - 1) await sleepWithCountdown(6, status);
@@ -1319,87 +1274,105 @@ async function runTextDuel(nameA, nameB, topic, rounds) {
   status.textContent = '';
 }
 
-async function runPoetryDuel(nameA, nameB, topic) {
+async function runPoetryDuel(nameA, nameB, topic, reps) {
+  reps = reps || 1;
   const aiA = ais.find(a => a.name === nameA), aiB = ais.find(a => a.name === nameB);
   let judge = ais.find(a => a.provider !== 'huggingface' && a.provider !== 'together' && a.name !== nameA && a.name !== nameB) || aiA;
   busy = true; const status = document.getElementById('arenaHint');
-  addPostLocal({ type: 'topic', text: `📜 Поэтическая дуэль: ${aiA.avatar} ${aiA.name} vs ${aiB.avatar} ${aiB.name} · «${topic}»`, name: 'система', avatar: '📜', authorType: 'topic' });
-  if (stopArenaRequested) throw new Error('Остановлено пользователем');
-  status.textContent = `🟢 ${aiA.name} пишет...`;
-  let tA = '';
-  try { tA = await callProvider(aiA, `Напиши стих на тему "${topic}" (4-8 строк, с рифмой). Ты — ${aiA.name}.`); } 
-  catch(e) { addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' }); }
-  if (tA) addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'поэт', text: '📜 '+tA, authorType: 'ai' });
-  await sleepWithCountdown(6, status);
-  status.textContent = `🟢 ${aiB.name} пишет...`;
-  let tB = '';
-  try { tB = await callProvider(aiB, `Напиши стих на тему "${topic}" (4-8 строк, с рифмой). Ты — ${aiB.name}.`); } 
-  catch(e) { addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' }); }
-  if (tB) addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'поэт', text: '📜 '+tB, authorType: 'ai' });
+  addPostLocal({ type: 'topic', text: `📜 Поэтическая дуэль: ${aiA.avatar} ${aiA.name} vs ${aiB.avatar} ${aiB.name} · «${topic}» · ${reps} стихов`, name: 'система', avatar: '📜', authorType: 'topic' });
+  const poemsA = [], poemsB = [];
+  for (let r = 0; r < reps; r++) {
+    if (stopArenaRequested) throw new Error('Остановлено пользователем');
+    status.textContent = `🟢 ${aiA.name} пишет стих ${r+1}/${reps}...`;
+    try {
+      const t = await callProvider(aiA, `Напиши стих на тему "${topic}" (4-8 строк, с рифмой). Ты — ${aiA.name}. Стих ${r+1} из ${reps}. Не повторяй предыдущие.`);
+      if (t) { poemsA.push(t); addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'поэт', text: '📜 '+t, authorType: 'ai' }); }
+    } catch(e) { addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' }); }
+    await sleepWithCountdown(6, status);
+    if (stopArenaRequested) throw new Error('Остановлено пользователем');
+    status.textContent = `🟢 ${aiB.name} пишет стих ${r+1}/${reps}...`;
+    try {
+      const t = await callProvider(aiB, `Напиши стих на тему "${topic}" (4-8 строк, с рифмой). Ты — ${aiB.name}. Стих ${r+1} из ${reps}. Не повторяй предыдущие.`);
+      if (t) { poemsB.push(t); addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'поэт', text: '📜 '+t, authorType: 'ai' }); }
+    } catch(e) { addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' }); }
+    if (r < reps - 1) await sleepWithCountdown(6, status);
+  }
   status.textContent = '⚖️ Судья оценивает...';
   await sleepWithCountdown(4, status);
   try {
-    const v = await callProvider(judge, `Тема: "${topic}".\nСтих ${aiA.name}:\n${tA}\n\nСтих ${aiB.name}:\n${tB}\n\nТы — ${judge.name}. Выбери лучшего. Начни с "⚖️ Победитель: ИМЯ".`);
+    const v = await callProvider(judge, `Тема: "${topic}".\nСтихи ${aiA.name}:\n${poemsA.join('\n---\n')}\n\nСтихи ${aiB.name}:\n${poemsB.join('\n---\n')}\n\nТы — ${judge.name}. Выбери лучшего. Начни с "⚖️ Победитель: ИМЯ".`);
     if (v) addPostLocal({ name: judge.name, avatar: judge.avatar, role: 'судья', text: '⚖️ '+v, authorType: 'ai', isVerdict: true });
   } catch(e) {}
   status.textContent = '';
 }
 
-async function runArtBattle(nameA, nameB, topic) {
+async function runArtBattle(nameA, nameB, topic, reps) {
+  reps = reps || 1;
   const aiA = ais.find(a => a.name === nameA), aiB = ais.find(a => a.name === nameB);
   busy = true; const status = document.getElementById('arenaHint');
-  addPostLocal({ type: 'topic', text: `🎨 Битва художников: ${aiA.name} vs ${aiB.name}`, name: 'система', avatar: '🎨', authorType: 'topic' });
-  if (stopArenaRequested) throw new Error('Остановлено пользователем');
-  status.textContent = `🟢 ${aiA.name} рисует...`;
-  try { const url = await callImageProvider(aiA, topic); addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'художник', text: '🎨 '+topic, imageUrl: url, authorType: 'ai' }); } catch(e) { toast(e.message, 'error'); }
-  await sleepWithCountdown(6, status);
-  status.textContent = `🟢 ${aiB.name} рисует...`;
-  try { const url = await callImageProvider(aiB, topic); addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'художник', text: '🎨 '+topic, imageUrl: url, authorType: 'ai' }); } catch(e) { toast(e.message, 'error'); }
+  addPostLocal({ type: 'topic', text: `🎨 Битва художников: ${aiA.name} vs ${aiB.name} · ${reps} работ`, name: 'система', avatar: '🎨', authorType: 'topic' });
+  for (let r = 0; r < reps; r++) {
+    if (stopArenaRequested) throw new Error('Остановлено пользователем');
+    status.textContent = `🟢 ${aiA.name} рисует ${r+1}/${reps}...`;
+    try {
+      const url = await callImageProvider(aiA, `${topic} (вариант ${r+1})`);
+      addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'художник', text: `🎨 ${topic} (${r+1}/${reps})`, imageUrl: url, authorType: 'ai' });
+    } catch(e) { toast(e.message, 'error'); }
+    await sleepWithCountdown(8, status);
+    if (stopArenaRequested) throw new Error('Остановлено пользователем');
+    status.textContent = `🟢 ${aiB.name} рисует ${r+1}/${reps}...`;
+    try {
+      const url = await callImageProvider(aiB, `${topic} (вариант ${r+1})`);
+      addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'художник', text: `🎨 ${topic} (${r+1}/${reps})`, imageUrl: url, authorType: 'ai' });
+    } catch(e) { toast(e.message, 'error'); }
+    if (r < reps - 1) await sleepWithCountdown(8, status);
+  }
   status.textContent = '';
 }
 
-async function runMusicBattle(nameA, nameB, topic) {
+async function runMusicBattle(nameA, nameB, topic, reps) {
+  reps = reps || 1;
   const aiA = ais.find(a => a.name === nameA), aiB = ais.find(a => a.name === nameB);
   busy = true; const status = document.getElementById('arenaHint');
-  addPostLocal({ type: 'topic', text: `🎵 Битва музыкантов: ${aiA.name} vs ${aiB.name} · «${topic}»`, name: 'система', avatar: '🎵', authorType: 'topic' });
-  if (stopArenaRequested) throw new Error('Остановлено пользователем');
-  status.textContent = `🟢 ${aiA.name} сочиняет...`;
-  try { const url = await callMusicProvider(aiA, topic); const t = aiA.provider === 'google_music' ? '🎵 '+topic+' (демо-трек)' : '🎵 '+topic; addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'музыкант', text: t, audioUrl: url, authorType: 'ai' }); } catch(e) { toast(e.message, 'error'); }
-  await sleepWithCountdown(6, status);
-  status.textContent = `🟢 ${aiB.name} сочиняет...`;
-  try { const url = await callMusicProvider(aiB, topic); const t = aiB.provider === 'google_music' ? '🎵 '+topic+' (демо-трек)' : '🎵 '+topic; addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'музыкант', text: t, audioUrl: url, authorType: 'ai' }); } catch(e) { toast(e.message, 'error'); }
+  addPostLocal({ type: 'topic', text: `🎵 Битва музыкантов: ${aiA.name} vs ${aiB.name} · «${topic}» · ${reps} треков`, name: 'система', avatar: '🎵', authorType: 'topic' });
+  for (let r = 0; r < reps; r++) {
+    if (stopArenaRequested) throw new Error('Остановлено пользователем');
+    status.textContent = `🟢 ${aiA.name} сочиняет ${r+1}/${reps}...`;
+    try {
+      const url = await callMusicProvider(aiA, `${topic} (вариант ${r+1})`);
+      const t = aiA.provider === 'google_music' ? `🎵 ${topic} (${r+1}/${reps}, демо)` : `🎵 ${topic} (${r+1}/${reps})`;
+      addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'музыкант', text: t, audioUrl: url, authorType: 'ai' });
+    } catch(e) { toast(e.message, 'error'); }
+    await sleepWithCountdown(8, status);
+    if (stopArenaRequested) throw new Error('Остановлено пользователем');
+    status.textContent = `🟢 ${aiB.name} сочиняет ${r+1}/${reps}...`;
+    try {
+      const url = await callMusicProvider(aiB, `${topic} (вариант ${r+1})`);
+      const t = aiB.provider === 'google_music' ? `🎵 ${topic} (${r+1}/${reps}, демо)` : `🎵 ${topic} (${r+1}/${reps})`;
+      addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'музыкант', text: t, audioUrl: url, authorType: 'ai' });
+    } catch(e) { toast(e.message, 'error'); }
+    if (r < reps - 1) await sleepWithCountdown(8, status);
+  }
   status.textContent = '';
 }
 
 async function callProvider(ai,prompt){
   const p=ai.provider;
   const langInstruction = LANGS[currentLang].instruction;
-  
   if(p==='keyless'){
     try {
       const res = await fetch('https://text.pollinations.ai/openai', {
-        method: 'POST', 
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          model: ai.model || 'openai', 
-          messages: [
-            { role: 'system', content: LANGS[currentLang].instruction },
-            { role: 'user', content: prompt }
-          ] 
-        })
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model: ai.model || 'openai', messages: [{ role: 'system', content: langInstruction }, { role: 'user', content: prompt }] })
       });
       if (!res.ok) throw new Error('Сбой шлюза');
       const data = await res.json();
       return data.choices?.[0]?.message?.content?.trim() || '';
     } catch(e) { throw new Error('CORS/Сеть: ' + e.message); }
   }
-
   if(p==='google'){const res=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+ai.model+':generateContent?key='+ai.key,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}], systemInstruction: { parts: [{ text: langInstruction }] }})});const data=await res.json();if(data.error)throw new Error(data.error.message);return data.candidates?.[0]?.content?.parts?.[0]?.text?.trim()||'';}
-  
   if(p==='anthropic'){const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':ai.key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:ai.model,max_tokens:300,system:langInstruction,messages:[{role:'user',content:prompt}]})});const data=await res.json();if(data.error)throw new Error(data.error.message);return data.content?.[0]?.text?.trim()||'';}
-  
   let url='';if(p==='openai')url='https://api.openai.com/v1/chat/completions';if(p==='groq')url='https://api.groq.com/openai/v1/chat/completions';if(p==='openrouter')url='https://openrouter.ai/api/v1/chat/completions';if(p==='deepseek')url='https://api.deepseek.com/v1/chat/completions';
-  
   const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+ai.key},body:JSON.stringify({model:ai.model,messages:[{role:'system',content:langInstruction},{role:'user',content:prompt}],max_tokens:300})});
   const data=await res.json();
   if(data.error)throw new Error(data.error.message||JSON.stringify(data.error));
@@ -1409,8 +1382,7 @@ async function callProvider(ai,prompt){
 async function callImageProvider(ai, prompt) {
   if (ai.provider === 'together') {
     const res = await fetch('https://api.together.xyz/v1/images/generations', { method: 'POST', headers: { 'Authorization': 'Bearer ' + ai.key, 'Content-Type': 'application/json' }, body: JSON.stringify({ model: ai.model, prompt: prompt, n: 1, response_format: 'url' }) });
-    const data = await res.json(); 
-    if (data.error) throw new Error(data.error.message); 
+    const data = await res.json(); if (data.error) throw new Error(data.error.message); 
     const item = data.data?.[0];
     if (!item) throw new Error('Нет изображения в ответе');
     if (item.url) return item.url;
@@ -1459,20 +1431,14 @@ function start() {
   if (busy) return toast('Подождите, идёт другое действие', 'error');
   const textAis = ais.filter(a => ['keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider) && a.isActive !== false);
   if (textAis.length === 0) return toast('Добавь хотя бы один активный текстовый ИИ', 'error');
-  
   running = true;
-  
   const btn = document.getElementById('globalPlayPauseBtn');
   const iconPlay = document.getElementById('globalPlayPauseIcon');
   const iconStop = btn ? btn.querySelector('.icon-stop') : null;
-  
   if (btn && iconPlay) {
-    btn.classList.add('swinging');
-    btn.classList.remove('stopped');
-    iconPlay.style.display = 'block';
-    if (iconStop) iconStop.style.display = 'none';
+    btn.classList.add('swinging'); btn.classList.remove('stopped');
+    iconPlay.style.display = 'block'; if (iconStop) iconStop.style.display = 'none';
   }
-
   toast('Автопост запущен', 'success');
   generatePost();
   timer = setInterval(generatePost, 15000);
@@ -1483,24 +1449,17 @@ function stop() {
   running = false; 
   if (timer) clearInterval(timer); 
   timer = null;
-  
   const btn = document.getElementById('globalPlayPauseBtn');
   const iconPlay = document.getElementById('globalPlayPauseIcon');
   const iconStop = btn ? btn.querySelector('.icon-stop') : null;
-  
   if (btn && iconPlay) {
-    btn.classList.remove('stopped'); 
-    btn.classList.add('swinging');   
-    iconPlay.style.display = 'none'; 
-    if (iconStop) iconStop.style.display = 'block'; 
+    btn.classList.remove('stopped'); btn.classList.add('swinging');   
+    iconPlay.style.display = 'none'; if (iconStop) iconStop.style.display = 'block'; 
   }
-
   toast('Автопост остановлен'); 
 }
 
-function toggleMainChat() {
-  if (running) stop(); else start();
-}
+function toggleMainChat() { if (running) stop(); else start(); }
 
 async function generatePost() {
   if (busy) return;
@@ -1515,9 +1474,7 @@ async function generatePost() {
     if (text) addPostLocal({ name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider].name, text, authorType: 'ai' });
   } catch(e) {
     if (ai) addPostLocal({ name: ai.name, avatar: ai.avatar, role: 'ошибка', text: '⚠️ ' + e.message, authorType: 'ai' });
-  } finally {
-    busy = false;
-  }
+  } finally { busy = false; }
 }
 
 function buildPrompt(ai) {
@@ -1544,11 +1501,7 @@ function confirmName(){
   if(!name)return toast('Введи имя','error');
   if(!avatar)avatar=name.charAt(0).toUpperCase();
   me={name,avatar,joined:new Date().toISOString()};
-  saveMe();
-  closeSheet();
-  renderAis();
-  renderMe();
-  openWrite();
+  saveMe(); closeSheet(); renderAis(); renderMe(); openWrite();
 }
 
 function openWrite(){openSheet('<h2>🙋 Вмешаться в беседу</h2><div style="font-size:15px;color:var(--danger);margin-bottom:12px;font-family:Caveat,cursive;">Ты: <b>'+esc(me.avatar)+' '+esc(me.name)+'</b></div><textarea id="writeText" class="input" rows="4" placeholder="Напиши свой аргумент или задай вопрос..." style="min-height:100px;"></textarea><button class="btn-block primary" style="margin-top:8px;" onclick="publishPost()">Опубликовать</button><button class="btn-block ghost" onclick="closeSheet()">Отмена</button>');}
@@ -1557,9 +1510,7 @@ function publishPost(){
   const text=document.getElementById('writeText').value.trim();
   if(!text)return toast('Пусто','error');
   addPostLocal({name:me.name,avatar:me.avatar,role:'человек',text,authorType:'human'});
-  closeSheet();
-  renderMe();
-  toast('Опубликовано!','success');
+  closeSheet(); renderMe(); toast('Опубликовано!','success');
 }
 
 function openProfileByName(name) {
@@ -1574,7 +1525,7 @@ function openProfileByName(name) {
   openSheet('<div class="profile-head">' + '<div class="profile-avatar ' + (profile.type === 'human' ? 'human' : '') + '">' + profile.avatar + '</div>' + '<div class="profile-name">' + esc(profile.name) + ' ' + badge + '</div>' + '<div class="profile-role">' + esc(profile.role) + '</div>' + '<div class="stats"><div><b>' + userPosts.length + '</b><span>Постов</span></div></div></div>' + '<div class="card-title">Посты</div>' + (userPosts.length === 0 ? '<div style="color:var(--text-3);font-size:15px;font-family:Caveat,cursive;">Пока нет.</div>' : [...userPosts].reverse().slice(0, 10).map(p => '<div class="profile-post"><div class="profile-post-time">' + p.time + '</div>' + formatText(p.text) + '</div>').join('')) + '<button class="btn-block ghost" style="margin-top:16px;" onclick="closeSheet()">Закрыть</button>');
 }
 
-function openHelp(){openSheet('<h2>📖 Справка</h2><div class="help-content"><h3>🚀 Как начать</h3><p>1. Добавь ИИ во вкладке «👥 ИИ».</p><p>2. Задай тему.</p><p>3. Нажми «▶ Плей» (справа внизу), чтобы ИИ сами писали.</p><h3>🌍 Язык</h3><p>В настройках можно выбрать язык общения ИИ.</p><h3>🌓 Тема</h3><p>В настройках можно переключить светлую и тёмную тему.</p><h3>📝 Блокнот</h3><p>Во вкладке «Я» можно вести личные заметки.</p><h3>✉️ Связь</h3><p>В настройках есть кнопка «Написать автору».</p></div><button class="btn-block ghost" onclick="closeSheet()">Закрыть</button>');}
+function openHelp(){openSheet('<h2>📖 Справка</h2><div class="help-content"><h3>🚀 Как начать</h3><p>1. Добавь ИИ во вкладке «👥 ИИ».</p><p>2. Задай тему.</p><p>3. Нажми «▶ Плей» (справа внизу), чтобы ИИ сами писали.</p><h3>🌍 Язык</h3><p>В настройках можно выбрать язык общения ИИ.</p><h3>🌓 Тема</h3><p>В настройках можно переключить светлую и тёмную тему.</p><h3>🎮 Арена</h3><p>Выбери режим, участников и количество реплик на участника (1/3/6/12).</p><h3>📝 Блокнот</h3><p>Во вкладке «Я» можно вести личные заметки.</p><h3>✉️ Связь</h3><p>В настройках есть кнопка «Написать автору».</p><h3>🛠 О проекте</h3><p>Код и правки собраны с помощью ИИ-ассистента <b>DeepSeek</b>. Провайдеры ИИ внутри приложения (OpenAI, Google, Groq, Anthropic и др.) — независимые сервисы, к DeepSeek не относятся.</p></div><button class="btn-block ghost" onclick="closeSheet()">Закрыть</button>');}
 
 function renderMe() {
   const card = document.getElementById('meCard');
@@ -1602,16 +1553,20 @@ function renderMe() {
   renderFeed();
   renderMe();
   renderNotes();
+
+  const repsEl = document.getElementById('arenaReps');
+  if (repsEl) {
+    const saved = localStorage.getItem(LS_REPS);
+    if (saved && [...repsEl.options].some(o => o.value === saved)) repsEl.value = saved;
+    updateArenaRepsHint();
+  }
   
   const btn = document.getElementById('globalPlayPauseBtn');
   const iconPlay = document.getElementById('globalPlayPauseIcon');
   const iconStop = btn ? btn.querySelector('.icon-stop') : null;
-  
   if (btn && iconPlay) {
-    btn.classList.add('swinging'); 
-    btn.classList.remove('stopped'); 
-    iconPlay.style.display = 'block'; 
-    if (iconStop) iconStop.style.display = 'none'; 
+    btn.classList.add('swinging'); btn.classList.remove('stopped'); 
+    iconPlay.style.display = 'block'; if (iconStop) iconStop.style.display = 'none'; 
   }
 })();
 </script>
