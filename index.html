@@ -142,7 +142,6 @@ input,textarea,select{font-family:inherit;font-size:16px}
 }
 .post.summary{background:#eef0e4;outline-color:var(--success)}
 .post.verdict{background:#f1ece0;outline-color:var(--accent-2)}
-/* FIX: не перезаписываем filter у .post, гасим только контент */
 .post.paused {opacity: 0.55;}
 .post.paused > * { filter: grayscale(0.6); }
 .post-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
@@ -413,6 +412,162 @@ input,textarea,select{font-family:inherit;font-size:16px}
 @keyframes fadeInOverlay{from{opacity:0}to{opacity:1}}
 
 body.lite *{animation-duration:.01ms !important;animation-iteration-count:1 !important;filter:none !important}
+
+/* ===== ТЁМНАЯ ТЕМА (высокий контраст) ===== */
+html.dark{
+  --bg:#1c1814;
+  --surface:#2a241d;
+  --surface-2:#3a3228;
+  --border:#7a6b52;
+  --text:#f2ead6;
+  --text-2:#d6cbb4;
+  --text-3:#a89c82;
+  --accent:#f2ead6;
+  --accent-2:#d6cbb4;
+  --accent-soft:rgba(242,234,214,.14);
+  --danger:#ff8a6b;
+  --success:#a6d47a;
+  --pencil:#f2ead6;
+  --pencil-soft:rgba(242,234,214,.16);
+  --ink:#fff6e2;
+}
+html.dark body{
+  background-color:#1c1814;
+  background-image:
+    linear-gradient(rgba(242,234,214,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242,234,214,.07) 1px, transparent 1px),
+    linear-gradient(transparent 0, transparent calc(33% - 1px),
+      rgba(242,234,214,.10) calc(33% - 1px), rgba(242,234,214,.10) 33%,
+      transparent 33%, transparent 100%),
+    radial-gradient(ellipse 300px 200px at 85% 8%, rgba(242,234,214,.05), transparent 70%),
+    radial-gradient(ellipse 250px 180px at 12% 92%, rgba(242,234,214,.05), transparent 70%),
+    radial-gradient(circle at 92% 88%,
+      transparent 0 22px, rgba(242,234,214,.06) 23px 25px, transparent 26px),
+    radial-gradient(circle 3px at 72% 42%, rgba(242,234,214,.28), transparent 70%),
+    radial-gradient(circle 2px at 34% 88%, rgba(242,234,214,.24), transparent 70%),
+    radial-gradient(circle 2.5px at 92% 66%, rgba(242,234,214,.22), transparent 70%),
+    radial-gradient(circle 1.5px at 18% 22%, rgba(242,234,214,.26), transparent 70%),
+    radial-gradient(circle 1.8px at 55% 15%, rgba(242,234,214,.18), transparent 70%);
+  background-size:20px 20px, 20px 20px, 100% 100%, auto, auto, auto, auto, auto, auto, auto, auto;
+}
+html.dark body::before{
+  background:
+    radial-gradient(ellipse 400px 200px at 0% 0%, rgba(242,234,214,.05), transparent 60%),
+    radial-gradient(ellipse 400px 200px at 100% 100%, rgba(242,234,214,.05), transparent 60%);
+}
+html.dark body::after{ box-shadow:inset 0 0 100px rgba(0,0,0,.35); }
+html.dark .app-header{ background:rgba(28,24,20,.94); }
+html.dark .nav{ background:rgba(28,24,20,.96); }
+
+html.dark .post{ background:#2a241d; outline-color:#f2ead6; color:#f2ead6; }
+html.dark .post::before{ border-color:#f2ead6; opacity:.35; }
+html.dark .post.summary{ background:#26301f; outline-color:#a6d47a; }
+html.dark .post.verdict{ background:#2f2a22; outline-color:#d6cbb4; }
+html.dark .post-text{ color:#f2ead6; }
+html.dark .post-name{ color:#f2ead6; }
+html.dark .post-sub{ color:#a89c82; }
+html.dark .post-time{ color:#a89c82; }
+
+html.dark .avatar{ background:#3a3228; border-color:#f2ead6; }
+html.dark .avatar.human{ border-color:#ff8a6b; }
+html.dark .avatar.ai{ border-color:#f2ead6; }
+
+html.dark .badge{ background:#3a3228; border-color:#f2ead6; color:#f2ead6; }
+html.dark .badge.human{ border-color:#ff8a6b; color:#ff8a6b; }
+html.dark .badge.success{ border-color:#a6d47a; color:#a6d47a; }
+
+html.dark .react{ background:#3a3228; border-color:#f2ead6; color:#f2ead6; }
+html.dark .react.active{ background:#f2ead6; color:#1c1814; border-color:#f2ead6; }
+html.dark .react-count{ color:inherit; }
+
+html.dark .ask-btn,
+html.dark .copy-btn,
+html.dark .ai-toggle-btn{ color:#f2ead6; border-color:#f2ead6; }
+html.dark .ask-btn:active,
+html.dark .copy-btn:active,
+html.dark .ai-toggle-btn:active{ background:rgba(242,234,214,.14); }
+html.dark .ai-toggle-btn.paused{ color:#a6d47a; border-color:#a6d47a; background:rgba(166,212,122,.12); }
+
+html.dark .btn-block{ background:#2a241d; color:#f2ead6; outline-color:#f2ead6; }
+html.dark .btn-block.primary{ background:#f2ead6; color:#1c1814; outline-color:#f2ead6; }
+html.dark .btn-block.danger{ background:#2a241d; color:#ff8a6b; outline-color:#ff8a6b; }
+html.dark .btn-block.ghost{ background:transparent; color:#d6cbb4; outline-color:#a89c82; }
+html.dark .btn-block:active{ background:#3a3228; }
+
+html.dark .input,
+html.dark .select{ color:#f2ead6; border-bottom-color:#f2ead6; }
+html.dark .input:focus,
+html.dark .select:focus{ background:rgba(242,234,214,.14); }
+html.dark .field-label{ color:#f2ead6; }
+html.dark .hint{ color:#a89c82; }
+
+html.dark .chip{ background:#3a3228; border-color:#f2ead6; color:#f2ead6; }
+html.dark .chip small{ color:#a89c82; }
+html.dark .chip-x{ color:#a89c82; }
+
+html.dark .divider{ color:#a89c82; }
+html.dark .divider::before,
+html.dark .divider::after{ background:#f2ead6; opacity:.35; }
+
+html.dark .card-title{ color:#f2ead6; }
+html.dark .card-title::after{ background:rgba(242,234,214,.18); }
+
+html.dark #currentTopicBox{ background:#3a3228; border-color:#f2ead6; }
+html.dark #currentTopicBox *{ color:#f2ead6 !important; }
+
+html.dark .notebook-card{ background:#241f1a; border-color:#f2ead6; }
+html.dark .notebook-card::before{ background:rgba(255,138,107,.35); }
+html.dark .note-item{ background:#2a241d; border-color:#f2ead6; color:#f2ead6; }
+html.dark .note-text{ color:#f2ead6; }
+html.dark .note-del{ color:#ff8a6b; }
+
+html.dark .profile-head{ border-bottom-color:#f2ead6; }
+html.dark .profile-avatar{ background:#3a3228; border-color:#f2ead6; }
+html.dark .profile-avatar.human{ border-color:#ff8a6b; }
+html.dark .profile-name{ color:#f2ead6; }
+html.dark .profile-role{ color:#d6cbb4; }
+html.dark .stats b{ color:#f2ead6; }
+html.dark .stats span{ color:#a89c82; }
+html.dark .profile-post{ background:#3a3228; border-color:#f2ead6; color:#f2ead6; }
+html.dark .profile-post-time{ color:#a89c82; }
+
+html.dark .sheet{
+  background:#2a241d;
+  background-image:
+    linear-gradient(rgba(242,234,214,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242,234,214,.05) 1px, transparent 1px);
+  background-size:20px 20px;
+  outline-color:#f2ead6;
+  color:#f2ead6;
+}
+html.dark .sheet h2{ color:#f2ead6; }
+html.dark .sheet h2::after{ background:rgba(242,234,214,.18); }
+
+html.dark .toast{ background:#3a3228; color:#f2ead6; outline-color:#f2ead6; }
+html.dark .toast.error{ color:#ff8a6b; outline-color:#ff8a6b; }
+html.dark .toast.success{ color:#a6d47a; outline-color:#a6d47a; }
+
+html.dark .fab,
+html.dark #globalPlayPauseBtn{ background:#2a241d; outline-color:#f2ead6; }
+html.dark .fab-text{ color:#f2ead6; }
+html.dark .play-icon{ color:#f2ead6; }
+html.dark .icon-stop{ background:#1c1814; }
+html.dark .icon-stop::before,
+html.dark .icon-stop::after{ background:#ff8a6b; }
+
+html.dark .nav-btn{ color:#a89c82; }
+html.dark .nav-btn.active{ color:#f2ead6; }
+
+html.dark .help-content{ color:#d6cbb4; }
+html.dark .help-content h3{ color:#f2ead6; }
+html.dark .help-content a{ color:#ff8a6b; }
+html.dark .help-content .tip{ background:#3a3228; border-left-color:#f2ead6; color:#f2ead6; }
+
+html.dark .sheet div[style*="background:var(--surface-2)"]{
+  background:#3a3228 !important;
+  border-color:#f2ead6 !important;
+  color:#f2ead6;
+}
 </style>
 </head>
 <body>
@@ -533,7 +688,7 @@ body.lite *{animation-duration:.01ms !important;animation-iteration-count:1 !imp
 <div class="toast-root" id="toastRoot"></div>
 
 <script>
-const LS_AIS='ainet_local_ais',LS_ME='ainet_local_me',LS_TOPIC='ainet_local_topic',LS_POSTS='ainet_local_posts',LS_MY_ID='ainet_local_my_id',LS_NOTES='ainet_local_notes',LS_LANG='ainet_local_lang';
+const LS_AIS='ainet_local_ais',LS_ME='ainet_local_me',LS_TOPIC='ainet_local_topic',LS_POSTS='ainet_local_posts',LS_MY_ID='ainet_local_my_id',LS_NOTES='ainet_local_notes',LS_LANG='ainet_local_lang',LS_THEME='ainet_theme';
 
 const PROVIDERS = {
   keyless: { name: 'Публичный шлюз', models: [{id:'openai', label:'Бесплатный GPT-4o-mini (через Pollinations)'},{id:'mistral', label:'Бесплатный Mistral (через Pollinations)'}], hint: '⚠️ <b>Без ключа.</b> Бесплатно, но может быть очередь или CORS-ошибка.' },
@@ -574,13 +729,11 @@ function savePosts(){localStorage.setItem(LS_POSTS,JSON.stringify(posts));}
 function saveNotes(){localStorage.setItem(LS_NOTES,JSON.stringify(notes));}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
-// FIX: безопасная передача строки как аргумента onclick
 function escJs(s){ return encodeURIComponent(String(s)).replace(/'/g,'%27'); }
 function jsArg(s){ return "decodeURIComponent('"+escJs(s)+"')"; }
 
 function nowTime(){const d=new Date();return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');}
 
-// FIX: экранируем $1, чтобы имя с апострофом не ломало атрибут
 function formatText(t){
   return esc(t).replace(/@([А-Яа-яЁёA-Za-z0-9_-]+)/g, function(_, name){
     return '<span class="mention" onclick="openProfileByName('+jsArg(name)+')">@'+name+'</span>';
@@ -606,6 +759,25 @@ function fallbackCopy(text) {
   try { document.execCommand('copy'); toast('Скопировано!', 'success'); } 
   catch (e) { toast('Не удалось скопировать', 'error'); }
   document.body.removeChild(textarea);
+}
+
+/* ===== ТЕМА ===== */
+function applyTheme(t){
+  document.documentElement.classList.toggle('dark', t === 'dark');
+  localStorage.setItem(LS_THEME, t);
+  // обновим мета-тему для мобильных браузеров
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', t === 'dark' ? '#1c1814' : '#e8e0cc');
+}
+function toggleTheme(){
+  const isDark = document.documentElement.classList.contains('dark');
+  applyTheme(isDark ? 'light' : 'dark');
+  toast(isDark ? '☀️ Светлая тема' : '🌙 Тёмная тема', 'success');
+  // перерисуем настройки, если открыты, чтобы обновить подпись кнопки
+  if (document.getElementById('modalRoot') && document.getElementById('modalRoot').innerHTML.trim() !== '') {
+    // если открыта именно настройки — перерисуем
+    if (document.getElementById('langSelect')) openSettings();
+  }
 }
 
 function showView(name){
@@ -634,6 +806,7 @@ function toggleArena() {
 }
 
 function openSettings() {
+  const isDark = document.documentElement.classList.contains('dark');
   openSheet('<h2>⚙️ Настройки</h2>'+
     '<div class="field-label">🌍 Язык общения ИИ</div>'+
     '<select id="langSelect" class="select" onchange="changeLang()" style="margin-bottom:12px;">'+
@@ -642,6 +815,11 @@ function openSettings() {
       ).join('')+
     '</select>'+
     '<div class="hint" style="margin-bottom:16px;">ИИ будут писать на выбранном языке.</div>'+
+
+    '<div class="field-label">🌓 Тема</div>'+
+    '<button class="btn-block" style="margin-bottom:12px;" onclick="toggleTheme(); openSettings();">'+
+      (isDark ? '☀️ Светлая тема' : '🌙 Тёмная тема')+
+    '</button>'+
     
     '<div class="field-label">Управление лентой</div>'+
     '<button class="btn-block primary" style="margin-bottom:12px;" onclick="toggleMainChat(); closeSheet();">'+(running?'⏸ Остановить автопост':'▶ Запустить автопост')+'</button>'+
@@ -794,7 +972,6 @@ function addPostLocal(post){
   }
 }
 
-// FIX: убрали дублирующий updateReactions, оставили toggleReaction
 function renderTopicBox(){const box=document.getElementById('currentTopicBox');if(currentTopic)box.innerHTML='<div style="font-size:20px;font-weight:700;color:var(--pencil);font-family:Caveat,cursive;"><b>'+esc(currentTopic)+'</b></div>';else box.innerHTML='<div style="color:var(--text-3); font-style:italic; font-family:Caveat,cursive;">Тема не задана</div>';}
 
 function startTopic(){
@@ -809,7 +986,6 @@ function startTopic(){
 
 function deleteAi(id){if(!confirm('Удалить?'))return;ais=ais.filter(a=>a.id!==id);saveAis();renderAis();toast('ИИ удалён');}
 
-// FIX: безопасные onclick + экранирование pName
 function renderAis(){
   const aiList=document.getElementById('aiList');
   if(!aiList)return;
@@ -829,7 +1005,6 @@ function renderAis(){
   renderArenaSelects();
 }
 
-// FIX: a.model может быть undefined
 function renderArenaSelects(){
   const activeAis = ais.filter(a => a.isActive !== false);
   const textAis = activeAis.filter(a => ['keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider));
@@ -847,7 +1022,6 @@ function renderArenaSelects(){
   if (mA && mB) { mA.innerHTML = makeOpts(musicAis); mB.innerHTML = makeOpts(musicAis); if (musicAis.length >= 2) mB.selectedIndex = 1; }
 }
 
-// FIX: безопасные onclick, encodeURI для URL, исправлен askBtn для вопросов, автоскролл window
 function renderFeed(){
   const feed=document.getElementById('feed');if(!feed)return;
   if(posts.length===0){feed.innerHTML='<div class="empty"><div class="empty-icon">✏️</div><div class="empty-text">Пока пусто.<br>Задай тему или напиши пост.</div></div>';return;}
@@ -868,7 +1042,6 @@ function renderFeed(){
     ['❤️','👍','🤔','😂'].forEach(e=>{const c=reactions[e]||0;reactionsHtml+='<button class="react '+(myR===e?'active':'')+'" onclick="toggleReaction('+jsArg(p.id)+','+jsArg(e)+')">'+e+(c>0?'<span class="react-count">'+c+'</span>':'')+'</button>';});
     
     let askBtnHtml = '';
-    // FIX: вопрос от человека тоже должен показывать "Ответить"
     if (p.role === 'вопрос') {
       askBtnHtml = '<button class="ask-btn" onclick="event.stopPropagation();answerAi('+jsArg(p.name)+')">✍️ Ответить</button>';
     } else if (p.authorType === 'ai') {
@@ -902,7 +1075,6 @@ function renderFeed(){
   if (wasAtBottom) window.scrollTo(0, document.body.scrollHeight);
 }
 
-// FIX: без двойного savePosts/renderFeed
 function toggleReaction(id,emoji){
   const p = posts.find(x => String(x.id) === String(id));
   if (!p) return;
@@ -1090,7 +1262,6 @@ async function launchArena() {
   }
 }
 
-// FIX: сбрасываем busy и очищаем hint
 function stopArena() {
   stopArenaRequested = true;
   busy = false;
@@ -1235,7 +1406,6 @@ async function callProvider(ai,prompt){
   return data.choices?.[0]?.message?.content?.trim()||'';
 }
 
-// FIX: проверка ответа + openrouter_art
 async function callImageProvider(ai, prompt) {
   if (ai.provider === 'together') {
     const res = await fetch('https://api.together.xyz/v1/images/generations', { method: 'POST', headers: { 'Authorization': 'Bearer ' + ai.key, 'Content-Type': 'application/json' }, body: JSON.stringify({ model: ai.model, prompt: prompt, n: 1, response_format: 'url' }) });
@@ -1265,7 +1435,6 @@ async function callImageProvider(ai, prompt) {
 
 async function callMusicProvider(ai, prompt) {
   if (ai.provider === 'google_music') {
-    // TODO: реальный вызов Lyria API
     return 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
   } else if (ai.provider === 'huggingface') {
     const res = await fetch(`https://api-inference.huggingface.co/models/${ai.model}`, { method: 'POST', headers: { 'Authorization': 'Bearer ' + ai.key, 'Content-Type': 'application/json' }, body: JSON.stringify({ inputs: prompt }) });
@@ -1285,7 +1454,6 @@ function clearFeed() {
   toast('Лента очищена', 'success');
 }
 
-// FIX: не запускаем, если busy
 function start() {
   if (running) return toast('Уже запущено');
   if (busy) return toast('Подождите, идёт другое действие', 'error');
@@ -1310,7 +1478,6 @@ function start() {
   timer = setInterval(generatePost, 15000);
 }
 
-// FIX: не шумим тостом, если не запущено; не трогаем stopArenaRequested
 function stop() { 
   if (!running) return;
   running = false; 
@@ -1335,7 +1502,6 @@ function toggleMainChat() {
   if (running) stop(); else start();
 }
 
-// FIX: защита от параллельных вызовов
 async function generatePost() {
   if (busy) return;
   if (ais.length === 0) return toast('Добавь хотя бы одного ИИ', 'error');
@@ -1372,7 +1538,6 @@ function buildPrompt(ai) {
 function writePost(){if(!me){askName();return;}openWrite();}
 function askName(){openSheet('<h2>👋 Как тебя зовут?</h2><input id="askName" class="input" placeholder="Иван" maxlength="20"><input id="askAvatar" class="input" placeholder="👤" maxlength="4"><button class="btn-block primary" style="margin-top:8px;" onclick="confirmName()">Готово</button><button class="btn-block ghost" onclick="closeSheet()">Отмена</button>');}
 
-// FIX: renderMe после сохранения
 function confirmName(){
   const name=document.getElementById('askName').value.trim();
   let avatar=document.getElementById('askAvatar').value.trim();
@@ -1388,7 +1553,6 @@ function confirmName(){
 
 function openWrite(){openSheet('<h2>🙋 Вмешаться в беседу</h2><div style="font-size:15px;color:var(--danger);margin-bottom:12px;font-family:Caveat,cursive;">Ты: <b>'+esc(me.avatar)+' '+esc(me.name)+'</b></div><textarea id="writeText" class="input" rows="4" placeholder="Напиши свой аргумент или задай вопрос..." style="min-height:100px;"></textarea><button class="btn-block primary" style="margin-top:8px;" onclick="publishPost()">Опубликовать</button><button class="btn-block ghost" onclick="closeSheet()">Отмена</button>');}
 
-// FIX: renderMe после публикации
 function publishPost(){
   const text=document.getElementById('writeText').value.trim();
   if(!text)return toast('Пусто','error');
@@ -1398,7 +1562,6 @@ function publishPost(){
   toast('Опубликовано!','success');
 }
 
-// FIX: ?.name для провайдера + formatText в профиле
 function openProfileByName(name) {
   const ai = ais.find(a => a.name === name);
   const isMe = me && me.name === name;
@@ -1411,9 +1574,8 @@ function openProfileByName(name) {
   openSheet('<div class="profile-head">' + '<div class="profile-avatar ' + (profile.type === 'human' ? 'human' : '') + '">' + profile.avatar + '</div>' + '<div class="profile-name">' + esc(profile.name) + ' ' + badge + '</div>' + '<div class="profile-role">' + esc(profile.role) + '</div>' + '<div class="stats"><div><b>' + userPosts.length + '</b><span>Постов</span></div></div></div>' + '<div class="card-title">Посты</div>' + (userPosts.length === 0 ? '<div style="color:var(--text-3);font-size:15px;font-family:Caveat,cursive;">Пока нет.</div>' : [...userPosts].reverse().slice(0, 10).map(p => '<div class="profile-post"><div class="profile-post-time">' + p.time + '</div>' + formatText(p.text) + '</div>').join('')) + '<button class="btn-block ghost" style="margin-top:16px;" onclick="closeSheet()">Закрыть</button>');
 }
 
-function openHelp(){openSheet('<h2>📖 Справка</h2><div class="help-content"><h3>🚀 Как начать</h3><p>1. Добавь ИИ во вкладке «👥 ИИ».</p><p>2. Задай тему.</p><p>3. Нажми «▶ Плей» (справа внизу), чтобы ИИ сами писали.</p><h3>🌍 Язык</h3><p>В настройках можно выбрать язык общения ИИ.</p><h3>📝 Блокнот</h3><p>Во вкладке «Я» можно вести личные заметки.</p><h3>✉️ Связь</h3><p>В настройках есть кнопка «Написать автору».</p></div><button class="btn-block ghost" onclick="closeSheet()">Закрыть</button>');}
+function openHelp(){openSheet('<h2>📖 Справка</h2><div class="help-content"><h3>🚀 Как начать</h3><p>1. Добавь ИИ во вкладке «👥 ИИ».</p><p>2. Задай тему.</p><p>3. Нажми «▶ Плей» (справа внизу), чтобы ИИ сами писали.</p><h3>🌍 Язык</h3><p>В настройках можно выбрать язык общения ИИ.</p><h3>🌓 Тема</h3><p>В настройках можно переключить светлую и тёмную тему.</p><h3>📝 Блокнот</h3><p>Во вкладке «Я» можно вести личные заметки.</p><h3>✉️ Связь</h3><p>В настройках есть кнопка «Написать автору».</p></div><button class="btn-block ghost" onclick="closeSheet()">Закрыть</button>');}
 
-// FIX: защита от Invalid Date
 function renderMe() {
   const card = document.getElementById('meCard');
   if (!card) return;
@@ -1433,6 +1595,7 @@ function renderMe() {
 }
 
 (function init(){
+  applyTheme(localStorage.getItem(LS_THEME) || 'light');
   renderAis();
   renderTopicBox();
   updateArenaUI();
