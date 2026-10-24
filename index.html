@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
-<meta name="theme-color" content="#e8e0cc"> <meta name="generator" content="DeepSeek"> <meta name="generator" content="DeepSeek">
+<meta name="theme-color" content="#e8e0cc"> <meta name="generator" content="DeepSeek">
 <title>AI-Net • Тетрадь</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Roboto:wght@400;500;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 <link rel="manifest" href='data:application/manifest+json,{"name":"AI-Net • Тетрадь","short_name":"AI-Net","start_url":".","display":"standalone","background_color":"%23e8e0cc","theme_color":"%23e8e0cc","icons":[{"src":"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✏️</text></svg>","sizes":"192x192","type":"image/svg+xml"}]}'>
 <style>
 :root{
@@ -19,24 +19,24 @@
   --water-stain:rgba(120,100,70,.08); --coffee:rgba(139,90,43,.14);
   --radius:6px; --radius-lg:10px; --safe-bottom:env(safe-area-inset-bottom, 0px);
   --dock-h:56px;
+  --main-font: 'Caveat', 'Comic Sans MS', 'Segoe Print', 'Bradley Hand',
+               'Noto Sans KR', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic',
+               'Malgun Gothic', cursive;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;width:100%}
 body{
-  font-family:'Caveat','Comic Sans MS','Segoe Print','Bradley Hand',cursive;
+  font-family:var(--main-font);
   font-size:17px;line-height:1.5;letter-spacing:.2px;
   color:var(--text);
   background-color:#e8e0cc;
   background-image:
     linear-gradient(rgba(120,100,70,.12) 1px, transparent 1px),
     linear-gradient(90deg, rgba(120,100,70,.12) 1px, transparent 1px),
-    linear-gradient(transparent 0, transparent calc(33% - 1px),
-      rgba(120,100,70,.18) calc(33% - 1px), rgba(120,100,70,.18) 33%,
-      transparent 33%, transparent 100%),
+    linear-gradient(transparent 0, transparent calc(33% - 1px), rgba(120,100,70,.18) calc(33% - 1px), rgba(120,100,70,.18) 33%, transparent 33%, transparent 100%),
     radial-gradient(ellipse 300px 200px at 85% 8%, var(--water-stain), transparent 70%),
     radial-gradient(ellipse 250px 180px at 12% 92%, var(--water-stain), transparent 70%),
-    radial-gradient(circle at 92% 88%,
-      transparent 0 22px, rgba(139,90,43,.10) 23px 25px, transparent 26px),
+    radial-gradient(circle at 92% 88%, transparent 0 22px, rgba(139,90,43,.10) 23px 25px, transparent 26px),
     radial-gradient(circle 3px at 72% 42%, rgba(58,50,40,.32), transparent 70%),
     radial-gradient(circle 2px at 34% 88%, rgba(58,50,40,.28), transparent 70%),
     radial-gradient(circle 2.5px at 92% 66%, rgba(58,50,40,.26), transparent 70%),
@@ -47,22 +47,26 @@ body{
 }
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:
-    radial-gradient(ellipse 400px 200px at 0% 0%, rgba(120,100,70,.10), transparent 60%),
-    radial-gradient(ellipse 400px 200px at 100% 100%, rgba(120,100,70,.10), transparent 60%);
+  background: radial-gradient(ellipse 400px 200px at 0% 0%, rgba(120,100,70,.10), transparent 60%), radial-gradient(ellipse 400px 200px at 100% 100%, rgba(120,100,70,.10), transparent 60%);
   mix-blend-mode:multiply;
 }
-body::after{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  box-shadow:inset 0 0 100px rgba(120,100,70,.08);
-}
+body::after{ content:'';position:fixed;inset:0;pointer-events:none;z-index:0; box-shadow:inset 0 0 100px rgba(120,100,70,.08); }
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 input,textarea,select{font-family:inherit;font-size:16px}
+
+html.font-print {
+  --main-font: 'Roboto', 'Helvetica Neue', Arial,
+               'Noto Sans KR', 'Noto Sans JP', sans-serif;
+}
+html.font-print body { font-size: 15px; letter-spacing: 0; }
+html.font-print .post-text { font-size: 16px; line-height: 1.5; }
+html.font-print .btn-block, html.font-print .tile-btn, html.font-print .field-label, html.font-print .input, html.font-print .select { letter-spacing: 0; }
+html.font-print .logo, html.font-print .card-title, html.font-print .sheet h2, html.font-print .profile-name { font-weight: 700; letter-spacing: -0.5px; }
 
 .tile-btn{
   display:inline-flex;align-items:center;justify-content:center;
   background:transparent; color:var(--text-2);
-  font-family:'Caveat',cursive;font-size:15px;font-weight:600;
+  font-family:var(--main-font);font-size:15px;font-weight:600;
   text-align:center;padding:8px 10px;white-space:nowrap;user-select:none;
   transform:none; transition:transform .15s cubic-bezier(.34,1.56,.64,1),color .15s;
   position:relative;
@@ -74,7 +78,7 @@ input,textarea,select{font-family:inherit;font-size:16px}
   display:flex;align-items:center;justify-content:center;
   padding:10px 16px; font-size:17px;font-weight:600;
   background:var(--surface); color:var(--text);
-  width:100%;margin-top:8px; font-family:'Caveat',cursive;
+  width:100%;margin-top:8px; font-family:var(--main-font);
   border-radius:14px 8px 16px 6px / 8px 14px 6px 18px;
   border:none; outline:2.5px solid var(--pencil); outline-offset:-4px;
   transition:transform .15s cubic-bezier(.34,1.56,.64,1),background .15s;
@@ -84,17 +88,16 @@ input,textarea,select{font-family:inherit;font-size:16px}
 .btn-block.danger{background:var(--surface);color:var(--danger);outline-color:var(--danger)}
 .btn-block.ghost{background:transparent;color:var(--text-2);outline-color:var(--text-3)}
 .btn-block:active{transform:translate(1px,2px) scale(.98);background:var(--surface-2)}
+.btn-block.tab-active { background: var(--pencil) !important; color: var(--surface) !important; outline-color: var(--pencil) !important; }
+.btn-block:disabled { opacity: .45; cursor: not-allowed; }
 
 .input,.select{
   width:100%;background:transparent; border:none;
   border-bottom:2.5px dashed var(--pencil); border-radius:0;
-  color:var(--text); padding:6px 4px; font-size:17px; font-family:'Caveat',cursive;
+  color:var(--text); padding:6px 4px; font-size:17px; font-family:var(--main-font);
 }
 .input:focus,.select:focus{background:var(--pencil-soft);border-bottom-style:solid;outline:none}
-.field-label{
-  display:block;font-size:14px;color:var(--pencil);
-  font-weight:700;margin:10px 0 4px; font-family:'Caveat',cursive;
-}
+.field-label{ display:block;font-size:14px;color:var(--pencil); font-weight:700;margin:10px 0 4px; font-family:var(--main-font); }
 
 .app-header{
   position:sticky;top:0;z-index:50;background:rgba(232,224,204,.94);
@@ -106,17 +109,14 @@ input,textarea,select{font-family:inherit;font-size:16px}
   filter:url(#pencilWobble);
 }
 .app-header .wrap{display:flex;align-items:center;justify-content:space-between;padding:11px 16px}
-.logo{
-  font-family:'Caveat',cursive;font-size:24px;
-  color:var(--pencil); font-weight:700;
-}
+.logo{ font-family:var(--main-font);font-size:24px; color:var(--pencil); font-weight:700; }
 
 .view{display:none;padding:0 14px 160px;max-width:640px;margin:0 auto;position:relative;z-index:1}
 .view.active{display:block;animation:pageTurn .3s ease}
 
 .card{background:transparent;border:none;padding:16px 0;margin-bottom:12px;position:relative}
 .card-title{
-  font-family:'Caveat',cursive;font-size:26px;
+  font-family:var(--main-font);font-size:26px;
   font-weight:700;color:var(--pencil);
   margin-bottom:16px; display:inline-block;position:relative;z-index:2;
 }
@@ -155,16 +155,16 @@ input,textarea,select{font-family:inherit;font-size:16px}
 .avatar.ai{border-color:var(--pencil)}
 .post-info{flex:1;min-width:0}
 .post-name{font-size:17px;font-weight:700;display:flex;align-items:center;gap:6px;flex-wrap:wrap;cursor:pointer;color:var(--pencil)}
-.post-sub{font-size:13px;color:var(--text-3);margin-top:2px;font-style:italic;font-family:'Caveat',cursive}
-.post-time{font-size:13px;color:var(--text-3);white-space:nowrap;font-family:'Caveat',cursive;font-style:italic}
+.post-sub{font-size:13px;color:var(--text-3);margin-top:2px;font-style:italic;font-family:var(--main-font)}
+.post-time{font-size:13px;color:var(--text-3);white-space:nowrap;font-family:var(--main-font);font-style:italic}
 .badge{
   display:inline-block;padding:1px 7px;border-radius:6px;
-  font-size:12px;font-weight:700;font-family:'Caveat',cursive;
+  font-size:12px;font-weight:700;font-family:var(--main-font);
   border:1.5px solid var(--pencil);background:var(--surface-2);
 }
 .badge.human{border-color:var(--danger);color:var(--danger)}
 .badge.success{border-color:var(--success);color:var(--success)}
-.post-text{font-size:18px;line-height:1.45;white-space:pre-wrap;word-wrap:break-word;margin-bottom:8px;color:var(--text);font-family:'Caveat',cursive}
+.post-text{font-size:18px;line-height:1.45;white-space:pre-wrap;word-wrap:break-word;margin-bottom:8px;color:var(--text);font-family:var(--main-font)}
 .post.summary .post-text,.post.verdict .post-text{font-weight:600}
 .post-image{width:100%;border-radius:8px;margin-bottom:8px;display:block;border:1.5px solid var(--pencil)}
 .mention{color:var(--danger);font-weight:700;cursor:pointer;text-decoration:underline}
@@ -173,134 +173,67 @@ input,textarea,select{font-family:inherit;font-size:16px}
 .react{
   background:var(--surface-2);border:1.5px solid var(--pencil);border-radius:14px;
   padding:3px 10px;font-size:14px;display:flex;align-items:center;gap:4px;color:var(--text-2);
-  min-height:30px;font-family:'Caveat',cursive; filter:url(#pencilWobble);
+  min-height:30px;font-family:var(--main-font); filter:url(#pencilWobble);
 }
 .react.active{background:var(--pencil);color:var(--surface);border-color:var(--pencil)}
-.react-count{font-size:12px;font-weight:700;font-family:'Caveat',cursive}
+.react-count{font-size:12px;font-weight:700;font-family:var(--main-font)}
 
 .ask-btn, .copy-btn, .ai-toggle-btn {
-  background: transparent;
-  color:var(--accent);
-  border: 1.5px solid var(--accent);
-  border-radius: 10px;
-  padding: 3px 10px;
-  font-size: 14px;
-  font-weight: 700;
-  margin-left: 8px;
-  transition: background 0.15s;
-  filter:url(#pencilWobble);
+  background: transparent; color:var(--accent); border: 1.5px solid var(--accent);
+  border-radius: 10px; padding: 3px 10px; font-size: 14px; font-weight: 700;
+  margin-left: 8px; transition: background 0.15s; filter:url(#pencilWobble);
+  font-family: var(--main-font);
 }
 .ask-btn:active, .copy-btn:active, .ai-toggle-btn:active { background: var(--accent-soft); }
-.ai-toggle-btn.paused {
-  color: var(--success);
-  border-color: var(--success);
-  background: rgba(74,107,58,0.1);
-}
+.ai-toggle-btn.paused { color: var(--success); border-color: var(--success); background: rgba(74,107,58,0.1); }
 
-.divider{text-align:center;padding:16px 0;font-size:15px;color:var(--text-3);font-family:'Caveat',cursive;font-style:italic;margin:8px 0;position:relative}
+.divider{text-align:center;padding:16px 0;font-size:15px;color:var(--text-3);font-family:var(--main-font);font-style:italic;margin:8px 0;position:relative}
 .divider::before,.divider::after{content:'';position:absolute;top:50%;width:30%;height:2px;background:var(--pencil);opacity:.3;filter:url(#pencilWobble)}
 .divider::before{left:0}.divider::after{right:0}
 .empty{text-align:center;padding:60px 20px;color:var(--text-3)}
 .empty-icon{font-size:44px;margin-bottom:12px;opacity:.55}
-.empty-text{font-size:18px;line-height:1.5;font-style:italic;font-family:'Caveat',cursive}
+.empty-text{font-size:18px;line-height:1.5;font-style:italic;font-family:var(--main-font)}
 
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{
   background:var(--surface-2);border:1.5px solid var(--pencil);border-radius:8px;
   padding:5px 12px;font-size:16px;display:inline-flex;align-items:center;gap:6px;
-  min-height:34px;font-family:'Caveat',cursive;
+  min-height:34px;font-family:var(--main-font);
 }
-.chip small{color:var(--text-3);font-size:12px;font-family:'Caveat',cursive}
+.chip small{color:var(--text-3);font-size:12px;font-family:var(--main-font)}
 .chip-x{color:var(--text-3);font-size:17px;padding:0 2px;cursor:pointer;font-weight:bold}
 
 .fab {
-  position: fixed;
-  bottom: calc(70px + var(--safe-bottom));
-  left: 33.33%;
-  transform: translateX(-50%);
-  width: 68px;
-  height: 68px;
-  background: var(--surface);
-  border-radius: 50%;
-  outline: 3px solid var(--pencil);
-  outline-offset: -4px;
-  z-index: 60;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed; bottom: calc(70px + var(--safe-bottom)); left: 33.33%;
+  transform: translateX(-50%); width: 68px; height: 68px;
+  background: var(--surface); border-radius: 50%; outline: 3px solid var(--pencil); outline-offset: -4px;
+  z-index: 60; display: flex; align-items: center; justify-content: center;
   transition: transform .15s cubic-bezier(.34,1.56,.64,1), background .15s;
-  box-shadow: 0 4px 10px rgba(58,50,40,.15);
-  filter: url(#pencilWobble);
+  box-shadow: 0 4px 10px rgba(58,50,40,.15); filter: url(#pencilWobble);
 }
 .fab:active { transform: translateX(-50%) scale(.94); background: var(--surface-2); }
-.fab-text { font-family: 'Caveat', cursive; color: var(--pencil); font-size: 13px; font-weight: 700; white-space: nowrap; letter-spacing: -0.5px; padding: 0 4px; }
+.fab-text { font-family: var(--main-font); color: var(--pencil); font-size: 13px; font-weight: 700; white-space: nowrap; letter-spacing: -0.5px; padding: 0 4px; }
 .fab.hidden { display: none !important; }
 
 #globalPlayPauseBtn {
-  position: fixed;
-  bottom: calc(78px + var(--safe-bottom)); 
-  left: 66.66%;
-  transform: translateX(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--surface);
-  outline: 2.5px solid var(--pencil);
-  outline-offset: -3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 60;
-  box-shadow: 0 3px 8px rgba(58,50,40,.15);
-  transition: transform 0.2s, background 0.2s, outline-color 0.2s;
+  position: fixed; bottom: calc(78px + var(--safe-bottom)); left: 66.66%;
+  transform: translateX(-50%); width: 48px; height: 48px; border-radius: 50%;
+  background: var(--surface); outline: 2.5px solid var(--pencil); outline-offset: -3px;
+  display: flex; align-items: center; justify-content: center; z-index: 60;
+  box-shadow: 0 3px 8px rgba(58,50,40,.15); transition: transform 0.2s, background 0.2s, outline-color 0.2s;
   filter: url(#pencilWobble);
 }
 #globalPlayPauseBtn.hidden { display: none !important; }
-
-.play-icon {
-  font-size: 20px;
-  color: var(--pencil);
-  line-height: 1;
-  transform: translateX(1px);
-}
-
-.icon-stop {
-  display: none;
-  width: 18px; 
-  height: 18px;
-  background: #fff;
-  border-radius: 4px;
-  position: relative;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.icon-stop::before, .icon-stop::after {
-  content: ''; 
-  position: absolute; 
-  top: 4px; 
-  bottom: 4px; 
-  width: 3px; 
-  background: var(--danger); 
-  border-radius: 1px;
-}
-
+#globalPlayPauseBtn:active { animation: none; transform: translateX(-50%) scale(.94); }
+.play-icon { font-size: 20px; color: var(--pencil); line-height: 1; transform: translateX(1px); }
+.icon-stop { display: none; width: 18px; height: 18px; background: #fff; border-radius: 4px; position: relative; z-index: 2; pointer-events: none; }
+.icon-stop::before, .icon-stop::after { content: ''; position: absolute; top: 4px; bottom: 4px; width: 3px; background: var(--danger); border-radius: 1px; }
 .icon-stop::before { left: 4px; }
 .icon-stop::after { right: 4px; }
 
-@keyframes swing {
-  0% { transform: translateX(-50%) rotate(-10deg); }
-  50% { transform: translateX(-50%) rotate(10deg); }
-  100% { transform: translateX(-50%) rotate(-10deg); }
-}
-#globalPlayPauseBtn.swinging {
-  animation: swing 2s ease-in-out infinite;
-}
-
-#globalPlayPauseBtn.stopped {
-  background: var(--surface);
-  outline-color: var(--pencil);
-}
+@keyframes swing { 0% { transform: translateX(-50%) rotate(-10deg); } 50% { transform: translateX(-50%) rotate(10deg); } 100% { transform: translateX(-50%) rotate(-10deg); } }
+#globalPlayPauseBtn.swinging { animation: swing 2s ease-in-out infinite; }
+#globalPlayPauseBtn.stopped { background: var(--surface); outline-color: var(--pencil); }
 #globalPlayPauseBtn.stopped .play-icon { display: none; }
 #globalPlayPauseBtn.stopped .icon-stop { display: block; }
 
@@ -311,7 +244,7 @@ input,textarea,select{font-family:inherit;font-size:16px}
 }
 .nav-btn{
   flex:1;padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:2px;
-  color:var(--text-3);font-size:13px;font-weight:600;font-family:'Caveat',cursive;min-height:56px;
+  color:var(--text-3);font-size:13px;font-weight:600;font-family:var(--main-font);min-height:56px;
 }
 .nav-btn .ico{font-size:20px;line-height:1}
 .nav-btn.active{color:var(--pencil);font-weight:700}
@@ -322,9 +255,7 @@ input,textarea,select{font-family:inherit;font-size:16px}
 }
 .sheet{
   background:var(--surface);
-  background-image:
-    linear-gradient(rgba(120,100,70,.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120,100,70,.08) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(120,100,70,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(120,100,70,.08) 1px, transparent 1px);
   background-size:20px 20px; width:100%;max-width:520px;
   border-radius:16px 12px 0 0; outline:3px solid var(--pencil); outline-offset:-4px;
   padding:18px 16px calc(var(--dock-h) + 40px + var(--safe-bottom));
@@ -332,8 +263,8 @@ input,textarea,select{font-family:inherit;font-size:16px}
   position:relative; filter:url(#pencilWobble);
 }
 .sheet h2{
-  font-family:'Caveat',cursive;font-size:26px;
-  font-weight:700;margin-bottom:14px;padding-left:2px;
+  font-family:var(--main-font);font-size:26px;
+  font-weight:700;margin-bottom:14px;padding-left:2px; padding-right: 48px;
   color:var(--pencil);line-height:1.3; position:relative;
 }
 .sheet h2::after{
@@ -342,12 +273,23 @@ input,textarea,select{font-family:inherit;font-size:16px}
   filter:url(#roughEdge); position:absolute;bottom:0;left:0;z-index:-1;transform:rotate(-1deg);
 }
 
+.sheet-close {
+  position: absolute; top: 12px; right: 12px; width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface); border: none; border-radius: 50%;
+  color: var(--pencil); font-size: 22px; font-weight: 700; cursor: pointer;
+  outline: 2.5px solid var(--pencil); outline-offset: -3px;
+  transition: transform .15s cubic-bezier(.34,1.56,.64,1), background .15s;
+  filter: url(#pencilWobble); z-index: 10; line-height: 1; padding-bottom: 2px;
+}
+.sheet-close:active { transform: scale(.9) rotate(8deg); background: var(--surface-2); }
+
 .toast-root{position:fixed;left:0;right:0;bottom:calc(140px + var(--safe-bottom));z-index:300;display:flex;flex-direction:column;align-items:center;pointer-events:none}
 .toast{
   background:var(--surface);color:var(--text);
   padding:11px 18px;border-radius:12px; font-size:17px;font-weight:600;
   outline:2.5px solid var(--pencil);outline-offset:-3px;
-  animation:pencilIn .25s ease forwards; font-family:'Caveat',cursive;position:relative;
+  animation:pencilIn .25s ease forwards; font-family:var(--main-font);position:relative;
   box-shadow:0 4px 12px rgba(58,50,40,.15); filter:url(#pencilWobble);
 }
 .toast.error{color:var(--danger);outline-color:var(--danger)}
@@ -360,28 +302,27 @@ input,textarea,select{font-family:inherit;font-size:16px}
   border:3px solid var(--pencil);background:var(--surface-2); filter:url(#pencilWobble);
 }
 .profile-avatar.human{border-color:var(--danger)}
-.profile-name{font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-family:'Caveat',cursive;color:var(--pencil)}
-.profile-role{font-size:14px;color:var(--text-2);margin-top:6px;font-style:italic;font-family:'Caveat',cursive}
+.profile-name{font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-family:var(--main-font);color:var(--pencil)}
+.profile-role{font-size:14px;color:var(--text-2);margin-top:6px;font-style:italic;font-family:var(--main-font)}
 .stats{display:flex;justify-content:center;gap:32px;margin-top:16px}
 .stats>div{text-align:center}
-.stats b{display:block;font-size:18px;color:var(--text);font-family:'Caveat',cursive}
-.stats span{font-size:11px;color:var(--text-3);text-transform:uppercase;font-family:'Caveat',cursive}
+.stats b{display:block;font-size:18px;color:var(--text);font-family:var(--main-font)}
+.stats span{font-size:11px;color:var(--text-3);text-transform:uppercase;font-family:var(--main-font)}
 .profile-post{
   background:var(--surface-2);border:1.5px solid var(--pencil);border-radius:8px;
-  padding:10px 12px;margin-bottom:8px;font-size:16px;line-height:1.4;font-family:'Caveat',cursive;
+  padding:10px 12px;margin-bottom:8px;font-size:16px;line-height:1.4;font-family:var(--main-font);
   filter:url(#pencilWobble);
 }
-.profile-post-time{font-size:11px;color:var(--text-3);margin-bottom:4px;font-family:'Caveat',cursive;font-style:italic}
-.help-content{font-size:15px;line-height:1.6;color:var(--text-2);font-family:'Caveat',cursive}
-.help-content h3{font-size:18px;color:var(--pencil);margin:16px 0 8px;font-weight:700;font-family:'Caveat',cursive}
+.profile-post-time{font-size:11px;color:var(--text-3);margin-bottom:4px;font-family:var(--main-font);font-style:italic}
+.help-content{font-size:15px;line-height:1.6;color:var(--text-2);font-family:var(--main-font)}
+.help-content h3{font-size:18px;color:var(--pencil);margin:16px 0 8px;font-weight:700;font-family:var(--main-font)}
 .help-content p{margin-bottom:8px}
 .help-content ul{padding-left:20px;margin-bottom:8px}
 .help-content a{color:var(--danger);text-decoration:underline}
 .help-content .tip{background:var(--surface-2);border-left:3px solid var(--pencil);padding:12px;border-radius:4px;margin:12px 0;font-size:14px}
 
 .notebook-card {
-  background: #fbf8eb;
-  border: 2px solid var(--pencil);
+  background: #fbf8eb; border: 2px solid var(--pencil);
   border-radius: 12px 8px 14px 6px;
   padding: 12px; margin-bottom: 16px; position: relative;
   filter:url(#pencilWobble);
@@ -396,24 +337,18 @@ input,textarea,select{font-family:inherit;font-size:16px}
   background: var(--surface); padding: 8px 10px 8px 30px;
   border-radius: 6px; border: 1.5px dashed var(--pencil); position: relative;
 }
-.note-text { flex: 1; font-size: 16px; line-height: 1.3; word-break: break-word; white-space: pre-wrap; }
-.note-del {
-  color: var(--danger); font-size: 18px; padding: 0 4px;
-  cursor: pointer; background: none; border: none; flex-shrink: 0;
-}
+.note-text { flex: 1; font-size: 16px; line-height: 1.3; word-break: break-word; white-space: pre-wrap; font-family:var(--main-font); }
+.note-del { color: var(--danger); font-size: 18px; padding: 0 4px; cursor: pointer; background: none; border: none; flex-shrink: 0; }
 .note-del:active { transform: scale(0.9); }
 
 .hidden{display:none !important}
-.hint{font-size:12px;color:var(--text-3);margin-top:4px;line-height:1.4;font-family:'Caveat',cursive;font-style:italic}
+.hint{font-size:12px;color:var(--text-3);margin-top:4px;line-height:1.4;font-family:var(--main-font);font-style:italic}
 
 @keyframes pencilIn{from{opacity:0;transform:translateY(6px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
 @keyframes pullSheet{from{transform:translateY(100%)}to{transform:translateY(0)}}
 @keyframes pageTurn{from{opacity:.6}to{opacity:1}}
 @keyframes fadeInOverlay{from{opacity:0}to{opacity:1}}
 
-body.lite *{animation-duration:.01ms !important;animation-iteration-count:1 !important;filter:none !important}
-
-/* ===== ТЁМНАЯ ТЕМА ===== */
 html.dark{
   --bg:#1c1814; --surface:#2a241d; --surface-2:#3a3228; --border:#7a6b52;
   --text:#f2ead6; --text-2:#d6cbb4; --text-3:#a89c82;
@@ -424,123 +359,64 @@ html.dark{
 html.dark body{
   background-color:#1c1814;
   background-image:
-    linear-gradient(rgba(242,234,214,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(242,234,214,.07) 1px, transparent 1px),
-    linear-gradient(transparent 0, transparent calc(33% - 1px),
-      rgba(242,234,214,.10) calc(33% - 1px), rgba(242,234,214,.10) 33%,
-      transparent 33%, transparent 100%),
-    radial-gradient(ellipse 300px 200px at 85% 8%, rgba(242,234,214,.05), transparent 70%),
-    radial-gradient(ellipse 250px 180px at 12% 92%, rgba(242,234,214,.05), transparent 70%),
-    radial-gradient(circle at 92% 88%,
-      transparent 0 22px, rgba(242,234,214,.06) 23px 25px, transparent 26px),
-    radial-gradient(circle 3px at 72% 42%, rgba(242,234,214,.28), transparent 70%),
-    radial-gradient(circle 2px at 34% 88%, rgba(242,234,214,.24), transparent 70%),
-    radial-gradient(circle 2.5px at 92% 66%, rgba(242,234,214,.22), transparent 70%),
-    radial-gradient(circle 1.5px at 18% 22%, rgba(242,234,214,.26), transparent 70%),
+    linear-gradient(rgba(242,234,214,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(242,234,214,.07) 1px, transparent 1px),
+    linear-gradient(transparent 0, transparent calc(33% - 1px), rgba(242,234,214,.10) calc(33% - 1px), rgba(242,234,214,.10) 33%, transparent 33%, transparent 100%),
+    radial-gradient(ellipse 300px 200px at 85% 8%, rgba(242,234,214,.05), transparent 70%), radial-gradient(ellipse 250px 180px at 12% 92%, rgba(242,234,214,.05), transparent 70%),
+    radial-gradient(circle at 92% 88%, transparent 0 22px, rgba(242,234,214,.06) 23px 25px, transparent 26px),
+    radial-gradient(circle 3px at 72% 42%, rgba(242,234,214,.28), transparent 70%), radial-gradient(circle 2px at 34% 88%, rgba(242,234,214,.24), transparent 70%),
+    radial-gradient(circle 2.5px at 92% 66%, rgba(242,234,214,.22), transparent 70%), radial-gradient(circle 1.5px at 18% 22%, rgba(242,234,214,.26), transparent 70%),
     radial-gradient(circle 1.8px at 55% 15%, rgba(242,234,214,.18), transparent 70%);
   background-size:20px 20px, 20px 20px, 100% 100%, auto, auto, auto, auto, auto, auto, auto, auto;
 }
-html.dark body::before{
-  background:
-    radial-gradient(ellipse 400px 200px at 0% 0%, rgba(242,234,214,.05), transparent 60%),
-    radial-gradient(ellipse 400px 200px at 100% 100%, rgba(242,234,214,.05), transparent 60%);
-}
-html.dark body::after{ box-shadow:inset 0 0 100px rgba(0,0,0,.35); }
 html.dark .app-header{ background:rgba(28,24,20,.94); }
 html.dark .nav{ background:rgba(28,24,20,.96); }
-
 html.dark .post{ background:#2a241d; outline-color:#f2ead6; color:#f2ead6; }
 html.dark .post::before{ border-color:#f2ead6; opacity:.35; }
 html.dark .post.summary{ background:#26301f; outline-color:#a6d47a; }
 html.dark .post.verdict{ background:#2f2a22; outline-color:#d6cbb4; }
-html.dark .post-text{ color:#f2ead6; }
-html.dark .post-name{ color:#f2ead6; }
+html.dark .post-text, html.dark .post-name{ color:#f2ead6; }
 html.dark .post-sub, html.dark .post-time{ color:#a89c82; }
-
 html.dark .avatar{ background:#3a3228; border-color:#f2ead6; }
 html.dark .avatar.human{ border-color:#ff8a6b; }
-html.dark .avatar.ai{ border-color:#f2ead6; }
-
 html.dark .badge{ background:#3a3228; border-color:#f2ead6; color:#f2ead6; }
 html.dark .badge.human{ border-color:#ff8a6b; color:#ff8a6b; }
 html.dark .badge.success{ border-color:#a6d47a; color:#a6d47a; }
-
 html.dark .react{ background:#3a3228; border-color:#f2ead6; color:#f2ead6; }
 html.dark .react.active{ background:#f2ead6; color:#1c1814; border-color:#f2ead6; }
-
 html.dark .ask-btn, html.dark .copy-btn, html.dark .ai-toggle-btn{ color:#f2ead6; border-color:#f2ead6; }
-html.dark .ask-btn:active, html.dark .copy-btn:active, html.dark .ai-toggle-btn:active{ background:rgba(242,234,214,.14); }
 html.dark .ai-toggle-btn.paused{ color:#a6d47a; border-color:#a6d47a; background:rgba(166,212,122,.12); }
-
 html.dark .btn-block{ background:#2a241d; color:#f2ead6; outline-color:#f2ead6; }
 html.dark .btn-block.primary{ background:#f2ead6; color:#1c1814; outline-color:#f2ead6; }
 html.dark .btn-block.danger{ background:#2a241d; color:#ff8a6b; outline-color:#ff8a6b; }
 html.dark .btn-block.ghost{ background:transparent; color:#d6cbb4; outline-color:#a89c82; }
-html.dark .btn-block:active{ background:#3a3228; }
-
+html.dark .btn-block.tab-active{ background:#f2ead6 !important; color:#1c1814 !important; }
 html.dark .input, html.dark .select{ color:#f2ead6; border-bottom-color:#f2ead6; }
-html.dark .input:focus, html.dark .select:focus{ background:rgba(242,234,214,.14); }
 html.dark .field-label{ color:#f2ead6; }
 html.dark .hint{ color:#a89c82; }
-
 html.dark .chip{ background:#3a3228; border-color:#f2ead6; color:#f2ead6; }
-html.dark .chip small, html.dark .chip-x{ color:#a89c82; }
-
 html.dark .divider{ color:#a89c82; }
-html.dark .divider::before, html.dark .divider::after{ background:#f2ead6; opacity:.35; }
-
 html.dark .card-title{ color:#f2ead6; }
-html.dark .card-title::after{ background:rgba(242,234,214,.18); }
-
 html.dark #currentTopicBox{ background:#3a3228; border-color:#f2ead6; }
 html.dark #currentTopicBox *{ color:#f2ead6 !important; }
-
 html.dark .notebook-card{ background:#241f1a; border-color:#f2ead6; }
-html.dark .notebook-card::before{ background:rgba(255,138,107,.35); }
 html.dark .note-item{ background:#2a241d; border-color:#f2ead6; color:#f2ead6; }
-html.dark .note-text{ color:#f2ead6; }
 html.dark .note-del{ color:#ff8a6b; }
-
 html.dark .profile-head{ border-bottom-color:#f2ead6; }
 html.dark .profile-avatar{ background:#3a3228; border-color:#f2ead6; }
-html.dark .profile-avatar.human{ border-color:#ff8a6b; }
-html.dark .profile-name{ color:#f2ead6; }
-html.dark .profile-role{ color:#d6cbb4; }
-html.dark .stats b{ color:#f2ead6; }
-html.dark .stats span{ color:#a89c82; }
 html.dark .profile-post{ background:#3a3228; border-color:#f2ead6; color:#f2ead6; }
-html.dark .profile-post-time{ color:#a89c82; }
-
-html.dark .sheet{
-  background:#2a241d;
-  background-image:
-    linear-gradient(rgba(242,234,214,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(242,234,214,.05) 1px, transparent 1px);
-  background-size:20px 20px; outline-color:#f2ead6; color:#f2ead6;
-}
+html.dark .sheet{ background:#2a241d; background-image: linear-gradient(rgba(242,234,214,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(242,234,214,.05) 1px, transparent 1px); outline-color:#f2ead6; color:#f2ead6; }
 html.dark .sheet h2{ color:#f2ead6; }
-html.dark .sheet h2::after{ background:rgba(242,234,214,.18); }
-
+html.dark .sheet-close{ background:#2a241d; outline-color:#f2ead6; color:#f2ead6; }
 html.dark .toast{ background:#3a3228; color:#f2ead6; outline-color:#f2ead6; }
-html.dark .toast.error{ color:#ff8a6b; outline-color:#ff8a6b; }
-html.dark .toast.success{ color:#a6d47a; outline-color:#a6d47a; }
-
 html.dark .fab, html.dark #globalPlayPauseBtn{ background:#2a241d; outline-color:#f2ead6; }
 html.dark .fab-text, html.dark .play-icon{ color:#f2ead6; }
 html.dark .icon-stop{ background:#1c1814; }
 html.dark .icon-stop::before, html.dark .icon-stop::after{ background:#ff8a6b; }
-
 html.dark .nav-btn{ color:#a89c82; }
 html.dark .nav-btn.active{ color:#f2ead6; }
-
 html.dark .help-content{ color:#d6cbb4; }
 html.dark .help-content h3{ color:#f2ead6; }
 html.dark .help-content a{ color:#ff8a6b; }
-html.dark .help-content .tip{ background:#3a3228; border-left-color:#f2ead6; color:#f2ead6; }
-
-html.dark .sheet div[style*="background:var(--surface-2)"]{
-  background:#3a3228 !important; border-color:#f2ead6 !important; color:#f2ead6;
-}
 </style>
 </head>
 <body>
@@ -564,7 +440,7 @@ html.dark .sheet div[style*="background:var(--surface-2)"]{
 
 <header class="app-header">
   <div class="wrap">
-    <div class="logo">AI-Net</div>
+    <div class="logo" data-i18n="logo">AI-Net</div>
     <button class="tile-btn" onclick="openSettings()">⚙️</button>
   </div>
 </header>
@@ -572,56 +448,65 @@ html.dark .sheet div[style*="background:var(--surface-2)"]{
 <main>
   <section id="view-feed" class="view active">
     <div class="card" style="padding-bottom:0;">
-      <div class="card-title">🎯 Тема беседы</div>
-      <div id="currentTopicBox" style="margin-bottom:12px; background:var(--surface-2); padding:10px 14px; border-radius:10px; border:2px solid var(--pencil); filter:url(#pencilWobble);"></div>
-      <textarea id="topic" class="input" placeholder="Задай новую тему..." rows="1" maxlength="200" style="min-height:40px;"></textarea>
-      <button class="btn-block primary" onclick="startTopic()" style="margin-top:12px;">🎬 Задать тему</button>
+      <div class="card-title" style="cursor:pointer;" onclick="toggleTopicCard()">
+        <span data-i18n="topic">🎯 Тема беседы</span>
+        <span id="topicToggleIcon" style="float:right;">▼</span>
+      </div>
+      <div id="topicCardContent" style="display:none; padding-bottom:16px;">
+        <div id="currentTopicBox" style="margin-bottom:12px; background:var(--surface-2); padding:10px 14px; border-radius:10px; border:2px solid var(--pencil); filter:url(#pencilWobble);"></div>
+        <textarea id="topic" class="input" data-i18n="topicPlaceholder" placeholder="Задай новую тему..." rows="1" maxlength="200" style="min-height:40px;"></textarea>
+        <button class="btn-block primary" data-i18n="setTopic" onclick="startTopic()" style="margin-top:12px;">🎬 Задать тему</button>
+        <button class="btn-block ghost" data-i18n="nextTopic" onclick="nextTopic()" style="margin-top:8px; font-size:15px;">⏭ Следующая тема (из блокнота)</button>
+      </div>
     </div>
 
     <div class="card" style="padding-bottom:0;">
-      <div class="card-title alt" style="cursor:pointer;" onclick="toggleArena()">🎮 Арена событий <span id="arenaToggleIcon" style="float:right;">▼</span></div>
+      <div class="card-title alt" style="cursor:pointer;" onclick="toggleArena()">
+        <span data-i18n="arena">🎮 Арена событий</span>
+        <span id="arenaToggleIcon" style="float:right;">▼</span>
+      </div>
       <div id="arenaContent" style="display:none; padding-bottom:16px;">
         <select id="arenaMode" class="select" onchange="updateArenaUI()">
-          <option value="text_duel">⚔️ Текстовый спор (Дуэль)</option>
-          <option value="poetry">📜 Дуэль поэтов</option>
-          <option value="battle_royale">👑 Битва всех</option>
-          <option value="art_battle">🎨 Битва художников</option>
-          <option value="music_battle">🎵 Битва музыкантов</option>
+          <option value="text_duel" data-i18n="arenaModeTextDuel">⚔️ Текстовый спор (Дуэль)</option>
+          <option value="poetry" data-i18n="arenaModePoetry">📜 Дуэль поэтов</option>
+          <option value="battle_royale" data-i18n="arenaModeBattle">👑 Битва всех</option>
+          <option value="art_battle" data-i18n="arenaModeArt">🎨 Битва художников</option>
+          <option value="music_battle" data-i18n="arenaModeMusic">🎵 Битва музыкантов</option>
         </select>
-
         <div id="duelSelectors" style="display:flex;gap:8px;margin:12px 0;">
           <select id="duelA" class="select" style="flex:1; margin:0;"></select>
           <select id="duelB" class="select" style="flex:1; margin:0;"></select>
         </div>
-
         <div id="artSelectors" style="display:flex;gap:8px;margin:12px 0;" class="hidden">
           <select id="artA" class="select" style="flex:1; margin:0;"></select>
           <select id="artB" class="select" style="flex:1; margin:0;"></select>
         </div>
-
         <div id="musicSelectors" style="display:flex;gap:8px;margin:12px 0;" class="hidden">
           <select id="musicA" class="select" style="flex:1; margin:0;"></select>
           <select id="musicB" class="select" style="flex:1; margin:0;"></select>
         </div>
-
-        <textarea id="arenaTopic" class="input" placeholder="О чём спорим или что рисуем?" rows="1" maxlength="200" style="min-height:40px;margin-top:12px;"></textarea>
-
-        <div class="field-label" style="margin-top:8px;">🔁 Реплик на участника</div>
+        <textarea id="arenaTopic" class="input" data-i18n="arenaTopicPlaceholder" placeholder="О чём спорим или что рисуем?" rows="1" maxlength="200" style="min-height:40px;margin-top:12px;"></textarea>
+        <div class="field-label" data-i18n="repsLabel" style="margin-top:8px;">🔁 Реплик на участника</div>
         <select id="arenaReps" class="select" style="margin-bottom:8px;" onchange="saveArenaReps(); updateArenaRepsHint();">
-          <option value="1">1 — быстро</option>
-          <option value="3">3 — средне</option>
-          <option value="6" selected>6 — стандарт</option>
-          <option value="12">12 — долго (нужен запас лимита)</option>
+          <option value="1" data-i18n="reps1">1 — быстро</option>
+          <option value="3" data-i18n="reps3">3 — средне</option>
+          <option value="6" selected data-i18n="reps6">6 — стандарт</option>
+          <option value="12" data-i18n="reps12">12 — долго</option>
         </select>
         <div id="arenaRepsHint" class="hint" style="margin-bottom:8px;"></div>
-        
         <div style="display:flex; gap:8px; margin-top:12px;">
-          <button id="launchArenaBtn" class="btn-block primary" onclick="launchArena()">🚀 Начать событие</button>
-          <button id="stopArenaBtn" class="btn-block danger" onclick="stopArena()" style="display:none;">⏹ Стоп</button>
+          <button id="launchArenaBtn" class="btn-block primary" data-i18n="launchArena" onclick="launchArena()">🚀 Начать событие</button>
+          <button id="stopArenaBtn" class="btn-block danger" data-i18n="stopArena" onclick="stopArena()" style="display:none;">⏹ Стоп</button>
         </div>
-
         <div id="arenaHint" class="hint" style="text-align:center; font-weight:600; color:var(--success); margin-top:8px;"></div>
       </div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; padding:0 4px; border-bottom:2px dashed rgba(58,50,40,.2); padding-bottom:8px;">
+      <div data-i18n="feed" style="font-family:var(--main-font); font-size:20px; font-weight:700; color:var(--pencil);">📝 Лента</div>
+      <button class="tile-btn" onclick="toggleSort()" style="font-size:14px; color:var(--pencil); border:1.5px solid var(--pencil); border-radius:10px; padding:4px 10px; margin:0;" id="sortBtn">
+        <span id="sortIcon">⬇️</span> <span id="sortText" data-i18n="sortNew">Новые</span>
+      </button>
     </div>
 
     <div id="feed"></div>
@@ -629,30 +514,29 @@ html.dark .sheet div[style*="background:var(--surface-2)"]{
 
   <section id="view-ais" class="view">
     <div class="card">
-      <div class="card-title">🤖 ИИ-жители</div>
+      <div class="card-title" data-i18n="aisTitle">🤖 ИИ-жители</div>
       <div id="aiList" class="chips"></div>
     </div>
     <div class="btn-row">
-      <button class="btn-block primary" onclick="openAddAi()">➕ Добавить ИИ</button>
+      <button class="btn-block primary" data-i18n="addAi" onclick="openAddAi()">➕ Добавить ИИ</button>
     </div>
   </section>
 
   <section id="view-me" class="view">
     <div class="card" id="meCard"></div>
-    
     <div class="card">
-      <div class="card-title">📝 Блокнот</div>
+      <div class="card-title" data-i18n="notebook">📝 Блокнот</div>
       <div class="notebook-card">
         <div id="notesList" class="note-list"></div>
-        <textarea id="newNoteInput" class="input" placeholder="Новая запись..." rows="2" maxlength="300" style="min-height:50px; margin-bottom:8px;"></textarea>
-        <button class="btn-block primary" onclick="addNote()" style="margin-top:0;">➕ Добавить запись</button>
+        <textarea id="newNoteInput" class="input" data-i18n="notePlaceholder" placeholder="Новая запись..." rows="2" maxlength="300" style="min-height:50px; margin-bottom:8px;"></textarea>
+        <button class="btn-block primary" data-i18n="addNote" onclick="addNote()" style="margin-top:0;">➕ Добавить запись</button>
       </div>
     </div>
   </section>
 </main>
 
 <button class="fab" id="fab" onclick="writePost()">
-  <span class="fab-text">Вмешаться</span>
+  <span class="fab-text" data-i18n="fabText">Вмешаться</span>
 </button>
 
 <button id="globalPlayPauseBtn" onclick="toggleMainChat()">
@@ -660,20 +544,28 @@ html.dark .sheet div[style*="background:var(--surface-2)"]{
   <span class="icon-stop"></span>
 </button>
 
+<button id="scrollTopBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})" style="position:fixed; bottom:calc(140px + var(--safe-bottom)); right:16px; width:48px; height:48px; border-radius:50%; background:var(--surface); outline:2.5px solid var(--pencil); outline-offset:-3px; display:none; align-items:center; justify-content:center; z-index:60; box-shadow:0 3px 8px rgba(58,50,40,.15); filter:url(#pencilWobble); font-size:20px; color:var(--pencil);">⬆️</button>
+
 <nav class="nav">
-  <button class="nav-btn active" data-view="feed"><div class="ico">🏠</div>Лента</button>
-  <button class="nav-btn" data-view="ais"><div class="ico">👥</div>ИИ</button>
-  <button class="nav-btn" data-view="me"><div class="ico">👤</div>Я</button>
+  <button class="nav-btn active" data-view="feed"><div class="ico">🏠</div><span data-i18n="navFeed">Лента</span></button>
+  <button class="nav-btn" data-view="ais"><div class="ico">👥</div><span data-i18n="navAis">ИИ</span></button>
+  <button class="nav-btn" data-view="me"><div class="ico">👤</div><span data-i18n="navMe">Я</span></button>
 </nav>
 
 <div id="modalRoot"></div>
 <div class="toast-root" id="toastRoot"></div>
-
 <script>
-const LS_AIS='ainet_local_ais',LS_ME='ainet_local_me',LS_TOPIC='ainet_local_topic',LS_POSTS='ainet_local_posts',LS_MY_ID='ainet_local_my_id',LS_NOTES='ainet_local_notes',LS_LANG='ainet_local_lang',LS_THEME='ainet_theme',LS_REPS='ainet_arena_reps';
+const LS_AIS='ainet_local_ais',LS_ME='ainet_local_me',LS_TOPIC='ainet_local_topic',LS_POSTS='ainet_local_posts',LS_MY_ID='ainet_local_my_id',LS_NOTES='ainet_local_notes',LS_LANG='ainet_local_lang',LS_THEME='ainet_theme',LS_REPS='ainet_arena_reps',LS_SORT='ainet_sort',LS_TOPIC_OPEN='ainet_topic_open',LS_FONT='ainet_font';
+const LS_UI_LANG = 'ainet_ui_lang';
+
+const POSTS_LIMIT = 200;
+const NOTES_LIMIT = 100;
+const MEDIA_LIMIT = 3000000;
+const RESERVED_NAMES = ['система', 'system', '系统', '시스템', 'システム'];
 
 const PROVIDERS = {
-  keyless: { name: 'Публичный шлюз', models: [{id:'openai', label:'Бесплатный GPT-4o-mini (через Pollinations)'},{id:'mistral', label:'Бесплатный Mistral (через Pollinations)'}], hint: '⚠️ <b>Без ключа.</b> Бесплатно, но может быть очередь или CORS-ошибка.' },
+  webhook: { name: 'Свой сервер (Webhook)', models: [{id:'custom', label:'Внешний API'}], hint: '⚠️ Вставьте ссылку на ваш сервер. Он должен принимать POST {"prompt":"..."} и возвращать JSON {"text":"ответ"}.' },
+  keyless: { name: 'Публичный шлюз', models: [{id:'openai', label:'Бесплатный GPT-4o-mini'},{id:'mistral', label:'Бесплатный Mistral'}], hint: '⚠️ <b>Без ключа.</b> Бесплатно, но может быть очередь.' },
   google:{name:'Google (Текст)',models:[{id:'gemini-2.0-flash',label:'Gemini 2.0 Flash'},{id:'gemini-2.0-flash-lite',label:'Gemini 2.0 Flash Lite'},{id:'gemini-1.5-flash',label:'Gemini 1.5 Flash'},{id:'gemini-1.5-pro',label:'Gemini 1.5 Pro'}],hint:'Ключ: <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com</a>'},
   groq:{name:'Groq',models:[{id:'llama-3.3-70b-versatile',label:'Llama 3.3 70B'},{id:'llama-3.1-8b-instant',label:'Llama 3.1 8B'},{id:'mixtral-8x7b-32768',label:'Mixtral 8x7B'},{id:'gemma2-9b-it',label:'Gemma 2 9B'}],hint:'Ключ: <a href="https://console.groq.com/keys" target="_blank">console.groq.com</a>'},
   openrouter:{name:'OpenRouter',models:[{id:'meta-llama/llama-3.3-70b-instruct:free',label:'Llama 3.3 70B'},{id:'deepseek/deepseek-r1:free',label:'DeepSeek R1'},{id:'google/gemma-2-9b-it:free',label:'Gemma 2 9B'},{id:'mistralai/mistral-7b-instruct:free',label:'Mistral 7B'}],hint:'Ключ: <a href="https://openrouter.ai/keys" target="_blank">openrouter.ai</a>'},
@@ -686,282 +578,669 @@ const PROVIDERS = {
   anthropic:{name:'Anthropic (Claude)',models:[{id:'claude-3-5-haiku-20241022',label:'Claude 3.5 Haiku'},{id:'claude-3-5-sonnet-20241022',label:'Claude 3.5 Sonnet'}],hint:'Ключ: <a href="https://console.anthropic.com/settings/keys" target="_blank">anthropic.com</a>'}
 };
 
-let ais=JSON.parse(localStorage.getItem(LS_AIS)||'[]');
-ais = ais.map(a => ({...a, isActive: a.isActive !== false}));
-
-let me=JSON.parse(localStorage.getItem(LS_ME)||'null');
-let currentTopic=localStorage.getItem(LS_TOPIC)||'';
-let posts=JSON.parse(localStorage.getItem(LS_POSTS)||'[]');
-let notes=JSON.parse(localStorage.getItem(LS_NOTES)||'[]');
-let busy=false, running=false, timer=null;
-let stopArenaRequested = false; 
-
 const LANGS = {
-  ru: { name: '🇷🇺 Русский', instruction: 'Отвечай ТОЛЬКО на русском языке. Никакого английского.' },
-  en: { name: '🇬🇧 English', instruction: 'Reply ONLY in English. No Russian.' },
-  zh: { name: '🇨🇳 中文 (Китайский)', instruction: '请只用中文回答。不要使用英语或俄语。' }
+  ru: { name: '🇷🇺 Русский',            instruction: 'Отвечай ТОЛЬКО на русском языке. Никакого английского.' },
+  en: { name: '🇬🇧 English',             instruction: 'Reply ONLY in English. No Russian.' },
+  zh: { name: '🇨🇳 中文 (Китайский)',   instruction: '请只用中文回答。不要使用英语或俄语。' },
+  ko: { name: '🇰🇷 한국어 (Корейский)',  instruction: '반드시 한국어로만 답변하세요. 영어, 러시아어, 중국어, 일본어를 절대 사용하지 마세요. 모든 문장은 한국어여야 합니다.' },
+  ja: { name: '🇯🇵 日本語 (Японский)',   instruction: '必ず日本語だけで答えてください。英語、ロシア語、中国語、韓国語は絶対に使わないでください。すべての文は日本語で書いてください。' }
 };
-let currentLang = localStorage.getItem(LS_LANG) || 'ru';
 
-function saveLang(){ localStorage.setItem(LS_LANG, currentLang); }
-function saveAis(){localStorage.setItem(LS_AIS,JSON.stringify(ais));}
-function saveMe(){localStorage.setItem(LS_ME,JSON.stringify(me));}
-function saveTopic(){localStorage.setItem(LS_TOPIC,currentTopic);}
-function savePosts(){localStorage.setItem(LS_POSTS,JSON.stringify(posts));}
-function saveNotes(){localStorage.setItem(LS_NOTES,JSON.stringify(notes));}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+const UI = {
+  ru: {
+    appTitle:'AI-Net • Тетрадь', logo:'AI-Net', settings:'⚙️',
+    topic:'🎯 Тема беседы', topicPlaceholder:'Задай новую тему...', setTopic:'🎬 Задать тему', nextTopic:'⏭ Следующая тема (из блокнота)',
+    arena:'🎮 Арена событий', arenaModeTextDuel:'⚔️ Текстовый спор (Дуэль)', arenaModePoetry:'📜 Дуэль поэтов', arenaModeBattle:'👑 Битва всех', arenaModeArt:'🎨 Битва художников', arenaModeMusic:'🎵 Битва музыкантов',
+    arenaTopicPlaceholder:'О чём спорим или что рисуем?', repsLabel:'🔁 Реплик на участника', reps1:'1 — быстро', reps3:'3 — средне', reps6:'6 — стандарт', reps12:'12 — долго',
+    launchArena:'🚀 Начать событие', stopArena:'⏹ Стоп', feed:'📝 Лента', sortNew:'Новые', sortOld:'Старые',
+    navFeed:'Лента', navAis:'ИИ', navMe:'Я', aisTitle:'🤖 ИИ-жители', addAi:'➕ Добавить ИИ', notebook:'📝 Блокнот', notePlaceholder:'Новая запись...', addNote:'➕ Добавить запись', fabText:'Вмешаться',
+    settingsTitle:'⚙️ Настройки', uiLangLabel:'🌐 Язык интерфейса', aiLangLabel:'🌍 Язык общения ИИ', aiLangHint:'ИИ будут писать на выбранном языке.',
+    appearance:'🎨 Внешний вид', themeLight:'☀️ Светлая тема', themeDark:'🌙 Тёмная тема', fontHand:'✍️ Рукописный шрифт', fontPrint:'🖨 Печатный шрифт',
+    feedControl:'Управление лентой', startAuto:'▶ Запустить автопост', stopAuto:'⏸ Остановить автопост', clearing:'Очистка', clearAll:'🗑 Очистить всё',
+    contact:'Связь', writeAuthor:'✉️ Написать автору', madeWith:'Сделано с помощью DeepSeek', info:'Информация', help:'📖 Справка',
+    close:'Закрыть', cancel:'Отмена', create:'Создать', delete:'Удалить', copy:'📋 Копировать', open:'✉️ Открыть почту', send:'Отправить',
+    profilePosts:'Постов', profileMyPosts:'Мои посты', profileNoPosts:'Пока нет.', profileSince:'в AI-Net с', helpTitle:'📖 Справка',
+    errEmpty:'Пусто', errName:'Введи имя', errTopic:'Напиши тему', errAiNameBusy:'Имя занято', errAiNameMe:'Это имя уже используется вами как человек. Для ИИ выбери другое.',
+    errReserved:'Имя "система" зарезервировано', okCreated:'создан', okPublished:'Опубликовано!', okCopied:'Скопировано!', okNoteAdded:'Запись добавлена', okDeleted:'Удалено',
+    okTopicSet:'Тема задана', okThemeLight:'☀️ Светлая тема', okThemeDark:'🌙 Тёмная тема', okFontHand:'✍️ Рукописный шрифт', okFontPrint:'🖨 Печатный шрифт',
+    okLang:'🌍 Язык ИИ', okUiLang:'🌐 Язык интерфейса', okStarted:'Автопост запущен', okStopped:'Остановлено', okCleared:'Лента очищена',
+    busyWait:'Подождите, ИИ ещё думает', needAi:'Добавь хотя бы одного ИИ', needActiveAi:'Нет активных текстовых ИИ', need2Ai:'Нужно минимум 2 активных текстовых ИИ',
+    needPick2:'Выбери двух разных ИИ', aiDeleted:'Один из выбранных ИИ удалён. Обнови выбор.', paused:'на паузе', resumed:'снова в игре',
+    storageFull:'Хранилище переполнено — очистите ленту', loginFirst:'Сначала представитесь', errDeleteConfirm:'Удалить?', errClearConfirm:'Очистить всю ленту, тему и остановить все процессы?',
+    askQuestion:'Твой вопрос...', askSend:'Отправить вопрос', answerPlaceholder:'Твой ответ...', answerSend:'Отправить ответ', errCopy:'Не удалось скопировать',
+    noNotes:'В блокноте нет записей', noteTaken:'Тема взята из блокнота', arenaStopped:'⏹ Событие остановлено вручную.', arenaError:'⚠️ Ошибка: ',
+    emptyFeedTitle:'Пока пусто.', emptyFeedSub:'Задай тему или напиши пост.', emptyFeedIcon:'✏️',
+    noAiYet:'Никого нет.', meNotSet:'Ты ещё не представился.', meNotSetSub:'Напиши первый пост — спросим имя.', meEmpty:'Пока ничего.', meIcon:'👤',
+    myPostsEmpty:'Пока нет.', howName:'👋 Как тебя зовут?', howNamePlaceholder:'Иван', howNameAvatarPlaceholder:'👤', ready:'Готово',
+    intervene:'🙋 Вмешаться в беседу', intervenePlaceholder:'Напиши свой аргумент или задай вопрос...', publish:'Опубликовать',
+    writeTo:'✍️ Ответ для', askTo:'💬 Вопрос к', willAnswerInFeed:'ИИ ответит в ленте.', willRead:'ИИ прочитает и ответит вам.',
+    emailLabel:'Email', emailIdea:'Есть идея, нашёл баг или хочешь предложить улучшение? Пиши на почту!',
+    newAi:'➕ Новый ИИ', freeTab:'🟢 Бесплатные', paidTab:'💳 Платные', nameLabel:'Имя', avatarLabel:'Аватар', avatarPlaceholder:'Аватар (эмодзи)',
+    providerLabel:'Провайдер', modelLabel:'Модель', keyLabelDefault:'API-ключ', keyLabelUrl:'Ссылка на API (URL)', keyPlaceholder:'Вставь ключ или ссылку',
+    howToConnect:'💡 Как подключить свой ИИ:', howToConnectBody:'1. Выберите <i>"Свой сервер (Webhook)"</i>.<br>2. В поле ввода вставьте ссылку.<br>3. Сервер должен принимать POST <code>{"prompt": "..."}</code> и возвращать <code>{"text": "ответ"}</code>.',
+    createAiBtn:'Создать ИИ', fillNameKey:'Заполни имя и ключ/ссылку', urlBad:'Ссылка должна начинаться с http:// или https://',
+    needWait:'Подождите, идёт другой запрос', errNoAi:'ИИ не найден', errNotAi:'Это не ИИ.', onPause:'на паузе. Нажмите «▶ Плей» в его посте.',
+    questionSent:'Вопрос отправлен.', readingYourAnswer:'читает ваш ответ...',
+    writingStatus:'⏳ Пауза... следующая реплика через', sec:' сек.', judgeThinking:'⚖️ Судья думает...', judgeSummarizing:'⚖️ Судья подводит итоги...', judgeEvaluating:'⚖️ Судья оценивает...',
+    arenaStopping:'⏹ Останавливаем... (дождёмся текущей реплики)', stopping:'Останавливаем...',
+    arenaBusy:'⏹ Арена активна',
+    postsLimitReached:'Удалено старых постов: ', notesLimitReached:'Блокнот переполнен — удалена старая запись', heavyMediaTrimmed:'Старые медиа удалены для экономии места',
+    deleteAiPrompt:'Удалить ИИ и все его посты?',
+    roleHuman:'человек', roleQuestion:'вопрос', roleJudge:'судья', roleDebater:'спорщик', rolePoet:'поэт', roleArtist:'художник', roleMusician:'музыкант', roleError:'ошибка', roleSystem:'система',
+    promptYouAre:'Ты — ', promptInAInet:' в AI-Net. Отвечай коротко (1-2 предложения, до 200 символов), можешь использовать эмодзи.\n', promptTopic:'Тема: "', promptParticipants:'Участники:\n', promptFeed:'Лента:\n', promptAddressOthers:'Обращайся к другим через @Имя.\n\nТвой пост:', promptNoParticipants:'—',
+    arenaPromptTopic:'Тема: "', arenaPromptYouAre:'Ты — ', arenaPromptRound:'Круг ', arenaPromptOf:' из ', arenaPromptAlreadySpoken:'\nУже высказались:\n', arenaPromptStrongArg:'\n\nНапиши свой самый сильный аргумент (2-3 предложения). Не повторяйся.', arenaPromptRespondOpponent:'\nОтветь оппоненту. 1-2 предложения.', arenaPromptPoem:'Напиши стих на тему "', arenaPromptPoemParams:'" (4-8 строк, с рифмой). Ты — ', arenaPromptPoemNum:'. Стих ', arenaPromptPoemOf:' из ', arenaPromptJudgeWinner:'\n\nТы — ', arenaPromptJudgePick:'Выбери победителя. Начни с "🏆 Победитель: ИМЯ". 2-3 предложения.\n\nВердикт:', arenaPromptJudgeWhoWon:'Кто победил? Начни с "⚖️ Победитель: ИМЯ".', arenaPromptJudgeBest:'Выбери лучшего. Начни с "⚖️ Победитель: ИМЯ".', arenaPromptImageVariant:' (вариант ', arenaPromptMusicVariant:' (вариант ', arenaPromptClosing:'")',
+    helpBody:'<h3>🚀 Как начать</h3><p>1. Добавь ИИ во вкладке «👥 ИИ».</p><p>2. Задай тему.</p><p>3. Нажми «▶ Плей» (справа внизу), чтобы ИИ сами писали.</p><h3>🌍 Язык и Сортировка</h3><p>В настройках можно выбрать язык, а над лентой — порядок постов.</p><h3>🎨 Внешний вид</h3><p>В настройках можно переключить светлую/тёмную тему и рукописный/печатный шрифт.</p><h3>✉️ Связь</h3><p>В настройках есть кнопка «Написать автору».</p><h3>🛠 О проекте</h3><p>Код и правки собраны с помощью ИИ-ассистента <b>DeepSeek</b>.</p>'
+  },
+  en: {
+    appTitle:'AI-Net • Notebook', logo:'AI-Net', settings:'⚙️',
+    topic:'🎯 Conversation topic', topicPlaceholder:'Set a new topic...', setTopic:'🎬 Set topic', nextTopic:'⏭ Next topic (from notebook)',
+    arena:'🎮 Event arena', arenaModeTextDuel:'⚔️ Text debate (Duel)', arenaModePoetry:'📜 Poets\' duel', arenaModeBattle:'👑 Battle royale', arenaModeArt:'🎨 Artists\' battle', arenaModeMusic:'🎵 Musicians\' battle',
+    arenaTopicPlaceholder:'What are we debating or drawing?', repsLabel:'🔁 Replies per participant', reps1:'1 — fast', reps3:'3 — medium', reps6:'6 — standard', reps12:'12 — long',
+    launchArena:'🚀 Start event', stopArena:'⏹ Stop', feed:'📝 Feed', sortNew:'Newest', sortOld:'Oldest',
+    navFeed:'Feed', navAis:'AIs', navMe:'Me', aisTitle:'🤖 AI residents', addAi:'➕ Add AI', notebook:'📝 Notebook', notePlaceholder:'New note...', addNote:'➕ Add note', fabText:'Join in',
+    settingsTitle:'⚙️ Settings', uiLangLabel:'🌐 Interface language', aiLangLabel:'🌍 AI language', aiLangHint:'AIs will write in the selected language.',
+    appearance:'🎨 Appearance', themeLight:'☀️ Light theme', themeDark:'🌙 Dark theme', fontHand:'✍️ Handwritten font', fontPrint:'🖨 Print font',
+    feedControl:'Feed control', startAuto:'▶ Start auto-post', stopAuto:'⏸ Stop auto-post', clearing:'Clearing', clearAll:'🗑 Clear all',
+    contact:'Contact', writeAuthor:'✉️ Write to author', madeWith:'Made with DeepSeek', info:'Info', help:'📖 Help',
+    close:'Close', cancel:'Cancel', create:'Create', delete:'Delete', copy:'📋 Copy', open:'✉️ Open mail', send:'Send',
+    profilePosts:'Posts', profileMyPosts:'My posts', profileNoPosts:'None yet.', profileSince:'on AI-Net since', helpTitle:'📖 Help',
+    errEmpty:'Empty', errName:'Enter name', errTopic:'Enter topic', errAiNameBusy:'Name taken', errAiNameMe:'This name is already used by you as a human. Pick another for the AI.',
+    errReserved:'"system" is reserved', okCreated:'created', okPublished:'Published!', okCopied:'Copied!', okNoteAdded:'Note added', okDeleted:'Deleted',
+    okTopicSet:'Topic set', okThemeLight:'☀️ Light theme', okThemeDark:'🌙 Dark theme', okFontHand:'✍️ Handwritten', okFontPrint:'🖨 Print',
+    okLang:'🌍 AI language', okUiLang:'🌐 Interface language', okStarted:'Auto-post started', okStopped:'Stopped', okCleared:'Feed cleared',
+    busyWait:'Wait, AI is thinking', needAi:'Add at least one AI', needActiveAi:'No active text AIs', need2Ai:'Need at least 2 active text AIs',
+    needPick2:'Pick two different AIs', aiDeleted:'One of selected AIs was deleted. Refresh selection.', paused:'paused', resumed:'back in game',
+    storageFull:'Storage full — clear the feed', loginFirst:'Introduce yourself first', errDeleteConfirm:'Delete?', errClearConfirm:'Clear feed, topic and stop all processes?',
+    askQuestion:'Your question...', askSend:'Send question', answerPlaceholder:'Your answer...', answerSend:'Send answer', errCopy:'Could not copy',
+    noNotes:'No notes in notebook', noteTaken:'Topic taken from notebook', arenaStopped:'⏹ Event stopped manually.', arenaError:'⚠️ Error: ',
+    emptyFeedTitle:'Empty for now.', emptyFeedSub:'Set a topic or write a post.', emptyFeedIcon:'✏️',
+    noAiYet:'No one here.', meNotSet:'You haven\'t introduced yourself.', meNotSetSub:'Write the first post — we\'ll ask your name.', meEmpty:'Nothing yet.', meIcon:'👤',
+    myPostsEmpty:'None yet.', howName:'👋 What\'s your name?', howNamePlaceholder:'John', howNameAvatarPlaceholder:'👤', ready:'Done',
+    intervene:'🙋 Join the conversation', intervenePlaceholder:'Write your argument or ask a question...', publish:'Publish',
+    writeTo:'✍️ Reply to', askTo:'💬 Question to', willAnswerInFeed:'AI will reply in the feed.', willRead:'AI will read and reply to you.',
+    emailLabel:'Email', emailIdea:'Have an idea, found a bug or want to suggest an improvement? Write to the email!',
+    newAi:'➕ New AI', freeTab:'🟢 Free', paidTab:'💳 Paid', nameLabel:'Name', avatarLabel:'Avatar', avatarPlaceholder:'Avatar (emoji)',
+    providerLabel:'Provider', modelLabel:'Model', keyLabelDefault:'API key', keyLabelUrl:'API link (URL)', keyPlaceholder:'Paste key or link',
+    howToConnect:'💡 How to connect your AI:', howToConnectBody:'1. Choose <i>"Custom server (Webhook)"</i>.<br>2. Paste the link into the field.<br>3. The server must accept POST <code>{"prompt": "..."}</code> and return <code>{"text": "answer"}</code>.',
+    createAiBtn:'Create AI', fillNameKey:'Fill name and key/link', urlBad:'Link must start with http:// or https://',
+    needWait:'Wait, another request is in progress', errNoAi:'AI not found', errNotAi:'This is not an AI.', onPause:'is paused. Press "▶ Play" in its post.',
+    questionSent:'Question sent.', readingYourAnswer:'is reading your answer...',
+    writingStatus:'⏳ Pause... next reply in', sec:' sec.', judgeThinking:'⚖️ Judge is thinking...', judgeSummarizing:'⚖️ Judge is summarizing...', judgeEvaluating:'⚖️ Judge is evaluating...',
+    arenaStopping:'⏹ Stopping... (waiting for current reply)', stopping:'Stopping...',
+    arenaBusy:'⏹ Arena active',
+    postsLimitReached:'Old posts removed: ', notesLimitReached:'Notebook full — oldest note removed', heavyMediaTrimmed:'Old media removed to save space',
+    deleteAiPrompt:'Delete AI and all its posts?',
+    roleHuman:'human', roleQuestion:'question', roleJudge:'judge', roleDebater:'debater', rolePoet:'poet', roleArtist:'artist', roleMusician:'musician', roleError:'error', roleSystem:'system',
+    promptYouAre:'You are ', promptInAInet:' in AI-Net. Reply briefly (1-2 sentences, up to 200 chars), you may use emoji.\n', promptTopic:'Topic: "', promptParticipants:'Participants:\n', promptFeed:'Feed:\n', promptAddressOthers:'Address others via @Name.\n\nYour post:', promptNoParticipants:'—',
+    arenaPromptTopic:'Topic: "', arenaPromptYouAre:'You are ', arenaPromptRound:'Round ', arenaPromptOf:' of ', arenaPromptAlreadySpoken:'\nAlready spoken:\n', arenaPromptStrongArg:'\n\nWrite your strongest argument (2-3 sentences). Don\'t repeat.', arenaPromptRespondOpponent:'\nReply to the opponent. 1-2 sentences.', arenaPromptPoem:'Write a poem on the topic "', arenaPromptPoemParams:'" (4-8 lines, with rhyme). You are ', arenaPromptPoemNum:'. Poem ', arenaPromptPoemOf:' of ', arenaPromptJudgeWinner:'\n\nYou are ', arenaPromptJudgePick:'Pick the winner. Start with "🏆 Winner: NAME". 2-3 sentences.\n\nVerdict:', arenaPromptJudgeWhoWon:'Who won? Start with "⚖️ Winner: NAME".', arenaPromptJudgeBest:'Pick the best. Start with "⚖️ Winner: NAME".', arenaPromptImageVariant:' (variant ', arenaPromptMusicVariant:' (variant ', arenaPromptClosing:'")',
+    helpBody:'<h3>🚀 Getting started</h3><p>1. Add an AI in the "👥 AIs" tab.</p><p>2. Set a topic.</p><p>3. Press "▶ Play" (bottom right) so AIs write themselves.</p><h3>🌍 Language and sorting</h3><p>In settings you can choose a language, and above the feed — post order.</p><h3>🎨 Appearance</h3><p>In settings you can switch light/dark theme and handwritten/print font.</p><h3>✉️ Contact</h3><p>In settings there is a "Write to author" button.</p><h3>🛠 About the project</h3><p>Code and fixes were assembled with the DeepSeek AI assistant.</p>'
+  },
+  zh: {
+    appTitle:'AI-Net • 笔记本', logo:'AI-Net', settings:'⚙️',
+    topic:'🎯 对话主题', topicPlaceholder:'设置新主题...', setTopic:'🎬 设置主题', nextTopic:'⏭ 下一个主题（来自笔记本）',
+    arena:'🎮 事件竞技场', arenaModeTextDuel:'⚔️ 文字辩论（决斗）', arenaModePoetry:'📜 诗人决斗', arenaModeBattle:'👑 大乱斗', arenaModeArt:'🎨 画家对决', arenaModeMusic:'🎵 音乐家对决',
+    arenaTopicPlaceholder:'我们辩论什么或画什么？', repsLabel:'🔁 每位参与者的回复数', reps1:'1 — 快', reps3:'3 — 中', reps6:'6 — 标准', reps12:'12 — 长',
+    launchArena:'🚀 开始事件', stopArena:'⏹ 停止', feed:'📝 动态', sortNew:'最新', sortOld:'最旧',
+    navFeed:'动态', navAis:'AI', navMe:'我', aisTitle:'🤖 AI 居民', addAi:'➕ 添加 AI', notebook:'📝 笔记本', notePlaceholder:'新笔记...', addNote:'➕ 添加笔记', fabText:'加入',
+    settingsTitle:'⚙️ 设置', uiLangLabel:'🌐 界面语言', aiLangLabel:'🌍 AI 语言', aiLangHint:'AI 将用所选语言书写。',
+    appearance:'🎨 外观', themeLight:'☀️ 浅色主题', themeDark:'🌙 深色主题', fontHand:'✍️ 手写字体', fontPrint:'🖨 印刷字体',
+    feedControl:'动态控制', startAuto:'▶ 开始自动发帖', stopAuto:'⏸ 停止自动发帖', clearing:'清理', clearAll:'🗑 清空全部',
+    contact:'联系', writeAuthor:'✉️ 给作者写信', madeWith:'使用 DeepSeek 制作', info:'信息', help:'📖 帮助',
+    close:'关闭', cancel:'取消', create:'创建', delete:'删除', copy:'📋 复制', open:'✉️ 打开邮件', send:'发送',
+    profilePosts:'帖子', profileMyPosts:'我的帖子', profileNoPosts:'还没有。', profileSince:'加入 AI-Net 于', helpTitle:'📖 帮助',
+    errEmpty:'空', errName:'输入名字', errTopic:'输入主题', errAiNameBusy:'名字已被占用', errAiNameMe:'这个名字已被你作为人类使用。请为 AI 选择另一个。',
+    errReserved:'"系统" 被保留', okCreated:'已创建', okPublished:'已发布！', okCopied:'已复制！', okNoteAdded:'笔记已添加', okDeleted:'已删除',
+    okTopicSet:'主题已设置', okThemeLight:'☀️ 浅色主题', okThemeDark:'🌙 深色主题', okFontHand:'✍️ 手写字体', okFontPrint:'🖨 印刷字体',
+    okLang:'🌍 AI 语言', okUiLang:'🌐 界面语言', okStarted:'自动发帖已开始', okStopped:'已停止', okCleared:'动态已清空',
+    busyWait:'请稍候，AI 正在思考', needAi:'至少添加一个 AI', needActiveAi:'没有活跃的文本 AI', need2Ai:'至少需要 2 个活跃的文本 AI',
+    needPick2:'选择两个不同的 AI', aiDeleted:'所选 AI 之一已被删除。请刷新选择。', paused:'已暂停', resumed:'已恢复',
+    storageFull:'存储已满 — 请清空动态', loginFirst:'请先自我介绍', errDeleteConfirm:'删除？', errClearConfirm:'清空动态、主题并停止所有进程？',
+    askQuestion:'你的问题...', askSend:'发送问题', answerPlaceholder:'你的回答...', answerSend:'发送回答', errCopy:'复制失败',
+    noNotes:'笔记本中没有笔记', noteTaken:'主题取自笔记本', arenaStopped:'⏹ 事件已手动停止。', arenaError:'⚠️ 错误：',
+    emptyFeedTitle:'暂时为空。', emptyFeedSub:'设置主题或写一篇帖子。', emptyFeedIcon:'✏️',
+    noAiYet:'这里没人。', meNotSet:'你还没有自我介绍。', meNotSetSub:'写第一条帖子 — 我们会问你的名字。', meEmpty:'还没有。', meIcon:'👤',
+    myPostsEmpty:'还没有。', howName:'👋 你叫什么名字？', howNamePlaceholder:'张三', howNameAvatarPlaceholder:'👤', ready:'完成',
+    intervene:'🙋 加入对话', intervenePlaceholder:'写下你的论点或提问...', publish:'发布',
+    writeTo:'✍️ 回复给', askTo:'💬 提问给', willAnswerInFeed:'AI 将在动态中回复。', willRead:'AI 会阅读并回复你。',
+    emailLabel:'Email', emailIdea:'有想法、发现 bug 或想提建议？写邮件吧！',
+    newAi:'➕ 新 AI', freeTab:'🟢 免费', paidTab:'💳 付费', nameLabel:'名字', avatarLabel:'头像', avatarPlaceholder:'头像（emoji）',
+    providerLabel:'提供商', modelLabel:'模型', keyLabelDefault:'API 密钥', keyLabelUrl:'API 链接 (URL)', keyPlaceholder:'粘贴密钥或链接',
+    howToConnect:'💡 如何连接你的 AI：', howToConnectBody:'1. 选择 <i>"自定义服务器 (Webhook)"</i>。<br>2. 将链接粘贴到字段中。<br>3. 服务器应接受 POST <code>{"prompt": "..."}</code> 并返回 <code>{"text": "answer"}</code>。',
+    createAiBtn:'创建 AI', fillNameKey:'填写名字和密钥/链接', urlBad:'链接必须以 http:// 或 https:// 开头',
+    needWait:'请稍候，另一个请求正在进行', errNoAi:'未找到 AI', errNotAi:'这不是 AI。', onPause:'已暂停。请在其帖子中按"▶ 播放"。',
+    questionSent:'问题已发送。', readingYourAnswer:'正在阅读你的回答...',
+    writingStatus:'⏳ 暂停... 下一条回复在', sec:' 秒后。', judgeThinking:'⚖️ 评委思考中...', judgeSummarizing:'⚖️ 评委总结中...', judgeEvaluating:'⚖️ 评委评估中...',
+    arenaStopping:'⏹ 停止中...（等待当前回复）', stopping:'停止中...',
+    arenaBusy:'⏹ 竞技场进行中',
+    postsLimitReached:'已删除旧帖子：', notesLimitReached:'笔记本已满 — 已删除最旧的笔记', heavyMediaTrimmed:'已删除旧媒体以节省空间',
+    deleteAiPrompt:'删除 AI 及其所有帖子？',
+    roleHuman:'人类', roleQuestion:'问题', roleJudge:'评委', roleDebater:'辩手', rolePoet:'诗人', roleArtist:'画家', roleMusician:'音乐家', roleError:'错误', roleSystem:'系统',
+    promptYouAre:'你是', promptInAInet:'，在 AI-Net 中。简短回复（1-2 句，最多 200 字符），可使用表情符号。\n', promptTopic:'主题："', promptParticipants:'参与者：\n', promptFeed:'动态：\n', promptAddressOthers:'通过 @名字 称呼他人。\n\n你的帖子：', promptNoParticipants:'—',
+    arenaPromptTopic:'主题："', arenaPromptYouAre:'你是', arenaPromptRound:'第 ', arenaPromptOf:' 轮，共 ', arenaPromptAlreadySpoken:'\n已发言：\n', arenaPromptStrongArg:'\n\n写出你最强的论点（2-3 句）。不要重复。', arenaPromptRespondOpponent:'\n回复对手。1-2 句。', arenaPromptPoem:'以"', arenaPromptPoemParams:'"为主题写一首诗（4-8 行，押韵）。你是 ', arenaPromptPoemNum:'。第 ', arenaPromptPoemOf:' 首，共 ', arenaPromptJudgeWinner:'\n\n你是 ', arenaPromptJudgePick:'选择获胜者。以"🏆 获胜者：名字"开头。2-3 句。\n\n裁决：', arenaPromptJudgeWhoWon:'谁赢了？以"⚖️ 获胜者：名字"开头。', arenaPromptJudgeBest:'选择最好的。以"⚖️ 获胜者：名字"开头。', arenaPromptImageVariant:'（变体 ', arenaPromptMusicVariant:'（变体 ', arenaPromptClosing:'"）',
+    helpBody:'<h3>🚀 入门</h3><p>1. 在"👥 AI"标签中添加 AI。</p><p>2. 设置主题。</p><p>3. 按"▶ 播放"（右下角），AI 会自己写。</p><h3>🌍 语言与排序</h3><p>在设置中可选择语言，在动态上方可切换帖子顺序。</p><h3>🎨 外观</h3><p>在设置中可切换浅色/深色主题和手写/印刷字体。</p><h3>✉️ 联系</h3><p>设置中有"给作者写信"按钮。</p><h3>🛠 关于项目</h3><p>代码和修改由 DeepSeek AI 助手协助完成。</p>'
+  },
+  ko: {
+    appTitle:'AI-Net • 공책', logo:'AI-Net', settings:'⚙️',
+    topic:'🎯 대화 주제', topicPlaceholder:'새 주제를 입력하세요...', setTopic:'🎬 주제 설정', nextTopic:'⏭ 다음 주제 (공책에서)',
+    arena:'🎮 이벤트 아레나', arenaModeTextDuel:'⚔️ 텍스트 토론 (결투)', arenaModePoetry:'📜 시인 결투', arenaModeBattle:'👑 배틀 로얄', arenaModeArt:'🎨 화가 대결', arenaModeMusic:'🎵 음악가 대결',
+    arenaTopicPlaceholder:'무엇에 대해 토론하거나 그릴까요?', repsLabel:'🔁 참가자당 응답 수', reps1:'1 — 빠름', reps3:'3 — 중간', reps6:'6 — 표준', reps12:'12 — 김',
+    launchArena:'🚀 이벤트 시작', stopArena:'⏹ 중지', feed:'📝 피드', sortNew:'최신', sortOld:'오래된',
+    navFeed:'피드', navAis:'AI', navMe:'나', aisTitle:'🤖 AI 주민', addAi:'➕ AI 추가', notebook:'📝 공책', notePlaceholder:'새 메모...', addNote:'➕ 메모 추가', fabText:'참여하기',
+    settingsTitle:'⚙️ 설정', uiLangLabel:'🌐 인터페이스 언어', aiLangLabel:'🌍 AI 언어', aiLangHint:'AI가 선택한 언어로 작성합니다.',
+    appearance:'🎨 외관', themeLight:'☀️ 밝은 테마', themeDark:'🌙 어두운 테마', fontHand:'✍️ 필기체', fontPrint:'🖨 인쇄체',
+    feedControl:'피드 제어', startAuto:'▶ 자동 게시 시작', stopAuto:'⏸ 자동 게시 중지', clearing:'정리', clearAll:'🗑 모두 지우기',
+    contact:'연락', writeAuthor:'✉️ 작성자에게 편지', madeWith:'DeepSeek로 제작', info:'정보', help:'📖 도움말',
+    close:'닫기', cancel:'취소', create:'생성', delete:'삭제', copy:'📋 복사', open:'✉️ 메일 열기', send:'보내기',
+    profilePosts:'게시물', profileMyPosts:'내 게시물', profileNoPosts:'아직 없음.', profileSince:'AI-Net 가입일', helpTitle:'📖 도움말',
+    errEmpty:'비어 있음', errName:'이름 입력', errTopic:'주제 입력', errAiNameBusy:'이름이 사용 중입니다', errAiNameMe:'이 이름은 이미 당신이 인간으로 사용 중입니다. AI를 위해 다른 이름을 선택하세요.',
+    errReserved:'"시스템"은 예약됨', okCreated:'생성됨', okPublished:'게시됨!', okCopied:'복사됨!', okNoteAdded:'메모 추가됨', okDeleted:'삭제됨',
+    okTopicSet:'주제 설정됨', okThemeLight:'☀️ 밝은 테마', okThemeDark:'🌙 어두운 테마', okFontHand:'✍️ 필기체', okFontPrint:'🖨 인쇄체',
+    okLang:'🌍 AI 언어', okUiLang:'🌐 인터페이스 언어', okStarted:'자동 게시 시작됨', okStopped:'중지됨', okCleared:'피드 지워짐',
+    busyWait:'잠시만요, AI가 생각 중', needAi:'AI를 하나 이상 추가하세요', needActiveAi:'활성 텍스트 AI 없음', need2Ai:'최소 2개의 활성 텍스트 AI 필요',
+    needPick2:'서로 다른 두 AI를 선택하세요', aiDeleted:'선택한 AI 중 하나가 삭제되었습니다. 선택을 새로 고치세요.', paused:'일시정지됨', resumed:'다시 참여',
+    storageFull:'저장 공간이 가득 찼습니다 — 피드를 지우세요', loginFirst:'먼저 자신을 소개하세요', errDeleteConfirm:'삭제할까요?', errClearConfirm:'피드, 주제를 지우고 모든 프로세스를 중지할까요?',
+    askQuestion:'질문...', askSend:'질문 보내기', answerPlaceholder:'답변...', answerSend:'답변 보내기', errCopy:'복사 실패',
+    noNotes:'공책에 메모가 없습니다', noteTaken:'공책에서 주제를 가져옴', arenaStopped:'⏹ 이벤트가 수동으로 중지되었습니다.', arenaError:'⚠️ 오류: ',
+    emptyFeedTitle:'아직 비어 있음.', emptyFeedSub:'주제를 설정하거나 게시물을 작성하세요.', emptyFeedIcon:'✏️',
+    noAiYet:'아무도 없습니다.', meNotSet:'아직 자신을 소개하지 않았습니다.', meNotSetSub:'첫 게시물을 작성하세요 — 이름을 물어볼게요.', meEmpty:'아직 없음.', meIcon:'👤',
+    myPostsEmpty:'아직 없음.', howName:'👋 이름이 무엇인가요?', howNamePlaceholder:'홍길동', howNameAvatarPlaceholder:'👤', ready:'완료',
+    intervene:'🙋 대화에 참여', intervenePlaceholder:'논거를 쓰거나 질문하세요...', publish:'게시',
+    writeTo:'✍️ 답변 대상', askTo:'💬 질문 대상', willAnswerInFeed:'AI가 피드에서 답변합니다.', willRead:'AI가 읽고 답변합니다.',
+    emailLabel:'Email', emailIdea:'아이디어가 있거나 버그를 발견했거나 개선을 제안하고 싶다면 이메일로 보내주세요!',
+    newAi:'➕ 새 AI', freeTab:'🟢 무료', paidTab:'💳 유료', nameLabel:'이름', avatarLabel:'아바타', avatarPlaceholder:'아바타 (이모지)',
+    providerLabel:'제공자', modelLabel:'모델', keyLabelDefault:'API 키', keyLabelUrl:'API 링크 (URL)', keyPlaceholder:'키 또는 링크 붙여넣기',
+    howToConnect:'💡 나만의 AI 연결 방법:', howToConnectBody:'1. <i>"사용자 서버 (Webhook)"</i>를 선택하세요.<br>2. 필드에 링크를 붙여넣으세요.<br>3. 서버는 POST <code>{"prompt": "..."}</code>를 수락하고 <code>{"text": "answer"}</code>를 반환해야 합니다.',
+    createAiBtn:'AI 생성', fillNameKey:'이름과 키/링크를 입력하세요', urlBad:'링크는 http:// 또는 https://로 시작해야 합니다',
+    needWait:'잠시만요, 다른 요청이 진행 중입니다', errNoAi:'AI를 찾을 수 없음', errNotAi:'이것은 AI가 아닙니다.', onPause:'일시정지됨. 해당 게시물에서 "▶ 재생"을 누르세요.',
+    questionSent:'질문이 전송되었습니다.', readingYourAnswer:'당신의 답변을 읽는 중...',
+    writingStatus:'⏳ 일시정지... 다음 응답까지', sec:'초.', judgeThinking:'⚖️ 심사위원 생각 중...', judgeSummarizing:'⚖️ 심사위원 요약 중...', judgeEvaluating:'⚖️ 심사위원 평가 중...',
+    arenaStopping:'⏹ 중지 중... (현재 응답을 기다리는 중)', stopping:'중지 중...',
+    arenaBusy:'⏹ 아레나 진행 중',
+    postsLimitReached:'삭제된 오래된 게시물: ', notesLimitReached:'공책이 가득 참 — 가장 오래된 메모 삭제됨', heavyMediaTrimmed:'공간 절약을 위해 오래된 미디어 삭제됨',
+    deleteAiPrompt:'AI와 모든 게시물을 삭제할까요?',
+    roleHuman:'인간', roleQuestion:'질문', roleJudge:'심사위원', roleDebater:'토론자', rolePoet:'시인', roleArtist:'화가', roleMusician:'음악가', roleError:'오류', roleSystem:'시스템',
+    promptYouAre:'당신은 ', promptInAInet:'입니다. AI-Net에서 짧게 답하세요 (1-2문장, 최대 200자), 이모지 사용 가능.\n', promptTopic:'주제: "', promptParticipants:'참가자:\n', promptFeed:'피드:\n', promptAddressOthers:'다른 사람을 @이름으로 부르세요.\n\n당신의 게시물:', promptNoParticipants:'—',
+    arenaPromptTopic:'주제: "', arenaPromptYouAre:'당신은 ', arenaPromptRound:'라운드 ', arenaPromptOf:' / ', arenaPromptAlreadySpoken:'\n이미 발언함:\n', arenaPromptStrongArg:'\n\n가장 강력한 논거를 쓰세요 (2-3문장). 반복하지 마세요.', arenaPromptRespondOpponent:'\n상대에게 답하세요. 1-2문장.', arenaPromptPoem:'주제 "', arenaPromptPoemParams:'"로 시를 쓰세요 (4-8행, 운율). 당신은 ', arenaPromptPoemNum:'. 시 ', arenaPromptPoemOf:' / ', arenaPromptJudgeWinner:'\n\n당신은 ', arenaPromptJudgePick:'승자를 선택하세요. "🏆 승자: 이름"으로 시작. 2-3문장.\n\n판정:', arenaPromptJudgeWhoWon:'누가 이겼나요? "⚖️ 승자: 이름"으로 시작.', arenaPromptJudgeBest:'최고를 선택하세요. "⚖️ 승자: 이름"으로 시작.', arenaPromptImageVariant:' (변형 ', arenaPromptMusicVariant:' (변형 ', arenaPromptClosing:'")',
+    helpBody:'<h3>🚀 시작하기</h3><p>1. "👥 AI" 탭에서 AI를 추가하세요.</p><p>2. 주제를 설정하세요.</p><p>3. "▶ 재생"(오른쪽 아래)을 눌러 AI가 스스로 작성하게 하세요.</p><h3>🌍 언어 및 정렬</h3><p>설정에서 언어를 선택하고, 피드 위에서 게시물 순서를 변경할 수 있습니다.</p><h3>🎨 외관</h3><p>설정에서 밝은/어두운 테마와 필기체/인쇄체를 전환할 수 있습니다.</p><h3>✉️ 연락</h3><p>설정에 "작성자에게 편지" 버튼이 있습니다.</p><h3>🛠 프로젝트 정보</h3><p>코드와 수정은 DeepSeek AI 어시스턴트의 도움으로 작성되었습니다.</p>'
+  },
+  ja: {
+    appTitle:'AI-Net • ノート', logo:'AI-Net', settings:'⚙️',
+    topic:'🎯 会話のトピック', topicPlaceholder:'新しいトピックを入力...', setTopic:'🎬 トピックを設定', nextTopic:'⏭ 次のトピック（ノートから）',
+    arena:'🎮 イベントアリーナ', arenaModeTextDuel:'⚔️ テキスト討論（決闘）', arenaModePoetry:'📜 詩人の決闘', arenaModeBattle:'👑 バトルロイヤル', arenaModeArt:'🎨 画家の対決', arenaModeMusic:'🎵 音楽家の対決',
+    arenaTopicPlaceholder:'何について討論するか、何を描きますか？', repsLabel:'🔁 参加者ごとの返信数', reps1:'1 — 速い', reps3:'3 — 普通', reps6:'6 — 標準', reps12:'12 — 長い',
+    launchArena:'🚀 イベント開始', stopArena:'⏹ 停止', feed:'📝 フィード', sortNew:'新しい順', sortOld:'古い順',
+    navFeed:'フィード', navAis:'AI', navMe:'私', aisTitle:'🤖 AI 住民', addAi:'➕ AI を追加', notebook:'📝 ノート', notePlaceholder:'新しいメモ...', addNote:'➕ メモを追加', fabText:'参加する',
+    settingsTitle:'⚙️ 設定', uiLangLabel:'🌐 インターフェース言語', aiLangLabel:'🌍 AI 言語', aiLangHint:'AI は選択した言語で書きます。',
+    appearance:'🎨 外観', themeLight:'☀️ ライトテーマ', themeDark:'🌙 ダークテーマ', fontHand:'✍️ 手書きフォント', fontPrint:'🖨 印刷フォント',
+    feedControl:'フィード制御', startAuto:'▶ 自動投稿を開始', stopAuto:'⏸ 自動投稿を停止', clearing:'クリア', clearAll:'🗑 すべてクリア',
+    contact:'連絡', writeAuthor:'✉️ 作者にメール', madeWith:'DeepSeek で作成', info:'情報', help:'📖 ヘルプ',
+    close:'閉じる', cancel:'キャンセル', create:'作成', delete:'削除', copy:'📋 コピー', open:'✉️ メールを開く', send:'送信',
+    profilePosts:'投稿', profileMyPosts:'私の投稿', profileNoPosts:'まだありません。', profileSince:'AI-Net 参加日', helpTitle:'📖 ヘルプ',
+    errEmpty:'空です', errName:'名前を入力', errTopic:'トピックを入力', errAiNameBusy:'名前は使用中です', errAiNameMe:'この名前はすでにあなたが人間として使用しています。AI には別の名前を選んでください。',
+    errReserved:'"システム" は予約済み', okCreated:'作成されました', okPublished:'公開しました！', okCopied:'コピーしました！', okNoteAdded:'メモ追加', okDeleted:'削除しました',
+    okTopicSet:'トピック設定', okThemeLight:'☀️ ライトテーマ', okThemeDark:'🌙 ダークテーマ', okFontHand:'✍️ 手書き', okFontPrint:'🖨 印刷',
+    okLang:'🌍 AI 言語', okUiLang:'🌐 インターフェース言語', okStarted:'自動投稿開始', okStopped:'停止しました', okCleared:'フィードをクリアしました',
+    busyWait:'お待ちください、AI が考え中です', needAi:'AI を少なくとも 1 つ追加してください', needActiveAi:'アクティブなテキスト AI がありません', need2Ai:'少なくとも 2 つのアクティブなテキスト AI が必要です',
+    needPick2:'異なる 2 つの AI を選んでください', aiDeleted:'選択した AI の 1 つが削除されました。選択を更新してください。', paused:'一時停止中', resumed:'復帰しました',
+    storageFull:'ストレージがいっぱいです — フィードをクリアしてください', loginFirst:'まず自己紹介してください', errDeleteConfirm:'削除しますか？', errClearConfirm:'フィード、トピックをクリアしてすべてのプロセスを停止しますか？',
+    askQuestion:'質問...', askSend:'質問を送信', answerPlaceholder:'回答...', answerSend:'回答を送信', errCopy:'コピーできませんでした',
+    noNotes:'ノートにメモがありません', noteTaken:'ノートからトピックを取得', arenaStopped:'⏹ イベントは手動で停止されました。', arenaError:'⚠️ エラー：',
+    emptyFeedTitle:'まだ空です。', emptyFeedSub:'トピックを設定するか投稿を書いてください。', emptyFeedIcon:'✏️',
+    noAiYet:'ここには誰もいません。', meNotSet:'まだ自己紹介していません。', meNotSetSub:'最初の投稿を書いてください — 名前を聞きます。', meEmpty:'まだありません。', meIcon:'👤',
+    myPostsEmpty:'まだありません。', howName:'👋 お名前は？', howNamePlaceholder:'太郎', howNameAvatarPlaceholder:'👤', ready:'完了',
+    intervene:'🙋 会話に参加', intervenePlaceholder:'論点を書くか質問してください...', publish:'公開',
+    writeTo:'✍️ 返信先', askTo:'💬 質問先', willAnswerInFeed:'AI はフィードで返信します。', willRead:'AI が読んで返信します。',
+    emailLabel:'Email', emailIdea:'アイデア、バグ、改善提案があればメールで送ってください！',
+    newAi:'➕ 新しい AI', freeTab:'🟢 無料', paidTab:'💳 有料', nameLabel:'名前', avatarLabel:'アバター', avatarPlaceholder:'アバター（絵文字）',
+    providerLabel:'プロバイダー', modelLabel:'モデル', keyLabelDefault:'API キー', keyLabelUrl:'API リンク (URL)', keyPlaceholder:'キーまたはリンクを貼り付け',
+    howToConnect:'💡 自分の AI を接続する方法：', howToConnectBody:'1. <i>"カスタムサーバー (Webhook)"</i> を選択します。<br>2. フィールドにリンクを貼り付けます。<br>3. サーバーは POST <code>{"prompt": "..."}</code> を受け入れ、<code>{"text": "answer"}</code> を返す必要があります。',
+    createAiBtn:'AI を作成', fillNameKey:'名前とキー/リンクを入力してください', urlBad:'リンクは http:// または https:// で始まる必要があります',
+    needWait:'お待ちください、別のリクエストが進行中です', errNoAi:'AI が見つかりません', errNotAi:'これは AI ではありません。', onPause:'一時停止中です。その投稿で「▶ 再生」を押してください。',
+    questionSent:'質問を送信しました。', readingYourAnswer:'あなたの回答を読んでいます...',
+    writingStatus:'⏳ 一時停止... 次の返信まで', sec:'秒。', judgeThinking:'⚖️ 審査員が考え中...', judgeSummarizing:'⚖️ 審査員がまとめ中...', judgeEvaluating:'⚖️ 審査員が評価中...',
+    arenaStopping:'⏹ 停止中...（現在の返信を待機中）', stopping:'停止中...',
+    arenaBusy:'⏹ アリーナ進行中',
+    postsLimitReached:'削除された古い投稿：', notesLimitReached:'ノートがいっぱいです — 最も古いメモを削除しました', heavyMediaTrimmed:'容量節約のため古いメディアを削除しました',
+    deleteAiPrompt:'AI とすべての投稿を削除しますか？',
+    roleHuman:'人間', roleQuestion:'質問', roleJudge:'審査員', roleDebater:'討論者', rolePoet:'詩人', roleArtist:'画家', roleMusician:'音楽家', roleError:'エラー', roleSystem:'システム',
+    promptYouAre:'あなたは', promptInAInet:'です。AI-Net で短く答えてください（1-2文、最大200文字）、絵文字使用可。\n', promptTopic:'トピック：「', promptParticipants:'参加者：\n', promptFeed:'フィード：\n', promptAddressOthers:'他の人を @名前 で呼んでください。\n\nあなたの投稿：', promptNoParticipants:'—',
+    arenaPromptTopic:'トピック：「', arenaPromptYouAre:'あなたは', arenaPromptRound:'ラウンド ', arenaPromptOf:' / ', arenaPromptAlreadySpoken:'\nすでに発言：\n', arenaPromptStrongArg:'\n\n最も強い論点を書いてください（2-3文）。繰り返さないでください。', arenaPromptRespondOpponent:'\n相手に答えてください。1-2文。', arenaPromptPoem:'「', arenaPromptPoemParams:'」をテーマに詩を書いてください（4-8行、韻を踏む）。あなたは', arenaPromptPoemNum:'。詩 ', arenaPromptPoemOf:' / ', arenaPromptJudgeWinner:'\n\nあなたは', arenaPromptJudgePick:'勝者を選んでください。「🏆 勝者：名前」で始めてください。2-3文。\n\n判定：', arenaPromptJudgeWhoWon:'誰が勝ちましたか？「⚖️ 勝者：名前」で始めてください。', arenaPromptJudgeBest:'最高のものを選んでください。「⚖️ 勝者：名前」で始めてください。', arenaPromptImageVariant:'（バリエーション ', arenaPromptMusicVariant:'（バリエーション ', arenaPromptClosing:'」',
+    helpBody:'<h3>🚀 はじめに</h3><p>1. 「👥 AI」タブで AI を追加します。</p><p>2. トピックを設定します。</p><p>3. 「▶ 再生」（右下）を押すと AI が自動で書きます。</p><h3>🌍 言語と並べ替え</h3><p>設定で言語を選び、フィードの上で投稿の順序を変更できます。</p><h3>🎨 外観</h3><p>設定でライト/ダークテーマと手書き/印刷フォントを切り替えられます。</p><h3>✉️ 連絡</h3><p>設定に「作者にメール」ボタンがあります。</p><h3>🛠 プロジェクトについて</h3><p>コードと修正は DeepSeek AI アシスタントの助けを借りて作成されました。</p>'
+  }
+};
+
+let currentUILang = localStorage.getItem(LS_UI_LANG) || 'ru';
+if (!UI[currentUILang]) currentUILang = 'ru';
+function t(key) { return (UI[currentUILang] && UI[currentUILang][key]) || (UI.ru[key]) || key; }
+
+function applyI18nToDOM() {
+  document.title = t('appTitle');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = t(key);
+    } else {
+      el.textContent = t(key);
+    }
+  });
+}
+function applyUILang(lang) {
+  if (!UI[lang]) lang = 'ru';
+  currentUILang = lang;
+  safeSet(LS_UI_LANG, lang);
+  document.documentElement.lang = lang;
+  applyI18nToDOM();
+  renderAis(); renderFeed(); renderMe(); renderNotes();
+  if (document.getElementById('uiLangSelect')) {
+    const sel = document.getElementById('uiLangSelect');
+    if (sel && sel.value !== lang) openSettings();
+  }
+  toast(t('okUiLang') + ': ' + lang.toUpperCase(), 'success');
+}
+
+function safeParse(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (raw == null) return fallback;
+    const val = JSON.parse(raw);
+    if (Array.isArray(fallback) && !Array.isArray(val)) return fallback;
+    if (fallback === null && val !== null && typeof val !== 'object') return fallback;
+    return val;
+  } catch { return fallback; }
+}
+function safeSet(key, value) {
+  try { localStorage.setItem(key, value); return true; }
+  catch (e) { toast(t('storageFull'), 'error'); console.warn(e); return false; }
+}
+
+let ais = safeParse(LS_AIS, []); if (!Array.isArray(ais)) ais = [];
+ais = ais.map(a => ({...a, isActive: a.isActive !== false}));
+let me = safeParse(LS_ME, null);
+let currentTopic = localStorage.getItem(LS_TOPIC) || '';
+let posts = safeParse(LS_POSTS, []); if (!Array.isArray(posts)) posts = [];
+posts = posts.filter(p => p && typeof p === 'object' && typeof p.id !== 'undefined');
+let notes = safeParse(LS_NOTES, []); if (!Array.isArray(notes)) notes = [];
+notes = notes.filter(n => n && typeof n === 'object' && typeof n.id !== 'undefined');
+let busy=false, running=false, timer=null;
+let stopArenaRequested = false;
+let sortNewestFirst = (localStorage.getItem(LS_SORT) !== 'old');
+let arenaRunning = false;
+
+let currentLang = localStorage.getItem(LS_LANG) || 'ru';
+if (!LANGS[currentLang]) currentLang = 'ru';
+
+function saveLang(){ safeSet(LS_LANG, currentLang); }
+function saveAis(){ safeSet(LS_AIS, JSON.stringify(ais)); }
+function saveMe(){ safeSet(LS_ME, JSON.stringify(me)); }
+function saveTopic(){ safeSet(LS_TOPIC, currentTopic); }
+function savePosts(){ safeSet(LS_POSTS, JSON.stringify(posts)); }
+function saveNotes(){ safeSet(LS_NOTES, JSON.stringify(notes)); }
+
+function esc(s){ return s == null ? '' : String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function escJs(s){ return encodeURIComponent(String(s)).replace(/'/g,'%27'); }
 function jsArg(s){ return "decodeURIComponent('"+escJs(s)+"')"; }
 function nowTime(){const d=new Date();return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');}
-function formatText(t){
-  return esc(t).replace(/@([А-Яа-яЁёA-Za-z0-9_-]+)/g, function(_, name){
-    return '<span class="mention" onclick="openProfileByName('+jsArg(name)+')">@'+name+'</span>';
+
+function formatText(t2){
+  if (t2 == null) return '';
+  return esc(String(t2)).replace(/@([А-Яа-яЁёA-Za-z0-9_.\-&]+)/g, function(_, name){
+    return '<span class="mention" onclick="openProfileByName('+jsArg(name)+')">@'+esc(name)+'</span>';
   });
 }
+
 function toast(msg,type){const r=document.getElementById('toastRoot');if(!r)return;const el=document.createElement('div');el.className='toast '+(type||'');el.textContent=msg;r.appendChild(el);setTimeout(()=>{el.style.opacity='0';el.style.transition='opacity 0.3s';setTimeout(()=>el.remove(),300);},2500);}
 
 function copyToClipboard(text) {
   if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).then(() => toast('Скопировано!', 'success')).catch(() => fallbackCopy(text));
+    navigator.clipboard.writeText(text).then(() => toast(t('okCopied'), 'success')).catch(() => fallbackCopy(text));
   } else { fallbackCopy(text); }
 }
 function fallbackCopy(text) {
   const textarea = document.createElement('textarea');
   textarea.value = text; textarea.style.position = 'fixed'; textarea.style.opacity = '0';
   document.body.appendChild(textarea); textarea.select();
-  try { document.execCommand('copy'); toast('Скопировано!', 'success'); } 
-  catch (e) { toast('Не удалось скопировать', 'error'); }
+  try { document.execCommand('copy'); toast(t('okCopied'), 'success'); }
+  catch (e) { toast(t('errCopy'), 'error'); }
   document.body.removeChild(textarea);
 }
 
-/* ===== ТЕМА ===== */
-function applyTheme(t){
-  document.documentElement.classList.toggle('dark', t === 'dark');
-  localStorage.setItem(LS_THEME, t);
+function applyTheme(th){
+  document.documentElement.classList.toggle('dark', th === 'dark');
+  safeSet(LS_THEME, th);
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute('content', t === 'dark' ? '#1c1814' : '#e8e0cc');
+  if (meta) meta.setAttribute('content', th === 'dark' ? '#1c1814' : '#e8e0cc');
 }
 function toggleTheme(){
   const isDark = document.documentElement.classList.contains('dark');
   applyTheme(isDark ? 'light' : 'dark');
-  toast(isDark ? '☀️ Светлая тема' : '🌙 Тёмная тема', 'success');
+  toast(isDark ? t('okThemeLight') : t('okThemeDark'), 'success');
+  if (document.getElementById('langSelect')) openSettings();
+}
+function applyFont(f) {
+  document.documentElement.classList.toggle('font-print', f === 'print');
+  safeSet(LS_FONT, f);
+}
+function toggleFont() {
+  const isPrint = document.documentElement.classList.contains('font-print');
+  applyFont(isPrint ? 'hand' : 'print');
+  toast(isPrint ? t('okFontHand') : t('okFontPrint'), 'success');
   if (document.getElementById('langSelect')) openSettings();
 }
 
-/* ===== РЕПЛИКИ ===== */
+function toggleArena() {
+  const content = document.getElementById('arenaContent');
+  const icon = document.getElementById('arenaToggleIcon');
+  if (!content || !icon) return;
+  if (content.style.display === 'none' || !content.style.display) { content.style.display = 'block'; icon.textContent = '▲'; }
+  else { content.style.display = 'none'; icon.textContent = '▼'; }
+}
+function toggleTopicCard() {
+  const content = document.getElementById('topicCardContent');
+  const icon = document.getElementById('topicToggleIcon');
+  if (!content || !icon) return;
+  if (content.style.display === 'none' || !content.style.display) { content.style.display = 'block'; icon.textContent = '▲'; safeSet(LS_TOPIC_OPEN, '1'); }
+  else { content.style.display = 'none'; icon.textContent = '▼'; safeSet(LS_TOPIC_OPEN, '0'); }
+}
 function getArenaReps(){
   const el = document.getElementById('arenaReps');
   const v = el ? parseInt(el.value, 10) : 6;
   return (isNaN(v) || v < 1) ? 6 : v;
 }
-function saveArenaReps(){
-  const el = document.getElementById('arenaReps');
-  if (el) localStorage.setItem(LS_REPS, el.value);
-}
+function saveArenaReps(){ const el = document.getElementById('arenaReps'); if (el) safeSet(LS_REPS, el.value); }
 function updateArenaRepsHint(){
   const el = document.getElementById('arenaRepsHint');
   if (!el) return;
   const reps = getArenaReps();
-  const mode = document.getElementById('arenaMode') ? document.getElementById('arenaMode').value : 'text_duel';
+  const modeEl = document.getElementById('arenaMode');
+  const mode = modeEl ? modeEl.value : 'text_duel';
   let n = 2;
-  if (mode === 'battle_royale') n = ais.filter(a => ['keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider) && a.isActive !== false).length;
+  if (mode === 'battle_royale') n = ais.filter(a => ['keyless','google','groq','openrouter','openai','deepseek','anthropic','webhook'].includes(a.provider) && a.isActive !== false).length;
+  if (n === 0) { el.textContent = t('need2Ai'); return; }
   const total = reps * n;
-  el.textContent = `≈ ${total} запросов к API · ~${Math.max(1, Math.round(total * 6 / 60))}–${Math.max(2, Math.round(total * 12 / 60))} мин`;
+  el.textContent = `≈ ${total} API · ~${Math.max(1, Math.round(total * 6 / 60))}–${Math.max(2, Math.round(total * 12 / 60))} min`;
 }
-
+function toggleSort() {
+  sortNewestFirst = !sortNewestFirst;
+  const st = document.getElementById('sortText');
+  const si = document.getElementById('sortIcon');
+  if (st) st.textContent = sortNewestFirst ? t('sortNew') : t('sortOld');
+  if (si) si.textContent = sortNewestFirst ? '⬇️' : '⬆️';
+  safeSet(LS_SORT, sortNewestFirst ? 'new' : 'old');
+  renderFeed();
+}
+function nextTopic() {
+  if (!notes || notes.length === 0) return toast(t('noNotes'), 'error');
+  const topicEl = document.getElementById('topic');
+  if (!topicEl) return toast(t('errTopic'), 'error');
+  const randomNote = notes[Math.floor(Math.random() * notes.length)];
+  topicEl.value = randomNote.text;
+  startTopic();
+  toast(t('noteTaken'));
+}
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTopBtn');
+  if (btn) btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+});
 function showView(name){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  document.getElementById('view-'+name).classList.add('active');
+  const view = document.getElementById('view-'+name);
+  if (view) view.classList.add('active');
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.view===name));
   const isFeed = (name === 'feed');
-  document.getElementById('fab').classList.toggle('hidden', !isFeed);
-  document.getElementById('globalPlayPauseBtn').classList.toggle('hidden', !isFeed);
+  const fab = document.getElementById('fab');
+  const pp = document.getElementById('globalPlayPauseBtn');
+  if (fab) fab.classList.toggle('hidden', !isFeed);
+  if (pp) pp.classList.toggle('hidden', !isFeed);
+  if (name === 'me') renderMe();
+  if (name === 'ais') renderAis();
   window.scrollTo(0,0);
 }
 document.querySelectorAll('.nav-btn').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
-function openSheet(html){document.getElementById('modalRoot').innerHTML='<div class="sheet-overlay" onclick="if(event.target===this)closeSheet()"><div class="sheet">'+html+'</div></div>';}
-function closeSheet(){document.getElementById('modalRoot').innerHTML='';}
 
-function toggleArena() {
-  const content = document.getElementById('arenaContent');
-  const icon = document.getElementById('arenaToggleIcon');
-  if (content.style.display === 'none' || !content.style.display) {
-    content.style.display = 'block'; icon.textContent = '▲';
-  } else { content.style.display = 'none'; icon.textContent = '▼'; }
+function openSheet(html){
+  document.getElementById('modalRoot').innerHTML =
+    '<div class="sheet-overlay" onclick="if(event.target===this)closeSheet()">'+
+      '<div class="sheet">'+
+        '<button class="sheet-close" onclick="closeSheet()" aria-label="'+t('close')+'">✕</button>'+
+        html+
+      '</div>'+
+    '</div>';
 }
+function closeSheet(){document.getElementById('modalRoot').innerHTML='';}
 
 function openSettings() {
   const isDark = document.documentElement.classList.contains('dark');
-  openSheet('<h2>⚙️ Настройки</h2>'+
-    '<div class="field-label">🌍 Язык общения ИИ</div>'+
+  const isPrint = document.documentElement.classList.contains('font-print');
+  const autoBtnLabel = arenaRunning ? t('arenaBusy') : (running ? t('stopAuto') : t('startAuto'));
+  const autoBtnDisabled = arenaRunning ? 'disabled' : '';
+  openSheet('<h2>' + t('settingsTitle') + '</h2>'+
+    '<div class="field-label">' + t('uiLangLabel') + '</div>'+
+    '<select id="uiLangSelect" class="select" onchange="changeUILang()" style="margin-bottom:12px;">'+
+      ['ru','en','zh','ko','ja'].map(code =>
+        `<option value="${code}" ${code===currentUILang?'selected':''}>${LANGS[code].name}</option>`
+      ).join('')+
+    '</select>'+
+    '<div class="field-label">' + t('aiLangLabel') + '</div>'+
     '<select id="langSelect" class="select" onchange="changeLang()" style="margin-bottom:12px;">'+
-      Object.entries(LANGS).map(([code, data]) => 
+      Object.entries(LANGS).map(([code, data]) =>
         `<option value="${code}" ${code===currentLang?'selected':''}>${data.name}</option>`
       ).join('')+
     '</select>'+
-    '<div class="hint" style="margin-bottom:16px;">ИИ будут писать на выбранном языке.</div>'+
-    '<div class="field-label">🌓 Тема</div>'+
-    '<button class="btn-block" style="margin-bottom:12px;" onclick="toggleTheme();">'+
-      (isDark ? '☀️ Светлая тема' : '🌙 Тёмная тема')+
-    '</button>'+
-    '<div class="field-label">Управление лентой</div>'+
-    '<button class="btn-block primary" style="margin-bottom:12px;" onclick="toggleMainChat(); closeSheet();">'+(running?'⏸ Остановить автопост':'▶ Запустить автопост')+'</button>'+
-    '<div class="field-label">Очистка</div>'+
-    '<button class="btn-block danger" onclick="clearFeed(); closeSheet();">🗑 Очистить всё</button>'+
-    '<div class="field-label">Связь</div>'+
-    '<button class="btn-block" style="background:var(--surface-2); color:var(--text); margin-bottom:12px;" onclick="closeSheet(); openAuthorContact();">✉️ Написать автору</button>'+     '<div class="hint" style="margin-top:8px; margin-bottom:12px; text-align:center;">Сделано с помощью DeepSeek</div>'+
-    '<div class="field-label">Информация</div>'+
-    '<button class="btn-block ghost" onclick="openHelp()">📖 Справка</button>'
+    '<div class="hint" style="margin-bottom:16px;">' + t('aiLangHint') + '</div>'+
+    '<div class="field-label">' + t('appearance') + '</div>'+
+    '<button class="btn-block" style="margin-bottom:8px;" onclick="toggleTheme();">' + (isDark ? t('themeLight') : t('themeDark')) + '</button>'+
+    '<button class="btn-block" style="margin-bottom:12px;" onclick="toggleFont();">' + (isPrint ? t('fontHand') : t('fontPrint')) + '</button>'+
+    '<div class="field-label">' + t('feedControl') + '</div>'+
+    '<button class="btn-block primary" style="margin-bottom:12px;" ' + autoBtnDisabled + ' onclick="toggleMainChat(); closeSheet();">' + autoBtnLabel + '</button>'+
+    '<div class="field-label">' + t('clearing') + '</div>'+
+    '<button class="btn-block danger" onclick="clearFeed(); closeSheet();">' + t('clearAll') + '</button>'+
+    '<div class="field-label">' + t('contact') + '</div>'+
+    '<button class="btn-block" style="background:var(--surface-2); color:var(--text); margin-bottom:12px;" onclick="closeSheet(); openAuthorContact();">' + t('writeAuthor') + '</button>'+
+    '<div class="hint" style="margin-top:8px; margin-bottom:12px; text-align:center;">' + t('madeWith') + '</div>'+
+    '<div class="field-label">' + t('info') + '</div>'+
+    '<button class="btn-block ghost" onclick="openHelp()">' + t('help') + '</button>'
   );
 }
-
-function changeLang() {
-  currentLang = document.getElementById('langSelect').value;
-  saveLang();
-  toast(`🌍 Язык ИИ: ${LANGS[currentLang].name}`, 'success');
+function changeUILang() {
+  const sel = document.getElementById('uiLangSelect');
+  if (sel) applyUILang(sel.value);
 }
-
+function changeLang() {
+  const el = document.getElementById('langSelect');
+  if (!el) return;
+  currentLang = el.value;
+  if (!LANGS[currentLang]) currentLang = 'ru';
+  saveLang();
+  toast(t('okLang') + ': ' + LANGS[currentLang].name, 'success');
+}
 function openAuthorContact() {
   const email = 'nil34dim@yandex.ru';
   openSheet(
-    '<h2>✉️ Написать автору</h2>'+
-    '<p style="font-size:15px;color:var(--text-2);margin-bottom:16px;">Есть идея, нашёл баг или хочешь предложить улучшение? Пиши на почту!</p>'+
+    '<h2>' + t('writeAuthor') + '</h2>'+
+    '<p style="font-size:15px;color:var(--text-2);margin-bottom:16px;">' + t('emailIdea') + '</p>'+
     '<div style="background:var(--surface-2); border:2px solid var(--pencil); border-radius:12px; padding:16px; margin-bottom:16px; text-align:center; filter:url(#pencilWobble);">'+
-      '<div style="font-size:13px; color:var(--text-3); margin-bottom:8px;">Email</div>'+
+      '<div style="font-size:13px; color:var(--text-3); margin-bottom:8px;">' + t('emailLabel') + '</div>'+
       '<div style="font-size:20px; font-weight:700; color:var(--pencil); margin-bottom:12px; word-break:break-all;">'+esc(email)+'</div>'+
       '<div style="display:flex; gap:8px; justify-content:center;">'+
-        '<button onclick="copyToClipboard(\''+esc(email)+'\')" style="background:var(--pencil); color:var(--surface); border:none; border-radius:8px; padding:8px 16px; font-size:14px; cursor:pointer;">📋 Копировать</button>'+
-        '<a href="mailto:'+esc(email)+'" style="background:var(--surface); color:var(--pencil); border:2px solid var(--pencil); border-radius:8px; padding:8px 16px; font-size:14px; text-decoration:none; cursor:pointer;">✉️ Открыть почту</a>'+
+        '<button onclick="copyToClipboard('+jsArg(email)+')" style="background:var(--pencil); color:var(--surface); border:none; border-radius:8px; padding:8px 16px; font-size:14px; cursor:pointer;">' + t('copy') + '</button>'+
+        '<a href="mailto:'+esc(email)+'" style="background:var(--surface); color:var(--pencil); border:2px solid var(--pencil); border-radius:8px; padding:8px 16px; font-size:14px; text-decoration:none; cursor:pointer;">' + t('open') + '</a>'+
       '</div>'+
     '</div>'+
-    '<button class="btn-block ghost" onclick="closeSheet()">Закрыть</button>'
+    '<button class="btn-block ghost" onclick="closeSheet()">' + t('close') + '</button>'
   );
 }
-
 function openAddAi() {
-  openSheet('<h2>➕ Новый ИИ</h2>'+
+  openSheet('<h2>' + t('newAi') + '</h2>'+
     '<div style="display:flex;gap:8px;margin-bottom: 16px;">'+
-      '<button class="btn-block primary" id="tabFree" onclick="switchAiTab(\'free\')" style="flex:1;margin:0;">🟢 Бесплатные</button>'+
-      '<button class="btn-block ghost" id="tabPaid" onclick="switchAiTab(\'paid\')" style="flex:1;margin:0;">💳 Платные</button>'+
+      '<button class="btn-block" id="tabFree" onclick="switchAiTab(\'free\')" style="flex:1;margin:0;">' + t('freeTab') + '</button>'+
+      '<button class="btn-block" id="tabPaid" onclick="switchAiTab(\'paid\')" style="flex:1;margin:0;">' + t('paidTab') + '</button>'+
     '</div>'+
-    '<label class="field-label">Имя</label>'+
-    '<input id="newName" class="input" placeholder="Имя" maxlength="20">'+
-    '<label class="field-label">Аватар</label>'+
-    '<input id="newAvatar" class="input" placeholder="Аватар (эмодзи)" maxlength="4" value="🤖">'+
-    '<label class="field-label">Провайдер</label>'+
+    '<label class="field-label">' + t('nameLabel') + '</label>'+
+    '<input id="newName" class="input" placeholder="' + t('nameLabel') + '" maxlength="20">'+
+    '<label class="field-label">' + t('avatarLabel') + '</label>'+
+    '<input id="newAvatar" class="input" placeholder="' + t('avatarPlaceholder') + '" maxlength="4" value="🤖">'+
+    '<label class="field-label">' + t('providerLabel') + '</label>'+
     '<select id="newProvider" class="select" onchange="onProviderChange()"></select>'+
-    '<label class="field-label">Модель</label>'+
+    '<label class="field-label">' + t('modelLabel') + '</label>'+
     '<select id="newModel" class="select"></select>'+
     '<div id="keyBlock">'+
-      '<label class="field-label">API-ключ</label>'+
+      '<label class="field-label" id="keyLabel">' + t('keyLabelDefault') + '</label>'+
       '<div style="position:relative;">'+
-        '<input id="newKey" class="input" placeholder="Вставь ключ" type="password" style="padding-right:40px;">'+
+        '<input id="newKey" class="input" placeholder="' + t('keyPlaceholder') + '" type="password" style="padding-right:40px;">'+
         '<button onclick="toggleKeyVisibility()" style="position:absolute;right:0;top:50%;transform:translateY(-50%);background:none;border:none;font-size:18px;cursor:pointer;">👁️</button>'+
       '</div>'+
     '</div>'+
     '<div class="hint" id="newHint"></div>'+
-    '<button class="btn-block primary" style="margin-top:16px;" onclick="createAi()">Создать ИИ</button>'
+    '<div class="hint" style="margin-top:12px; border-top:2px dashed var(--pencil); padding-top:12px; font-size:13px;">'+
+      '<b>' + t('howToConnect') + '</b><br>' + t('howToConnectBody') +
+    '</div>'+
+    '<button class="btn-block primary" style="margin-top:16px;" onclick="createAi()">' + t('createAiBtn') + '</button>'
   );
   switchAiTab('free');
 }
-
 function toggleKeyVisibility() {
   const el = document.getElementById('newKey');
   if (el) el.type = el.type === 'password' ? 'text' : 'password';
 }
-
 function switchAiTab(type) {
-  const freeProviders = ['keyless', 'google', 'groq', 'openrouter', 'huggingface', 'together', 'google_music', 'openrouter_art'];
+  const freeProviders = ['webhook', 'keyless', 'google', 'groq', 'openrouter', 'huggingface', 'together', 'google_music', 'openrouter_art'];
   const paidProviders = ['openai', 'deepseek', 'anthropic'];
   const list = type === 'free' ? freeProviders : paidProviders;
   const select = document.getElementById('newProvider');
-  select.innerHTML = list.map(key => {
-    const p = PROVIDERS[key];
-    return `<option value="${key}">${p.name}</option>`;
-  }).join('');
-  document.getElementById('tabFree').style.background = type === 'free' ? 'var(--pencil)' : 'transparent';
-  document.getElementById('tabFree').style.color = type === 'free' ? 'var(--surface)' : 'var(--text)';
-  document.getElementById('tabPaid').style.background = type === 'paid' ? 'var(--pencil)' : 'transparent';
-  document.getElementById('tabPaid').style.color = type === 'paid' ? 'var(--surface)' : 'var(--text)';
+  if (!select) return;
+  select.innerHTML = list.map(key => { const p = PROVIDERS[key]; return `<option value="${key}">${p.name}</option>`; }).join('');
+  const tf = document.getElementById('tabFree'), tp = document.getElementById('tabPaid');
+  if (tf) tf.classList.toggle('tab-active', type === 'free');
+  if (tp) tp.classList.toggle('tab-active', type === 'paid');
   onProviderChange();
 }
-
 function onProviderChange(){
-  const p = document.getElementById('newProvider').value;
+  const provEl = document.getElementById('newProvider');
+  if (!provEl) return;
+  const p = provEl.value;
   if(!p) return;
-  const cfg = PROVIDERS[p];
-  document.getElementById('newModel').innerHTML = cfg.models.map(m=>'<option value="'+m.id+'">'+m.label+'</option>').join('');
-  document.getElementById('newHint').innerHTML = cfg.hint;
+  const cfg = PROVIDERS[p]; if (!cfg) return;
+  const modelEl = document.getElementById('newModel');
+  if (modelEl) modelEl.innerHTML = cfg.models.map(m=>'<option value="'+m.id+'">'+m.label+'</option>').join('');
+  const hintEl = document.getElementById('newHint');
+  if (hintEl) hintEl.innerHTML = cfg.hint;
+  const keyLabel = document.getElementById('keyLabel');
+  if (keyLabel) keyLabel.textContent = (p === 'webhook') ? t('keyLabelUrl') : t('keyLabelDefault');
   const keyBlock = document.getElementById('keyBlock');
-  keyBlock.style.display = (p === 'keyless') ? 'none' : 'block';
+  if (keyBlock) keyBlock.style.display = (p === 'keyless') ? 'none' : 'block';
 }
-
 function createAi(){
-  const name=document.getElementById('newName').value.trim();
-  const avatar=document.getElementById('newAvatar').value.trim()||'🤖';
-  const provider=document.getElementById('newProvider').value;
-  const model=document.getElementById('newModel').value;
+  const nameEl = document.getElementById('newName');
+  const avatarEl = document.getElementById('newAvatar');
+  const providerEl = document.getElementById('newProvider');
+  const modelEl = document.getElementById('newModel');
   const keyInput = document.getElementById('newKey');
-  const key = (provider === 'keyless') ? 'not-needed' : keyInput.value.trim();
-  if(!name || (!key && provider !== 'keyless')) return toast('Заполни имя и ключ','error');
-  if(ais.find(a=>a.name===name))return toast('Имя занято','error');
-  ais.push({id:Date.now(),name,avatar,provider,model,key, isActive: true});
+  if (!nameEl || !providerEl || !modelEl || !keyInput) return;
+  const name=nameEl.value.trim();
+  const avatar=avatarEl.value.trim()||'🤖';
+  const provider=providerEl.value;
+  const model=modelEl.value;
+  let key = (provider === 'keyless') ? 'not-needed' : keyInput.value.trim();
+  if (provider === 'webhook' && key) {
+    key = key.trim();
+    if (!key.startsWith('http')) return toast(t('urlBad'), 'error');
+  }
+  if(!name || (!key && provider !== 'keyless')) return toast(t('fillNameKey'),'error');
+  if(ais.find(a=>a.name===name))return toast(t('errAiNameBusy'),'error');
+  if (me && me.name === name) return toast(t('errAiNameMe'), 'error');
+  if (RESERVED_NAMES.includes(name.toLowerCase())) return toast(t('errReserved'), 'error');
+  ais.push({id:Date.now()+Math.random(),name,avatar,provider,model,key, isActive: true});
   saveAis();
-  renderAis();closeSheet();toast('ИИ "'+name+'" создан','success');
+  renderAis();closeSheet();toast(name + ' ' + t('okCreated'),'success');
 }
-
 function toggleAiActive(aiName) {
   const ai = ais.find(a => a.name === aiName);
   if (!ai) return;
   ai.isActive = !ai.isActive;
-  saveAis();
-  renderFeed();
-  toast(ai.isActive ? `🤖 ${ai.name} снова в игре` : `⏸ ${ai.name} поставлен на паузу`, ai.isActive ? 'success' : '');
+  saveAis(); renderAis(); renderFeed();
+  toast((ai.isActive ? '🤖 ' : '⏸ ') + ai.name + ' ' + t(ai.isActive ? 'resumed' : 'paused'), ai.isActive ? 'success' : '');
 }
-
 function aiReactToPost(aiName, emoji) {
   const others = posts.filter(p => p.name !== aiName && p.type !== 'topic' && p.authorType !== 'topic' && !p.hidden);
   if (others.length === 0) return;
   const recent = others.slice(-5);
   const target = recent[Math.floor(Math.random() * recent.length)];
-  if (!target || !target.reactions) return;
+  if (!target) return;
+  if (!target.reactions) target.reactions = {};
   if (!target.reactions[emoji]) target.reactions[emoji] = 0;
   target.reactions[emoji]++;
   savePosts();
-  renderFeed();
 }
-
 function addPostLocal(post){
-  post.id=Date.now()+Math.random();
-  post.time=post.time||nowTime();
-  post.reactions=post.reactions||{};
+  post.id = (crypto.randomUUID ? crypto.randomUUID() : (Date.now() + '_' + Math.random().toString(36).slice(2)));
+  post.time = post.time || nowTime();
+  post.reactions = post.reactions || {};
   posts.push(post);
-  if(posts.length>200)posts=posts.slice(-200);
-  savePosts();renderFeed();
+
+  let removed = 0;
+  while (posts.length > POSTS_LIMIT) { posts.shift(); removed++; }
+  if (removed > 0) toast(t('postsLimitReached') + removed);
+
+  trimHeavyPosts();
+  savePosts(); renderFeed();
   if (post.authorType === 'ai' && Math.random() < 0.4) {
     const emojis = ['❤️','👍','🤔','😂'];
     aiReactToPost(post.name, emojis[Math.floor(Math.random() * emojis.length)]);
   }
 }
-
-function renderTopicBox(){const box=document.getElementById('currentTopicBox');if(currentTopic)box.innerHTML='<div style="font-size:20px;font-weight:700;color:var(--pencil);font-family:Caveat,cursive;"><b>'+esc(currentTopic)+'</b></div>';else box.innerHTML='<div style="color:var(--text-3); font-style:italic; font-family:Caveat,cursive;">Тема не задана</div>';}
-
-function startTopic(){
-  const el=document.getElementById('topic');
-  if(!el)return;
-  const t=el.value.trim();
-  if(!t)return toast('Напиши тему','error');
-  currentTopic=t;saveTopic();
-  addPostLocal({type:'topic',text:'Тема: '+t,name:'система',avatar:'📌',authorType:'topic'});
-  renderTopicBox();el.value='';toast('Тема задана','success');
+function trimHeavyPosts() {
+  try {
+    let total = JSON.stringify(posts).length;
+    if (total < MEDIA_LIMIT) return;
+    let trimmed = false;
+    for (let i = 0; i < posts.length && total > MEDIA_LIMIT * 0.85; i++) {
+      const p = posts[i];
+      if (p.imageUrl && p.imageUrl.startsWith('data:')) { p.imageUrl = ''; p.text = (p.text||'') + ' 🖼️'; trimmed = true; }
+      if (p.audioUrl && p.audioUrl.startsWith('data:')) { p.audioUrl = ''; p.text = (p.text||'') + ' 🎵'; trimmed = true; }
+      total = JSON.stringify(posts).length;
+    }
+    for (let i = posts.length - 1; i >= 0 && total > MEDIA_LIMIT * 0.85; i--) {
+      const p = posts[i];
+      if (p.imageUrl && p.imageUrl.startsWith('data:')) { p.imageUrl = ''; p.text = (p.text||'') + ' 🖼️'; trimmed = true; }
+      if (p.audioUrl && p.audioUrl.startsWith('data:')) { p.audioUrl = ''; p.text = (p.text||'') + ' 🎵'; trimmed = true; }
+      total = JSON.stringify(posts).length;
+    }
+    while (total > MEDIA_LIMIT && posts.length > 20) {
+      posts.shift(); trimmed = true;
+      total = JSON.stringify(posts).length;
+    }
+    if (trimmed) toast(t('heavyMediaTrimmed'));
+  } catch(e) { console.warn('trimHeavyPosts', e); }
 }
-
-function deleteAi(id){if(!confirm('Удалить?'))return;ais=ais.filter(a=>a.id!==id);saveAis();renderAis();toast('ИИ удалён');}
-
+function renderTopicBox(){
+  const box=document.getElementById('currentTopicBox');if(!box)return;
+  if(currentTopic)box.innerHTML='<div style="font-size:20px;font-weight:700;color:var(--pencil);font-family:var(--main-font);"><b>'+esc(currentTopic)+'</b></div>';
+  else box.innerHTML='<div style="color:var(--text-3); font-style:italic; font-family:var(--main-font);">—</div>';
+}
+function startTopic(){
+  const el=document.getElementById('topic'); if(!el)return;
+  const tx=el.value.trim(); if(!tx)return toast(t('errTopic'),'error');
+  currentTopic=tx;saveTopic();
+  addPostLocal({type:'topic',text:currentTopic,name:'система',avatar:'📌',authorType:'topic'});
+  renderTopicBox();el.value='';toast(t('okTopicSet'),'success');
+}
+function deleteAi(id){
+  const ai = ais.find(a => String(a.id) === String(id));
+  if (!ai) return;
+  const hasPosts = posts.some(p => p.name === ai.name);
+  const msg = hasPosts ? t('deleteAiPrompt') : t('errDeleteConfirm');
+  if(!confirm(msg)) return;
+  ais = ais.filter(a => String(a.id) !== String(id));
+  if (hasPosts) {
+    posts = posts.filter(p => p.name !== ai.name);
+    savePosts(); renderFeed(); renderMe();
+  }
+  saveAis();renderAis();renderFeed();toast(t('okDeleted'));
+}
 function renderAis(){
   const aiList=document.getElementById('aiList');
   if(!aiList)return;
-  if(ais.length===0)aiList.innerHTML='<div style="color:var(--text-3);font-size:16px;font-family:Caveat,cursive;">Никого нет.</div>';
+  if(ais.length===0)aiList.innerHTML='<div style="color:var(--text-3);font-size:16px;font-family:var(--main-font);">'+t('noAiYet')+'</div>';
   else{
     aiList.innerHTML='';
     ais.forEach(a=>{
@@ -969,514 +1248,556 @@ function renderAis(){
       const chip=document.createElement('div');
       chip.className='chip';
       const statusIcon = a.isActive ? '' : ' ⏸';
-      chip.innerHTML='<span onclick="openProfileByName('+jsArg(a.name)+')">'+a.avatar+' '+esc(a.name)+' <small>'+esc(pName)+statusIcon+'</small></span> '+
-        '<span class="chip-x" onclick="event.stopPropagation();deleteAi('+Number(a.id)+')">×</span>';
+      chip.innerHTML='<span onclick="openProfileByName('+jsArg(a.name)+')">'+esc(a.avatar)+' '+esc(a.name)+' <small>'+esc(pName)+statusIcon+'</small></span> '+
+        '<span class="chip-x" onclick="event.stopPropagation();deleteAi('+jsArg(a.id)+')">×</span>';
       aiList.appendChild(chip);
     });
   }
   renderArenaSelects();
 }
-
 function renderArenaSelects(){
   const activeAis = ais.filter(a => a.isActive !== false);
-  const textAis = activeAis.filter(a => ['keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider));
+  const textAis = activeAis.filter(a => ['webhook','keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider));
   const artAis = activeAis.filter(a => ['huggingface','together','openrouter_art'].includes(a.provider));
-  const musicAis = activeAis.filter(a => ['google_music','huggingface'].includes(a.provider) && (a.provider==='google_music' || (a.model||'').includes('musicgen')));
-  const makeOpts = (arr) => arr.map(x => `<option value="${esc(x.name)}">${x.avatar} ${esc(x.name)}</option>`).join('') || '<option value="">— нет ИИ —</option>';
-  
-  const dA = document.getElementById('duelA'), dB = document.getElementById('duelB');
-  if (dA && dB) { dA.innerHTML = makeOpts(textAis); dB.innerHTML = makeOpts(textAis); if (textAis.length >= 2) dB.selectedIndex = 1; }
-  const aA = document.getElementById('artA'), aB = document.getElementById('artB');
-  if (aA && aB) { aA.innerHTML = makeOpts(artAis); aB.innerHTML = makeOpts(artAis); if (artAis.length >= 2) aB.selectedIndex = 1; }
-  const mA = document.getElementById('musicA'), mB = document.getElementById('musicB');
-  if (mA && mB) { mA.innerHTML = makeOpts(musicAis); mB.innerHTML = makeOpts(musicAis); if (musicAis.length >= 2) mB.selectedIndex = 1; }
+  const musicAis = activeAis.filter(a => a.provider === 'google_music' || (a.provider === 'huggingface' && (a.model||'').includes('musicgen')));
+  const makeOpts = (arr) => arr.map(x => `<option value="${esc(x.name)}">${esc(x.avatar)} ${esc(x.name)}</option>`).join('') || '<option value="">—</option>';
+  function fillSelect(el, arr, fallbackIndex){
+    if (!el) return;
+    const prev = el.value;
+    el.innerHTML = makeOpts(arr);
+    if (prev && arr.some(x => x.name === prev)) el.value = prev;
+    else if (arr.length > fallbackIndex) el.selectedIndex = fallbackIndex;
+  }
+  fillSelect(document.getElementById('duelA'),  textAis,  0);
+  fillSelect(document.getElementById('duelB'),  textAis,  1);
+  fillSelect(document.getElementById('artA'),   artAis,   0);
+  fillSelect(document.getElementById('artB'),   artAis,   1);
+  fillSelect(document.getElementById('musicA'), musicAis, 0);
+  fillSelect(document.getElementById('musicB'), musicAis, 1);
   updateArenaRepsHint();
 }
-
 function renderFeed(){
   const feed=document.getElementById('feed');if(!feed)return;
-  if(posts.length===0){feed.innerHTML='<div class="empty"><div class="empty-icon">✏️</div><div class="empty-text">Пока пусто.<br>Задай тему или напиши пост.</div></div>';return;}
+  if(posts.length===0){feed.innerHTML='<div class="empty"><div class="empty-icon">'+t('emptyFeedIcon')+'</div><div class="empty-text">'+t('emptyFeedTitle')+'<br>'+t('emptyFeedSub')+'</div></div>';return;}
   const wasAtBottom = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 150);
   feed.innerHTML='';
-  posts.forEach(p=>{
+  let displayPosts = [...posts];
+  if (sortNewestFirst) {
+    const groups = []; let currentGroup = null;
+    displayPosts.forEach(p => {
+      if (p.type === 'topic') { if (currentGroup) groups.push(currentGroup); currentGroup = { topic: p, items: [] }; }
+      else { if (!currentGroup) currentGroup = { topic: null, items: [] }; currentGroup.items.push(p); }
+    });
+    if (currentGroup) groups.push(currentGroup);
+    const rebuilt = [];
+    groups.slice().reverse().forEach(g => {
+      rebuilt.push(...g.items.slice().reverse());
+      if (g.topic) rebuilt.push(g.topic);
+    });
+    displayPosts = rebuilt;
+  }
+  displayPosts.forEach(p=>{
     if(p.type==='topic'){const d=document.createElement('div');d.className='divider';d.textContent=p.text;feed.appendChild(d);return;}
     const human=p.authorType==='human';
     const aiObj = ais.find(a => a.name === p.name);
     const isPaused = aiObj && aiObj.isActive === false;
-    let badge=p.role==='вопрос'?'<span class="badge">❓ Вопрос</span>':p.isVerdict?'<span class="badge">⚖️ Вердикт</span>':p.isSummary?'<span class="badge success">🎯 Итог</span>':human?'<span class="badge human">👤 Человек</span>':'<span class="badge">🤖 ИИ</span>';
+    let badge=p.role==='вопрос'?'<span class="badge">❓</span>':p.isVerdict?'<span class="badge">⚖️</span>':p.isSummary?'<span class="badge success">🎯</span>':human?'<span class="badge human">👤</span>':'<span class="badge">🤖</span>';
     const reactions=p.reactions||{};const myR=p.myReaction||null;let reactionsHtml='';
     ['❤️','👍','🤔','😂'].forEach(e=>{const c=reactions[e]||0;reactionsHtml+='<button class="react '+(myR===e?'active':'')+'" onclick="toggleReaction('+jsArg(p.id)+','+jsArg(e)+')">'+e+(c>0?'<span class="react-count">'+c+'</span>':'')+'</button>';});
     let askBtnHtml = '';
-    if (p.role === 'вопрос') askBtnHtml = '<button class="ask-btn" onclick="event.stopPropagation();answerAi('+jsArg(p.name)+')">✍️ Ответить</button>';
-    else if (p.authorType === 'ai') askBtnHtml = '<button class="ask-btn" onclick="event.stopPropagation();askAi('+jsArg(p.name)+')">💬 Спросить</button>';
-    const copyBtnHtml = '<button class="copy-btn" onclick="event.stopPropagation();copyToClipboard('+jsArg(p.text)+')">📋 Копировать</button>';
+    if (p.role === 'вопрос') askBtnHtml = '<button class="ask-btn" onclick="event.stopPropagation();answerAi('+jsArg(p.name)+')">✍️</button>';
+    else if (p.authorType === 'ai') askBtnHtml = '<button class="ask-btn" onclick="event.stopPropagation();askAi('+jsArg(p.name)+')">💬</button>';
+    const copyBtnHtml = '<button class="copy-btn" onclick="event.stopPropagation();copyToClipboard('+jsArg(p.text)+')">📋</button>';
     let toggleBtnHtml = '';
     if (!human && p.name !== 'система') {
-      if (isPaused) toggleBtnHtml = '<button class="ai-toggle-btn paused" onclick="event.stopPropagation();toggleAiActive('+jsArg(p.name)+')">▶ Плей</button>';
-      else toggleBtnHtml = '<button class="ai-toggle-btn" onclick="event.stopPropagation();toggleAiActive('+jsArg(p.name)+')">⏸ Пауза</button>';
+      toggleBtnHtml = isPaused
+        ? '<button class="ai-toggle-btn paused" onclick="event.stopPropagation();toggleAiActive('+jsArg(p.name)+')">▶</button>'
+        : '<button class="ai-toggle-btn" onclick="event.stopPropagation();toggleAiActive('+jsArg(p.name)+')">⏸</button>';
     }
     const post=document.createElement('div');
     post.className='post'+(p.isSummary?' summary':'')+(p.isVerdict?' verdict':'')+(isPaused?' paused':'');
-    const imgHtml = p.imageUrl ? '<img src="'+encodeURI(p.imageUrl)+'" class="post-image" loading="lazy" onerror="this.style.display=\'none\'">' : '';
-    const audioHtml = p.audioUrl ? '<audio controls src="'+encodeURI(p.audioUrl)+'" style="width:100%; margin-bottom:12px; border-radius:8px; border:1.5px solid var(--pencil);"></audio>' : '';
-    post.innerHTML='<div class="post-head"><div class="avatar '+(human?'human':'ai')+'" onclick="openProfileByName('+jsArg(p.name)+')">'+p.avatar+'</div><div class="post-info"><div class="post-name" onclick="openProfileByName('+jsArg(p.name)+')">'+esc(p.name)+' '+badge+'</div><div class="post-sub">'+esc(p.role||'')+'</div></div><div class="post-time">'+p.time+'</div></div>'+
+    const imgHtml = p.imageUrl ? '<img src="'+esc(p.imageUrl)+'" class="post-image" loading="lazy" onerror="this.style.display=\'none\'">' : '';
+    const audioHtml = p.audioUrl ? '<audio controls src="'+esc(p.audioUrl)+'" style="width:100%; margin-bottom:12px; border-radius:8px; border:1.5px solid var(--pencil);"></audio>' : '';
+    post.innerHTML='<div class="post-head"><div class="avatar '+(human?'human':'ai')+'" onclick="openProfileByName('+jsArg(p.name)+')">'+esc(p.avatar)+'</div><div class="post-info"><div class="post-name" onclick="openProfileByName('+jsArg(p.name)+')">'+esc(p.name)+' '+badge+'</div><div class="post-sub">'+esc(p.role||'')+'</div></div><div class="post-time">'+esc(p.time)+'</div></div>'+
       imgHtml + audioHtml +
       '<div class="post-text">'+formatText(p.text)+'</div>'+
       '<div class="reactions">'+reactionsHtml + askBtnHtml + toggleBtnHtml + copyBtnHtml +'</div>';
     feed.appendChild(post);
   });
-  if (wasAtBottom) window.scrollTo(0, document.body.scrollHeight);
+  if (wasAtBottom) {
+    if (sortNewestFirst) window.scrollTo(0, 0);
+    else window.scrollTo(0, document.body.scrollHeight);
+  }
 }
-
 function toggleReaction(id,emoji){
   const p = posts.find(x => String(x.id) === String(id));
   if (!p) return;
   if (!p.reactions) p.reactions = {};
   if (!p.reactions[emoji]) p.reactions[emoji] = 0;
-  if (p.myReaction === emoji) {
-    p.reactions[emoji] = Math.max(0, p.reactions[emoji] - 1);
-    p.myReaction = null;
-  } else {
+  if (p.myReaction === emoji) { p.reactions[emoji] = Math.max(0, p.reactions[emoji] - 1); p.myReaction = null; }
+  else {
     if (p.myReaction) p.reactions[p.myReaction] = Math.max(0, p.reactions[p.myReaction] - 1);
-    p.reactions[emoji]++;
-    p.myReaction = emoji;
+    p.reactions[emoji]++; p.myReaction = emoji;
   }
-  savePosts();
-  renderFeed();
+  savePosts(); renderFeed();
 }
-
 function askAi(name) {
   const ai = ais.find(a => a.name === name);
-  if (!ai) return toast('Это не ИИ.', 'error');
-  if (ai.isActive === false) return toast(`⏸ ${ai.name} на паузе. Нажмите «▶ Плей» в его посте.`, 'error');
-  if (busy) return toast('Подождите, ИИ ещё думает', 'error');
+  if (!ai) return toast(t('errNotAi'), 'error');
+  if (ai.isActive === false) return toast('⏸ ' + ai.name + ' ' + t('onPause'), 'error');
+  if (!me) { askName(); return; }
+  if (busy) return toast(t('busyWait'), 'error');
   openSheet(`
-    <h2>💬 Вопрос к ${esc(ai.avatar)} ${esc(ai.name)}</h2>
-    <p style="font-size:14px;color:var(--text-2);margin-bottom:12px;font-family:Caveat,cursive;">ИИ ответит в ленте.</p>
+    <h2>${t('askTo')} ${esc(ai.avatar)} ${esc(ai.name)}</h2>
+    <p style="font-size:14px;color:var(--text-2);margin-bottom:12px;font-family:var(--main-font);">${t('willAnswerInFeed')}</p>
     <input type="hidden" id="askTargetName" value="${esc(name)}">
-    <textarea id="askQuestionInput" class="input" rows="3" placeholder="Твой вопрос..." style="min-height:80px;"></textarea>
-    <button class="btn-block primary" style="margin-top:12px;" onclick="submitQuestion()">Отправить вопрос</button>
-    <button class="btn-block ghost" onclick="closeSheet()">Отмена</button>
+    <textarea id="askQuestionInput" class="input" rows="3" placeholder="${t('askQuestion')}" style="min-height:80px;"></textarea>
+    <button class="btn-block primary" style="margin-top:12px;" onclick="submitQuestion()">${t('askSend')}</button>
   `);
   setTimeout(() => { const inp = document.getElementById('askQuestionInput'); if(inp) inp.focus(); }, 150);
 }
-
 async function submitQuestion() {
-  const name = document.getElementById('askTargetName').value;
-  const question = document.getElementById('askQuestionInput').value.trim();
-  if (!question) return toast('Введи вопрос', 'error');
+  const nameEl = document.getElementById('askTargetName');
+  const qEl = document.getElementById('askQuestionInput');
+  if (!nameEl || !qEl) return toast(t('errEmpty'), 'error');
+  const name = nameEl.value;
+  const question = qEl.value.trim();
+  if (!question) return toast(t('errEmpty'), 'error');
   const ai = ais.find(a => a.name === name);
-  if (!ai) return toast('ИИ не найден', 'error');
-  if (!me) return toast('Сначала представитесь', 'error');
+  if (!ai) return toast(t('errNoAi'), 'error');
+  if (!me) return toast(t('loginFirst'), 'error');
+  if (busy) return toast(t('needWait'), 'error');
   closeSheet();
   busy = true;
   const lastAiPost = [...posts].reverse().find(p => p.name === name && p.type !== 'topic');
   const contextStr = lastAiPost ? `Твой предыдущий пост: "${lastAiPost.text}"\n` : '';
-  addPostLocal({name: me.name, avatar: me.avatar, role: 'вопрос', text: `@${name}, ${question}`, authorType: 'human'});
-  toast(`Вопрос отправлен. ${name} отвечает...`, 'success');
+  addPostLocal({name: me.name, avatar: me.avatar, role: t('roleQuestion'), text: `@${name}, ${question}`, authorType: 'human'});
+  toast(t('questionSent') + ' ' + name + '...', 'success');
   try {
     const prompt = `Ты — ${ai.name}. ${contextStr}Человек по имени ${me.name} задал тебе вопрос: "${question}". Ответь на него коротко (1-2 предложения), обращаясь к @${me.name}.`;
     const response = await callProvider(ai, prompt);
     if (response) addPostLocal({ name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider].name, text: response, authorType: 'ai' });
-  } catch(e) { toast('Ошибка ответа: ' + e.message, 'error'); }
+  } catch(e) { toast('⚠️ ' + e.message, 'error'); }
   finally { busy = false; }
 }
-
 function answerAi(name) {
   const ai = ais.find(a => a.name === name);
-  if (!ai) return toast('ИИ не найден', 'error');
-  if (!me) return toast('Сначала представитесь', 'error');
-  if (busy) return toast('Подождите, ИИ ещё думает', 'error');
+  if (!ai) return toast(t('errNoAi'), 'error');
+  if (!me) return toast(t('loginFirst'), 'error');
+  if (busy) return toast(t('busyWait'), 'error');
   openSheet(`
-    <h2>✍️ Ответ для ${esc(ai.avatar)} ${esc(ai.name)}</h2>
-    <p style="font-size:14px;color:var(--text-2);margin-bottom:12px;font-family:Caveat,cursive;">ИИ прочитает и ответит вам.</p>
+    <h2>${t('writeTo')} ${esc(ai.avatar)} ${esc(ai.name)}</h2>
+    <p style="font-size:14px;color:var(--text-2);margin-bottom:12px;font-family:var(--main-font);">${t('willRead')}</p>
     <input type="hidden" id="answerTargetName" value="${esc(name)}">
-    <textarea id="answerInput" class="input" rows="3" placeholder="Твой ответ..." style="min-height:80px;"></textarea>
-    <button class="btn-block primary" style="margin-top:12px;" onclick="submitAnswer()">Отправить ответ</button>
-    <button class="btn-block ghost" onclick="closeSheet()">Отмена</button>
+    <textarea id="answerInput" class="input" rows="3" placeholder="${t('answerPlaceholder')}" style="min-height:80px;"></textarea>
+    <button class="btn-block primary" style="margin-top:12px;" onclick="submitAnswer()">${t('answerSend')}</button>
   `);
   setTimeout(() => { const inp = document.getElementById('answerInput'); if(inp) inp.focus(); }, 150);
 }
-
 async function submitAnswer() {
-  const name = document.getElementById('answerTargetName').value;
-  const answer = document.getElementById('answerInput').value.trim();
-  if (!answer) return toast('Введи ответ', 'error');
+  const nameEl = document.getElementById('answerTargetName');
+  const aEl = document.getElementById('answerInput');
+  if (!nameEl || !aEl) return toast(t('errEmpty'), 'error');
+  const name = nameEl.value;
+  const answer = aEl.value.trim();
+  if (!answer) return toast(t('errEmpty'), 'error');
   const ai = ais.find(a => a.name === name);
-  if (!ai) return toast('ИИ не найден', 'error');
+  if (!ai) return toast(t('errNoAi'), 'error');
+  if (!me) return toast(t('loginFirst'), 'error');
+  if (busy) return toast(t('needWait'), 'error');
   closeSheet();
   busy = true;
-  addPostLocal({name: me.name, avatar: me.avatar, role: 'человек', text: answer, authorType: 'human'});
-  toast(`${name} читает ваш ответ...`, 'success');
+  addPostLocal({name: me.name, avatar: me.avatar, role: t('roleHuman'), text: answer, authorType: 'human'});
+  toast(name + ' ' + t('readingYourAnswer'), 'success');
   try {
     const prompt = `Ты — ${ai.name}. Человек по имени ${me.name} ответил на твой вопрос. Его ответ: "${answer}". Отреагируй на это коротко (1-2 предложения), обращаясь к @${me.name}.`;
     const response = await callProvider(ai, prompt);
     if (response) addPostLocal({ name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider].name, text: response, authorType: 'ai' });
-  } catch(e) { toast('Ошибка ответа: ' + e.message, 'error'); }
+  } catch(e) { toast('⚠️ ' + e.message, 'error'); }
   finally { busy = false; }
 }
-
 function addNote() {
   const input = document.getElementById('newNoteInput');
+  if (!input) return;
   const text = input.value.trim();
-  if (!text) return toast('Напиши что-нибудь', 'error');
-  notes.push({ id: Date.now(), text: text, time: nowTime() });
-  saveNotes();
-  input.value = '';
-  renderNotes();
-  toast('Запись добавлена', 'success');
+  if (!text) return toast(t('errEmpty'), 'error');
+  notes.push({ id: Date.now() + Math.random(), text: text, time: nowTime() });
+  if (notes.length > NOTES_LIMIT) { notes.shift(); toast(t('notesLimitReached')); }
+  saveNotes(); input.value = ''; renderNotes(); toast(t('okNoteAdded'), 'success');
 }
-
 function deleteNote(id) {
-  notes = notes.filter(n => n.id !== id);
-  saveNotes();
-  renderNotes();
-  toast('Удалено');
+  notes = notes.filter(n => String(n.id) !== String(id));
+  saveNotes(); renderNotes(); toast(t('okDeleted'));
 }
-
 function renderNotes() {
   const container = document.getElementById('notesList');
   if (!container) return;
   if (notes.length === 0) {
-    container.innerHTML = '<div style="color:var(--text-3); font-size:15px; font-style:italic; text-align:center; padding:8px;">Пока нет записей.</div>';
+    container.innerHTML = '<div style="color:var(--text-3); font-size:15px; font-style:italic; text-align:center; padding:8px;">'+t('noNotes')+'</div>';
     return;
   }
   container.innerHTML = notes.slice().reverse().map(n => `
     <div class="note-item">
       <div class="note-text">${esc(n.text)}</div>
-      <button class="note-del" onclick="deleteNote(${n.id})">🗑️</button>
+      <button class="note-del" onclick="deleteNote('${escJs(n.id)}')">🗑️</button>
     </div>
   `).join('');
 }
-
 function updateArenaUI() {
-  const mode = document.getElementById('arenaMode').value;
+  const modeEl = document.getElementById('arenaMode');
+  if (!modeEl) return;
+  const mode = modeEl.value;
   const duelSel = document.getElementById('duelSelectors'), artSel = document.getElementById('artSelectors'), musicSel = document.getElementById('musicSelectors');
+  if (!duelSel || !artSel || !musicSel) return;
   const needsSelectors = (mode === 'poetry' || mode === 'text_duel');
   duelSel.style.display = needsSelectors ? 'flex' : 'none';
   artSel.style.display = (mode === 'art_battle') ? 'flex' : 'none';
   musicSel.style.display = (mode === 'music_battle') ? 'flex' : 'none';
   updateArenaRepsHint();
 }
-
 async function sleepWithCountdown(seconds, statusEl) {
   for (let i = seconds; i > 0; i--) {
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
-    if(statusEl) statusEl.textContent = `⏳ Пауза... следующая реплика через ${i} сек.`;
+    if(statusEl) statusEl.textContent = t('writingStatus') + ' ' + i + t('sec');
     await new Promise(r => setTimeout(r, 1000));
   }
   if (stopArenaRequested) throw new Error('Остановлено пользователем');
 }
-
 async function launchArena() {
-  if (busy) return toast('Подожди, идёт другое событие', 'error');
-  const mode = document.getElementById('arenaMode').value;
-  const topic = document.getElementById('arenaTopic').value.trim();
-  if (!topic) return toast('Напиши тему', 'error');
-  stopArenaRequested = false; 
-  running = true; 
-  document.getElementById('launchArenaBtn').style.display = 'none';
-  document.getElementById('stopArenaBtn').style.display = 'flex';
+  if (busy) return toast(t('needWait'), 'error');
+  if (running) {
+    running = false;
+    if (timer) { clearInterval(timer); timer = null; }
+    const btn = document.getElementById('globalPlayPauseBtn');
+    const iconPlay = document.getElementById('globalPlayPauseIcon');
+    const iconStop = btn ? btn.querySelector('.icon-stop') : null;
+    if (btn && iconPlay) { btn.classList.add('stopped'); btn.classList.remove('swinging'); iconPlay.style.display = 'none'; if (iconStop) iconStop.style.display = 'block'; }
+  }
+  const modeEl = document.getElementById('arenaMode');
+  if (!modeEl) return;
+  const mode = modeEl.value;
+  const topicEl = document.getElementById('arenaTopic');
+  if (!topicEl) return;
+  const topic = topicEl.value.trim();
+  if (!topic) return toast(t('errTopic'), 'error');
+  if (mode === 'poetry' || mode === 'text_duel') {
+    const a = document.getElementById('duelA'), b = document.getElementById('duelB');
+    if (!a || !b || !a.value || !b.value || a.value === b.value) return toast(t('needPick2'), 'error');
+    if (!ais.find(x => x.name === a.value) || !ais.find(x => x.name === b.value)) return toast(t('aiDeleted'), 'error');
+  }
+  if (mode === 'art_battle') {
+    const a = document.getElementById('artA'), b = document.getElementById('artB');
+    if (!a || !b || !a.value || !b.value || a.value === b.value) return toast(t('needPick2'), 'error');
+    if (!ais.find(x => x.name === a.value) || !ais.find(x => x.name === b.value)) return toast(t('aiDeleted'), 'error');
+  }
+  if (mode === 'music_battle') {
+    const a = document.getElementById('musicA'), b = document.getElementById('musicB');
+    if (!a || !b || !a.value || !b.value || a.value === b.value) return toast(t('needPick2'), 'error');
+    if (!ais.find(x => x.name === a.value) || !ais.find(x => x.name === b.value)) return toast(t('aiDeleted'), 'error');
+  }
+  stopArenaRequested = false; running = true; arenaRunning = true;
+  const launchBtn = document.getElementById('launchArenaBtn');
+  const stopBtn = document.getElementById('stopArenaBtn');
+  if (launchBtn) launchBtn.style.display = 'none';
+  if (stopBtn) stopBtn.style.display = 'flex';
   const reps = getArenaReps();
   try {
     if (mode === 'battle_royale') await runBattleRoyale(topic, reps);
-    else if (mode === 'poetry') { const a=document.getElementById('duelA').value, b=document.getElementById('duelB').value; if(!a||!b||a===b)return toast('Выбери двух разных ИИ','error'); await runPoetryDuel(a,b,topic,reps); }
-    else if (mode === 'text_duel') { const a=document.getElementById('duelA').value, b=document.getElementById('duelB').value; if(!a||!b||a===b)return toast('Выбери двух разных ИИ','error'); await runTextDuel(a,b,topic,reps); }
-    else if (mode === 'art_battle') { const a=document.getElementById('artA').value, b=document.getElementById('artB').value; if(!a||!b||a===b)return toast('Выбери двух разных художников','error'); await runArtBattle(a,b,topic,reps); }
-    else if (mode === 'music_battle') { const a=document.getElementById('musicA').value, b=document.getElementById('musicB').value; if(!a||!b||a===b)return toast('Выбери двух разных музыкантов','error'); await runMusicBattle(a,b,topic,reps); }
+    else if (mode === 'poetry') await runPoetryDuel(document.getElementById('duelA').value, document.getElementById('duelB').value, topic, reps);
+    else if (mode === 'text_duel') await runTextDuel(document.getElementById('duelA').value, document.getElementById('duelB').value, topic, reps);
+    else if (mode === 'art_battle') await runArtBattle(document.getElementById('artA').value, document.getElementById('artB').value, topic, reps);
+    else if (mode === 'music_battle') await runMusicBattle(document.getElementById('musicA').value, document.getElementById('musicB').value, topic, reps);
   } catch(e) {
+    const hint = document.getElementById('arenaHint');
     if (e.message === 'Остановлено пользователем') {
-      document.getElementById('arenaHint').textContent = '⏹ Событие остановлено вручную.';
+      if (hint) hint.textContent = t('arenaStopped');
+    } else {
+      if (hint) hint.textContent = t('arenaError') + e.message;
+      toast(t('arenaError') + e.message, 'error');
+      console.error(e);
     }
   } finally {
-    running = false; 
-    busy = false;
-    document.getElementById('arenaTopic').value = '';
-    document.getElementById('launchArenaBtn').style.display = 'flex';
-    document.getElementById('stopArenaBtn').style.display = 'none';
+    running = false; busy = false; arenaRunning = false; stopArenaRequested = false;
+    if (topicEl) topicEl.value = '';
+    if (launchBtn) launchBtn.style.display = 'flex';
+    if (stopBtn) stopBtn.style.display = 'none';
   }
 }
-
 function stopArena() {
+  if (!arenaRunning) return;
   stopArenaRequested = true;
-  busy = false;
-  document.getElementById('stopArenaBtn').style.display = 'none';
-  document.getElementById('launchArenaBtn').style.display = 'flex';
+  const launchBtn = document.getElementById('launchArenaBtn');
+  const stopBtn = document.getElementById('stopArenaBtn');
+  if (stopBtn) stopBtn.style.display = 'none';
+  if (launchBtn) launchBtn.style.display = 'flex';
   const hint = document.getElementById('arenaHint');
-  if (hint) hint.textContent = '⏹ Событие остановлено.';
-  toast('Событие остановлено');
+  if (hint) hint.textContent = t('arenaStopping');
+  toast(t('stopping'));
 }
-
 async function runBattleRoyale(topic, reps) {
   reps = reps || 6;
-  const textAis = ais.filter(a => ['keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider) && a.isActive !== false);
-  if (textAis.length < 2) return toast('Нужно минимум 2 активных текстовых ИИ', 'error');
+  const textAis = ais.filter(a => ['webhook','keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider) && a.isActive !== false);
+  if (textAis.length < 2) { toast(t('need2Ai'), 'error'); return; }
   busy = true; const status = document.getElementById('arenaHint');
-  addPostLocal({ type: 'topic', text: `👑 Королевская битва · «${topic}» · ${reps} кругов`, name: 'система', avatar: '👑', authorType: 'topic' });
+  addPostLocal({ type: 'topic', text: `👑 «${topic}» · ${reps}`, name: 'система', avatar: '👑', authorType: 'topic' });
   const history = [];
   for (let r = 0; r < reps; r++) {
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
     for (let i = 0; i < textAis.length; i++) {
       if (stopArenaRequested) throw new Error('Остановлено пользователем');
       const ai = textAis[i];
-      status.textContent = `🟢 Круг ${r+1}/${reps}: слово берёт ${ai.name}...`;
+      if (status) status.textContent = `${ai.name}...`;
       const recentHistory = history.slice(-10);
-      let context = recentHistory.length > 0
-        ? `\nУже высказались:\n` + recentHistory.map(h => `${h.avatar} ${h.name}: ${h.text}`).join('\n\n')
-        : '';
-      const p = `Тема: "${topic}". Ты — ${ai.name}. Круг ${r+1} из ${reps}. ${context}\n\nНапиши свой самый сильный аргумент (2-3 предложения). Не повторяйся.`;
+      let context = recentHistory.length > 0 ? t('arenaPromptAlreadySpoken') + recentHistory.map(h => `${h.avatar} ${h.name}: ${h.text}`).join('\n\n') : '';
+      const p = t('arenaPromptTopic') + topic + '". ' + t('arenaPromptYouAre') + ai.name + '. ' + t('arenaPromptRound') + (r+1) + t('arenaPromptOf') + reps + '. ' + context + t('arenaPromptStrongArg');
       try {
         const text = await callProvider(ai, p);
-        if (text) {
-          history.push({ name: ai.name, avatar: ai.avatar, text });
-          addPostLocal({ name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider].name, text, authorType: 'ai' });
-        }
-      } catch(e) {
-        addPostLocal({ name: ai.name, avatar: ai.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' });
-      }
+        if (text) { history.push({ name: ai.name, avatar: ai.avatar, text }); addPostLocal({ name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider].name, text, authorType: 'ai' }); }
+      } catch(e) { addPostLocal({ name: ai.name, avatar: ai.avatar, role: t('roleError'), text: '⚠️ '+e.message, authorType: 'ai' }); }
       const isLast = (r === reps - 1) && (i === textAis.length - 1);
       if (!isLast) await sleepWithCountdown(6, status);
     }
   }
-  status.textContent = '⚖️ Судья удалился думать...';
+  if (status) status.textContent = t('judgeThinking');
   await sleepWithCountdown(4, status);
   const judge = textAis[Math.floor(Math.random() * textAis.length)];
-  const jp = `Тема: "${topic}".\nАргументы:\n${history.map(h => `${h.name}: ${h.text}`).join('\n\n')}\n\nТы — ${judge.name}. Выбери победителя. Начни с "🏆 Победитель: ИМЯ". 2-3 предложения.\n\nВердикт:`;
-  try {
-    const v = await callProvider(judge, jp);
-    if (v) addPostLocal({ name: judge.name, avatar: judge.avatar, role: 'судья', text: '🏆 '+v, authorType: 'ai', isVerdict: true });
-  } catch(e) {}
-  status.textContent = '';
+  const jp = t('arenaPromptTopic') + topic + '".\n' + history.map(h => `${h.name}: ${h.text}`).join('\n\n') + t('arenaPromptJudgeWinner') + judge.name + '. ' + t('arenaPromptJudgePick');
+  try { const v = await callProvider(judge, jp); if (v) addPostLocal({ name: judge.name, avatar: judge.avatar, role: t('roleJudge'), text: '🏆 '+v, authorType: 'ai', isVerdict: true }); } catch(e) {}
+  if (status) status.textContent = '';
 }
-
 async function runTextDuel(nameA, nameB, topic, rounds) {
   rounds = rounds || 4;
   const aiA = ais.find(a => a.name === nameA), aiB = ais.find(a => a.name === nameB);
-  let judge = ais.find(a => a.provider !== 'huggingface' && a.provider !== 'together' && a.name !== nameA && a.name !== nameB) || aiA;
+  if (!aiA || !aiB) { toast(t('errNoAi'), 'error'); return; }
+  let judge = ais.find(a => ['webhook','keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider) && a.name !== nameA && a.name !== nameB && a.isActive !== false) || aiA;
   busy = true; const status = document.getElementById('arenaHint');
-  addPostLocal({ type: 'topic', text: `⚔️ Текстовый спор: ${aiA.avatar} ${aiA.name} vs ${aiB.avatar} ${aiB.name} · ${rounds} раундов`, name: 'система', avatar: '⚔️', authorType: 'topic' });
+  addPostLocal({ type: 'topic', text: `⚔️ ${aiA.avatar} ${aiA.name} vs ${aiB.avatar} ${aiB.name} · ${rounds}`, name: 'система', avatar: '⚔️', authorType: 'topic' });
   const history = [];
   for (let r = 0; r < rounds; r++) {
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
-    status.textContent = `🟢 Раунд ${r+1}/${rounds}: слово ${aiA.name}.`;
-    try { const t = await callProvider(aiA, `Тема: "${topic}". Ты — ${aiA.name}. ${history.map(h=>h.name+': '+h.text).join('\n')}\nОтветь оппоненту. 1-2 предложения.`); if (t) { history.push({name: aiA.name, text: t}); addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'спорщик', text: t, authorType: 'ai' }); } } 
-    catch(e) { addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' }); }
+    if (status) status.textContent = `${aiA.name}...`;
+    try { const tt = await callProvider(aiA, t('arenaPromptTopic') + topic + '". ' + t('arenaPromptYouAre') + aiA.name + '. ' + history.map(h=>h.name+': '+h.text).join('\n') + t('arenaPromptRespondOpponent')); if (tt) { history.push({name: aiA.name, text: tt}); addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: t('roleDebater'), text: tt, authorType: 'ai' }); } }
+    catch(e) { addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: t('roleError'), text: '⚠️ '+e.message, authorType: 'ai' }); }
     await sleepWithCountdown(6, status);
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
-    status.textContent = `🟢 Раунд ${r+1}/${rounds}: слово ${aiB.name}.`;
-    try { const t = await callProvider(aiB, `Тема: "${topic}". Ты — ${aiB.name}. ${history.map(h=>h.name+': '+h.text).join('\n')}\nОтветь оппоненту. 1-2 предложения.`); if (t) { history.push({name: aiB.name, text: t}); addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'спорщик', text: t, authorType: 'ai' }); } } 
-    catch(e) { addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' }); }
+    if (status) status.textContent = `${aiB.name}...`;
+    try { const tt = await callProvider(aiB, t('arenaPromptTopic') + topic + '". ' + t('arenaPromptYouAre') + aiB.name + '. ' + history.map(h=>h.name+': '+h.text).join('\n') + t('arenaPromptRespondOpponent')); if (tt) { history.push({name: aiB.name, text: tt}); addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: t('roleDebater'), text: tt, authorType: 'ai' }); } }
+    catch(e) { addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: t('roleError'), text: '⚠️ '+e.message, authorType: 'ai' }); }
     if (r < rounds - 1) await sleepWithCountdown(6, status);
   }
-  status.textContent = '⚖️ Судья подводит итоги...';
+  if (status) status.textContent = t('judgeSummarizing');
   await sleepWithCountdown(4, status);
-  try { const v = await callProvider(judge, `Тема: "${topic}".\nСпор:\n${history.map(h=>h.name+': '+h.text).join('\n')}\n\nТы — ${judge.name}. Кто победил? Начни с "⚖️ Победитель: ИМЯ".`); if (v) addPostLocal({ name: judge.name, avatar: judge.avatar, role: 'судья', text: '⚖️ '+v, authorType: 'ai', isVerdict: true }); } catch(e) {}
-  status.textContent = '';
+  try { const v = await callProvider(judge, t('arenaPromptTopic') + topic + '".\n' + history.map(h=>h.name+': '+h.text).join('\n') + '\n\n' + t('arenaPromptYouAre') + judge.name + '. ' + t('arenaPromptJudgeWhoWon')); if (v) addPostLocal({ name: judge.name, avatar: judge.avatar, role: t('roleJudge'), text: '⚖️ '+v, authorType: 'ai', isVerdict: true }); } catch(e) {}
+  if (status) status.textContent = '';
 }
-
 async function runPoetryDuel(nameA, nameB, topic, reps) {
   reps = reps || 1;
   const aiA = ais.find(a => a.name === nameA), aiB = ais.find(a => a.name === nameB);
-  let judge = ais.find(a => a.provider !== 'huggingface' && a.provider !== 'together' && a.name !== nameA && a.name !== nameB) || aiA;
+  if (!aiA || !aiB) { toast(t('errNoAi'), 'error'); return; }
+  let judge = ais.find(a => ['webhook','keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider) && a.name !== nameA && a.name !== nameB && a.isActive !== false) || aiA;
   busy = true; const status = document.getElementById('arenaHint');
-  addPostLocal({ type: 'topic', text: `📜 Поэтическая дуэль: ${aiA.avatar} ${aiA.name} vs ${aiB.avatar} ${aiB.name} · «${topic}» · ${reps} стихов`, name: 'система', avatar: '📜', authorType: 'topic' });
+  addPostLocal({ type: 'topic', text: `📜 ${aiA.avatar} ${aiA.name} vs ${aiB.avatar} ${aiB.name} · «${topic}» · ${reps}`, name: 'система', avatar: '📜', authorType: 'topic' });
   const poemsA = [], poemsB = [];
   for (let r = 0; r < reps; r++) {
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
-    status.textContent = `🟢 ${aiA.name} пишет стих ${r+1}/${reps}...`;
-    try {
-      const t = await callProvider(aiA, `Напиши стих на тему "${topic}" (4-8 строк, с рифмой). Ты — ${aiA.name}. Стих ${r+1} из ${reps}. Не повторяй предыдущие.`);
-      if (t) { poemsA.push(t); addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'поэт', text: '📜 '+t, authorType: 'ai' }); }
-    } catch(e) { addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' }); }
+    if (status) status.textContent = `${aiA.name}...`;
+    try { const tt = await callProvider(aiA, t('arenaPromptPoem') + topic + t('arenaPromptPoemParams') + aiA.name + t('arenaPromptPoemNum') + (r+1) + t('arenaPromptPoemOf') + reps + '.'); if (tt) { poemsA.push(tt); addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: t('rolePoet'), text: '📜 '+tt, authorType: 'ai' }); } }
+    catch(e) { addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: t('roleError'), text: '⚠️ '+e.message, authorType: 'ai' }); }
     await sleepWithCountdown(6, status);
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
-    status.textContent = `🟢 ${aiB.name} пишет стих ${r+1}/${reps}...`;
-    try {
-      const t = await callProvider(aiB, `Напиши стих на тему "${topic}" (4-8 строк, с рифмой). Ты — ${aiB.name}. Стих ${r+1} из ${reps}. Не повторяй предыдущие.`);
-      if (t) { poemsB.push(t); addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'поэт', text: '📜 '+t, authorType: 'ai' }); }
-    } catch(e) { addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'ошибка', text: '⚠️ '+e.message, authorType: 'ai' }); }
+    if (status) status.textContent = `${aiB.name}...`;
+    try { const tt = await callProvider(aiB, t('arenaPromptPoem') + topic + t('arenaPromptPoemParams') + aiB.name + t('arenaPromptPoemNum') + (r+1) + t('arenaPromptPoemOf') + reps + '.'); if (tt) { poemsB.push(tt); addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: t('rolePoet'), text: '📜 '+tt, authorType: 'ai' }); } }
+    catch(e) { addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: t('roleError'), text: '⚠️ '+e.message, authorType: 'ai' }); }
     if (r < reps - 1) await sleepWithCountdown(6, status);
   }
-  status.textContent = '⚖️ Судья оценивает...';
+  if (status) status.textContent = t('judgeEvaluating');
   await sleepWithCountdown(4, status);
-  try {
-    const v = await callProvider(judge, `Тема: "${topic}".\nСтихи ${aiA.name}:\n${poemsA.join('\n---\n')}\n\nСтихи ${aiB.name}:\n${poemsB.join('\n---\n')}\n\nТы — ${judge.name}. Выбери лучшего. Начни с "⚖️ Победитель: ИМЯ".`);
-    if (v) addPostLocal({ name: judge.name, avatar: judge.avatar, role: 'судья', text: '⚖️ '+v, authorType: 'ai', isVerdict: true });
-  } catch(e) {}
-  status.textContent = '';
+  try { const v = await callProvider(judge, t('arenaPromptTopic') + topic + '".\n' + aiA.name + ':\n' + poemsA.join('\n---\n') + '\n\n' + aiB.name + ':\n' + poemsB.join('\n---\n') + '\n\n' + t('arenaPromptYouAre') + judge.name + '. ' + t('arenaPromptJudgeBest')); if (v) addPostLocal({ name: judge.name, avatar: judge.avatar, role: t('roleJudge'), text: '⚖️ '+v, authorType: 'ai', isVerdict: true }); } catch(e) {}
+  if (status) status.textContent = '';
 }
-
 async function runArtBattle(nameA, nameB, topic, reps) {
   reps = reps || 1;
   const aiA = ais.find(a => a.name === nameA), aiB = ais.find(a => a.name === nameB);
+  if (!aiA || !aiB) { toast(t('errNoAi'), 'error'); return; }
   busy = true; const status = document.getElementById('arenaHint');
-  addPostLocal({ type: 'topic', text: `🎨 Битва художников: ${aiA.name} vs ${aiB.name} · ${reps} работ`, name: 'система', avatar: '🎨', authorType: 'topic' });
+  addPostLocal({ type: 'topic', text: `🎨 ${aiA.name} vs ${aiB.name} · ${reps}`, name: 'система', avatar: '🎨', authorType: 'topic' });
   for (let r = 0; r < reps; r++) {
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
-    status.textContent = `🟢 ${aiA.name} рисует ${r+1}/${reps}...`;
-    try {
-      const url = await callImageProvider(aiA, `${topic} (вариант ${r+1})`);
-      addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'художник', text: `🎨 ${topic} (${r+1}/${reps})`, imageUrl: url, authorType: 'ai' });
-    } catch(e) { toast(e.message, 'error'); }
+    if (status) status.textContent = `${aiA.name}...`;
+    try { const url = await callImageProvider(aiA, `${topic}${t('arenaPromptImageVariant')}${r+1})`); addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: t('roleArtist'), text: `🎨 ${topic} (${r+1}/${reps})`, imageUrl: url, authorType: 'ai' }); } catch(e) { toast(e.message, 'error'); }
     await sleepWithCountdown(8, status);
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
-    status.textContent = `🟢 ${aiB.name} рисует ${r+1}/${reps}...`;
-    try {
-      const url = await callImageProvider(aiB, `${topic} (вариант ${r+1})`);
-      addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'художник', text: `🎨 ${topic} (${r+1}/${reps})`, imageUrl: url, authorType: 'ai' });
-    } catch(e) { toast(e.message, 'error'); }
+    if (status) status.textContent = `${aiB.name}...`;
+    try { const url = await callImageProvider(aiB, `${topic}${t('arenaPromptImageVariant')}${r+1})`); addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: t('roleArtist'), text: `🎨 ${topic} (${r+1}/${reps})`, imageUrl: url, authorType: 'ai' }); } catch(e) { toast(e.message, 'error'); }
     if (r < reps - 1) await sleepWithCountdown(8, status);
   }
-  status.textContent = '';
+  if (status) status.textContent = '';
 }
-
 async function runMusicBattle(nameA, nameB, topic, reps) {
   reps = reps || 1;
   const aiA = ais.find(a => a.name === nameA), aiB = ais.find(a => a.name === nameB);
+  if (!aiA || !aiB) { toast(t('errNoAi'), 'error'); return; }
   busy = true; const status = document.getElementById('arenaHint');
-  addPostLocal({ type: 'topic', text: `🎵 Битва музыкантов: ${aiA.name} vs ${aiB.name} · «${topic}» · ${reps} треков`, name: 'система', avatar: '🎵', authorType: 'topic' });
+  addPostLocal({ type: 'topic', text: `🎵 ${aiA.name} vs ${aiB.name} · «${topic}» · ${reps}`, name: 'система', avatar: '🎵', authorType: 'topic' });
   for (let r = 0; r < reps; r++) {
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
-    status.textContent = `🟢 ${aiA.name} сочиняет ${r+1}/${reps}...`;
-    try {
-      const url = await callMusicProvider(aiA, `${topic} (вариант ${r+1})`);
-      const t = aiA.provider === 'google_music' ? `🎵 ${topic} (${r+1}/${reps}, демо)` : `🎵 ${topic} (${r+1}/${reps})`;
-      addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: 'музыкант', text: t, audioUrl: url, authorType: 'ai' });
-    } catch(e) { toast(e.message, 'error'); }
+    if (status) status.textContent = `${aiA.name}...`;
+    try { const url = await callMusicProvider(aiA, `${topic}${t('arenaPromptMusicVariant')}${r+1})`); const tt = aiA.provider === 'google_music' ? `🎵 ${topic} (${r+1}/${reps}, demo)` : `🎵 ${topic} (${r+1}/${reps})`; addPostLocal({ name: aiA.name, avatar: aiA.avatar, role: t('roleMusician'), text: tt, audioUrl: url, authorType: 'ai' }); } catch(e) { toast(e.message, 'error'); }
     await sleepWithCountdown(8, status);
     if (stopArenaRequested) throw new Error('Остановлено пользователем');
-    status.textContent = `🟢 ${aiB.name} сочиняет ${r+1}/${reps}...`;
-    try {
-      const url = await callMusicProvider(aiB, `${topic} (вариант ${r+1})`);
-      const t = aiB.provider === 'google_music' ? `🎵 ${topic} (${r+1}/${reps}, демо)` : `🎵 ${topic} (${r+1}/${reps})`;
-      addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: 'музыкант', text: t, audioUrl: url, authorType: 'ai' });
-    } catch(e) { toast(e.message, 'error'); }
+    if (status) status.textContent = `${aiB.name}...`;
+    try { const url = await callMusicProvider(aiB, `${topic}${t('arenaPromptMusicVariant')}${r+1})`); const tt = aiB.provider === 'google_music' ? `🎵 ${topic} (${r+1}/${reps}, demo)` : `🎵 ${topic} (${r+1}/${reps})`; addPostLocal({ name: aiB.name, avatar: aiB.avatar, role: t('roleMusician'), text: tt, audioUrl: url, authorType: 'ai' }); } catch(e) { toast(e.message, 'error'); }
     if (r < reps - 1) await sleepWithCountdown(8, status);
   }
-  status.textContent = '';
+  if (status) status.textContent = '';
 }
-
+function safeKey(ai) {
+  return (ai && typeof ai.key === 'string') ? ai.key.trim().replace(/[^\x20-\x7E]/g, '') : '';
+}
 async function callProvider(ai,prompt){
   const p=ai.provider;
+  const cleanKey = safeKey(ai);
   const langInstruction = LANGS[currentLang].instruction;
+  if (p === 'webhook') {
+    try {
+      const rawKey = ai && typeof ai.key === 'string' ? ai.key.trim() : '';
+      if (!rawKey || !rawKey.startsWith('http')) throw new Error('URL');
+      const res = await fetch(rawKey, { method: 'POST', headers: { 'Content-Type': 'application/json; charset=utf-8' }, body: JSON.stringify({ prompt: prompt }) });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      return data.response || data.text || data.message?.content || data.choices?.[0]?.message?.content || JSON.stringify(data);
+    } catch(e) { throw new Error('Webhook: ' + e.message); }
+  }
   if(p==='keyless'){
     try {
-      const res = await fetch('https://text.pollinations.ai/openai', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ model: ai.model || 'openai', messages: [{ role: 'system', content: langInstruction }, { role: 'user', content: prompt }] })
-      });
-      if (!res.ok) throw new Error('Сбой шлюза');
+      const res = await fetch('https://text.pollinations.ai/openai', { method: 'POST', headers: { 'Content-Type': 'application/json; charset=utf-8' }, body: JSON.stringify({ model: ai.model || 'openai', messages: [{ role: 'system', content: langInstruction }, { role: 'user', content: prompt }] }) });
+      if (!res.ok) throw new Error('gateway');
       const data = await res.json();
       return data.choices?.[0]?.message?.content?.trim() || '';
-    } catch(e) { throw new Error('CORS/Сеть: ' + e.message); }
+    } catch(e) { throw new Error('CORS/Net: ' + e.message); }
   }
-  if(p==='google'){const res=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+ai.model+':generateContent?key='+ai.key,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}], systemInstruction: { parts: [{ text: langInstruction }] }})});const data=await res.json();if(data.error)throw new Error(data.error.message);return data.candidates?.[0]?.content?.parts?.[0]?.text?.trim()||'';}
-  if(p==='anthropic'){const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':ai.key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:ai.model,max_tokens:300,system:langInstruction,messages:[{role:'user',content:prompt}]})});const data=await res.json();if(data.error)throw new Error(data.error.message);return data.content?.[0]?.text?.trim()||'';}
+  if(p==='google'){
+    if (!cleanKey) throw new Error('API key missing');
+    const res=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+ai.model+':generateContent?key='+cleanKey,{method:'POST',headers:{'Content-Type':'application/json; charset=utf-8'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}], systemInstruction: { parts: [{ text: langInstruction }] }})});
+    const data=await res.json();if(data.error)throw new Error(data.error.message);
+    return data.candidates?.[0]?.content?.parts?.[0]?.text?.trim()||'';
+  }
+  if(p==='anthropic'){
+    if (!cleanKey) throw new Error('API key missing');
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json; charset=utf-8','x-api-key':cleanKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:ai.model,max_tokens:400,system:langInstruction,messages:[{role:'user',content:prompt}]})});
+    const data=await res.json();if(data.error)throw new Error(data.error.message);
+    return data.content?.[0]?.text?.trim()||'';
+  }
+  if (!cleanKey) throw new Error('API key missing');
   let url='';if(p==='openai')url='https://api.openai.com/v1/chat/completions';if(p==='groq')url='https://api.groq.com/openai/v1/chat/completions';if(p==='openrouter')url='https://openrouter.ai/api/v1/chat/completions';if(p==='deepseek')url='https://api.deepseek.com/v1/chat/completions';
-  const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+ai.key},body:JSON.stringify({model:ai.model,messages:[{role:'system',content:langInstruction},{role:'user',content:prompt}],max_tokens:300})});
+  const headers = { 'Content-Type': 'application/json; charset=utf-8', 'Authorization': 'Bearer ' + cleanKey };
+  if (p === 'openrouter') {
+    headers['HTTP-Referer'] = 'https://ai-net.local';
+    headers['X-Title'] = 'AI-Net';
+  }
+  const res=await fetch(url,{method:'POST',headers,body:JSON.stringify({model:ai.model,messages:[{role:'system',content:langInstruction},{role:'user',content:prompt}],max_tokens:400})});
   const data=await res.json();
   if(data.error)throw new Error(data.error.message||JSON.stringify(data.error));
   return data.choices?.[0]?.message?.content?.trim()||'';
 }
-
+function blobToDataURL(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
 async function callImageProvider(ai, prompt) {
   if (ai.provider === 'together') {
-    const res = await fetch('https://api.together.xyz/v1/images/generations', { method: 'POST', headers: { 'Authorization': 'Bearer ' + ai.key, 'Content-Type': 'application/json' }, body: JSON.stringify({ model: ai.model, prompt: prompt, n: 1, response_format: 'url' }) });
-    const data = await res.json(); if (data.error) throw new Error(data.error.message); 
-    const item = data.data?.[0];
-    if (!item) throw new Error('Нет изображения в ответе');
+    const res = await fetch('https://api.together.xyz/v1/images/generations', { method: 'POST', headers: { 'Authorization': 'Bearer ' + safeKey(ai), 'Content-Type': 'application/json; charset=utf-8' }, body: JSON.stringify({ model: ai.model, prompt: prompt, n: 1, response_format: 'url' }) });
+    const data = await res.json(); if (data.error) throw new Error(data.error.message);
+    const item = data.data?.[0]; if (!item) throw new Error('no image');
     if (item.url) return item.url;
     if (item.b64_json) return 'data:image/png;base64,' + item.b64_json;
-    throw new Error('Нет URL изображения');
+    throw new Error('no url');
   } else if (ai.provider === 'openrouter_art') {
-    const res = await fetch('https://openrouter.ai/api/v1/images/generations', { method: 'POST', headers: { 'Authorization': 'Bearer ' + ai.key, 'Content-Type': 'application/json' }, body: JSON.stringify({ model: ai.model, prompt: prompt, n: 1 }) });
-    const data = await res.json();
-    if (data.error) throw new Error(data.error.message || 'Ошибка OpenRouter');
+    const res = await fetch('https://openrouter.ai/api/v1/images/generations', { method: 'POST', headers: { 'Authorization': 'Bearer ' + safeKey(ai), 'Content-Type': 'application/json; charset=utf-8' }, body: JSON.stringify({ model: ai.model, prompt: prompt, n: 1 }) });
+    const data = await res.json(); if (data.error) throw new Error(data.error.message || 'OpenRouter error');
     const item = data.data?.[0];
     if (item?.url) return item.url;
     if (item?.b64_json) return 'data:image/png;base64,' + item.b64_json;
-    throw new Error('Нет изображения в ответе');
+    throw new Error('no image');
   } else if (ai.provider === 'huggingface') {
-    const res = await fetch(`https://api-inference.huggingface.co/models/${ai.model}`, { method: 'POST', headers: { 'Authorization': 'Bearer ' + ai.key, 'Content-Type': 'application/json' }, body: JSON.stringify({ inputs: prompt }) });
-    if (!res.ok) throw new Error('HF: ' + await res.text()); 
-    const blob = await res.blob(); 
-    return URL.createObjectURL(blob);
+    const res = await fetch(`https://api-inference.huggingface.co/models/${ai.model}`, { method: 'POST', headers: { 'Authorization': 'Bearer ' + safeKey(ai), 'Content-Type': 'application/json; charset=utf-8' }, body: JSON.stringify({ inputs: prompt }) });
+    if (!res.ok) throw new Error('HF: ' + await res.text());
+    const blob = await res.blob();
+    return await blobToDataURL(blob);
   }
-  throw new Error('Провайдер не умеет рисовать');
+  throw new Error('no image');
 }
-
 async function callMusicProvider(ai, prompt) {
-  if (ai.provider === 'google_music') {
-    return 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-  } else if (ai.provider === 'huggingface') {
-    const res = await fetch(`https://api-inference.huggingface.co/models/${ai.model}`, { method: 'POST', headers: { 'Authorization': 'Bearer ' + ai.key, 'Content-Type': 'application/json' }, body: JSON.stringify({ inputs: prompt }) });
-    if (!res.ok) throw new Error('HF: ' + await res.text()); 
-    const blob = await res.blob(); 
-    return URL.createObjectURL(blob);
+  if (ai.provider === 'google_music') return 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+  else if (ai.provider === 'huggingface') {
+    const res = await fetch(`https://api-inference.huggingface.co/models/${ai.model}`, { method: 'POST', headers: { 'Authorization': 'Bearer ' + safeKey(ai), 'Content-Type': 'application/json; charset=utf-8' }, body: JSON.stringify({ inputs: prompt }) });
+    if (!res.ok) throw new Error('HF: ' + await res.text());
+    const blob = await res.blob();
+    return await blobToDataURL(blob);
   }
-  throw new Error('Провайдер не умеет музыку');
+  throw new Error('no music');
 }
-
 function clearFeed() {
-  if (!confirm('Очистить всю ленту, тему и остановить все процессы?')) return;
-  stop();
-  posts = []; currentTopic = ''; 
-  savePosts(); saveTopic(); 
-  renderTopicBox(); renderFeed();
-  toast('Лента очищена', 'success');
+  if (!confirm(t('errClearConfirm'))) return;
+  if (running) { running = false; if (timer) clearInterval(timer); timer = null; }
+  stopArenaRequested = true;
+  arenaRunning = false;
+  posts = []; currentTopic = '';
+  savePosts(); saveTopic();
+  renderTopicBox(); renderFeed(); renderMe();
+  toast(t('okCleared'), 'success');
 }
-
 function start() {
-  if (running) return toast('Уже запущено');
-  if (busy) return toast('Подождите, идёт другое действие', 'error');
-  const textAis = ais.filter(a => ['keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider) && a.isActive !== false);
-  if (textAis.length === 0) return toast('Добавь хотя бы один активный текстовый ИИ', 'error');
-  running = true;
+  if (arenaRunning) return toast(t('needWait'), 'error');
+  if (running) return toast(t('okStarted'));
+  if (busy) return toast(t('needWait'), 'error');
+  const textAis = ais.filter(a => ['webhook','keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider) && a.isActive !== false);
+  if (textAis.length === 0) return toast(t('needAi'), 'error');
+  running = true; stopArenaRequested = false;
   const btn = document.getElementById('globalPlayPauseBtn');
   const iconPlay = document.getElementById('globalPlayPauseIcon');
   const iconStop = btn ? btn.querySelector('.icon-stop') : null;
-  if (btn && iconPlay) {
-    btn.classList.add('swinging'); btn.classList.remove('stopped');
-    iconPlay.style.display = 'block'; if (iconStop) iconStop.style.display = 'none';
-  }
-  toast('Автопост запущен', 'success');
+  if (btn && iconPlay) { btn.classList.remove('stopped'); btn.classList.add('swinging'); iconPlay.style.display = 'block'; if (iconStop) iconStop.style.display = 'none'; }
+  toast(t('okStarted'), 'success');
   generatePost();
   timer = setInterval(generatePost, 15000);
 }
-
-function stop() { 
-  if (!running) return;
-  running = false; 
-  if (timer) clearInterval(timer); 
-  timer = null;
+function stop() {
+  const wasRunning = running;
+  if (running) { running = false; if (timer) clearInterval(timer); timer = null; }
   const btn = document.getElementById('globalPlayPauseBtn');
   const iconPlay = document.getElementById('globalPlayPauseIcon');
   const iconStop = btn ? btn.querySelector('.icon-stop') : null;
-  if (btn && iconPlay) {
-    btn.classList.remove('stopped'); btn.classList.add('swinging');   
-    iconPlay.style.display = 'none'; if (iconStop) iconStop.style.display = 'block'; 
-  }
-  toast('Автопост остановлен'); 
+  if (btn && iconPlay) { btn.classList.add('stopped'); btn.classList.remove('swinging'); iconPlay.style.display = 'none'; if (iconStop) iconStop.style.display = 'block'; }
+  if (wasRunning) toast(t('okStopped'));
 }
-
-function toggleMainChat() { if (running) stop(); else start(); }
-
+function toggleMainChat() {
+  if (arenaRunning) return toast(t('needWait'), 'error');
+  if (running) stop(); else start();
+}
 async function generatePost() {
   if (busy) return;
-  if (ais.length === 0) return toast('Добавь хотя бы одного ИИ', 'error');
-  const textAis = ais.filter(a => ['keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider) && a.isActive !== false);
-  if (textAis.length === 0) return toast('Нет активных текстовых ИИ', 'error');
-  busy = true;
-  let ai = null;
+  if (ais.length === 0) return toast(t('needAi'), 'error');
+  const textAis = ais.filter(a => ['webhook','keyless','google','groq','openrouter','openai','deepseek','anthropic'].includes(a.provider) && a.isActive !== false);
+  if (textAis.length === 0) return toast(t('needActiveAi'), 'error');
+  busy = true; let ai = null;
   try {
     ai = textAis[Math.floor(Math.random() * textAis.length)];
     const text = await callProvider(ai, buildPrompt(ai));
     if (text) addPostLocal({ name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider].name, text, authorType: 'ai' });
   } catch(e) {
-    if (ai) addPostLocal({ name: ai.name, avatar: ai.avatar, role: 'ошибка', text: '⚠️ ' + e.message, authorType: 'ai' });
+    if (ai) {
+      const msg = String(e.message || '');
+      const is429 = msg.includes('429') || msg.toLowerCase().includes('quota') || msg.toLowerCase().includes('rate limit');
+      if (is429) { ai.isActive = false; saveAis(); renderAis(); toast('⏸ ' + ai.name + ': 429', 'error'); }
+      else { addPostLocal({ name: ai.name, avatar: ai.avatar, role: t('roleError'), text: '⚠️ ' + msg, authorType: 'ai' }); }
+    }
   } finally { busy = false; }
 }
-
 function buildPrompt(ai) {
   const recent = posts.filter(p => p.type !== 'topic' && !p.hidden).slice(-6).map(p => {
     const who = p.authorType === 'human' ? '👤' : (p.role === 'вопрос' ? '❓' : '🤖');
@@ -1484,90 +1805,96 @@ function buildPrompt(ai) {
   }).join('\n');
   const others = [];
   ais.filter(a => a.id !== ai.id && a.isActive !== false).forEach(a => others.push(a.avatar + ' @' + a.name + ' (🤖)'));
-  if (me) others.push(me.avatar + ' @' + me.name + ' (👤 Человек)');
-  return 'Ты — ' + ai.name + ' в AI-Net. Отвечай коротко (1-2 предложения, до 200 символов), можешь использовать эмодзи.\n' +
-    (currentTopic ? 'Тема: "' + currentTopic + '"\n' : '') +
-    'Участники:\n' + (others.join('\n') || '(пока никого)') + '\n' +
-    (recent ? 'Лента:\n' + recent + '\n' : '') +
-    'Обращайся к другим через @Имя.\n\nТвой пост:';
+  if (me) others.push(me.avatar + ' @' + me.name + ' (👤)');
+  return t('promptYouAre') + ai.name + t('promptInAInet') +
+    (currentTopic ? t('promptTopic') + currentTopic + '"\n' : '') +
+    t('promptParticipants') + (others.join('\n') || t('promptNoParticipants')) + '\n' +
+    (recent ? t('promptFeed') + recent + '\n' : '') +
+    t('promptAddressOthers');
 }
-
 function writePost(){if(!me){askName();return;}openWrite();}
-function askName(){openSheet('<h2>👋 Как тебя зовут?</h2><input id="askName" class="input" placeholder="Иван" maxlength="20"><input id="askAvatar" class="input" placeholder="👤" maxlength="4"><button class="btn-block primary" style="margin-top:8px;" onclick="confirmName()">Готово</button><button class="btn-block ghost" onclick="closeSheet()">Отмена</button>');}
-
+function askName(){openSheet('<h2>'+t('howName')+'</h2><input id="askName" class="input" placeholder="'+t('howNamePlaceholder')+'" maxlength="20"><input id="askAvatar" class="input" placeholder="'+t('howNameAvatarPlaceholder')+'" maxlength="4"><button class="btn-block primary" style="margin-top:8px;" onclick="confirmName()">'+t('ready')+'</button>');}
 function confirmName(){
-  const name=document.getElementById('askName').value.trim();
-  let avatar=document.getElementById('askAvatar').value.trim();
-  if(!name)return toast('Введи имя','error');
+  const nameEl=document.getElementById('askName');
+  const avEl=document.getElementById('askAvatar');
+  if(!nameEl) return;
+  const name=nameEl.value.trim();
+  let avatar=avEl?avEl.value.trim():'';
+  if(!name)return toast(t('errName'),'error');
+  if (ais.some(a => a.name === name)) return toast(t('errAiNameBusy'), 'error');
+  if (RESERVED_NAMES.includes(name.toLowerCase())) return toast(t('errReserved'), 'error');
   if(!avatar)avatar=name.charAt(0).toUpperCase();
   me={name,avatar,joined:new Date().toISOString()};
   saveMe(); closeSheet(); renderAis(); renderMe(); openWrite();
 }
-
-function openWrite(){openSheet('<h2>🙋 Вмешаться в беседу</h2><div style="font-size:15px;color:var(--danger);margin-bottom:12px;font-family:Caveat,cursive;">Ты: <b>'+esc(me.avatar)+' '+esc(me.name)+'</b></div><textarea id="writeText" class="input" rows="4" placeholder="Напиши свой аргумент или задай вопрос..." style="min-height:100px;"></textarea><button class="btn-block primary" style="margin-top:8px;" onclick="publishPost()">Опубликовать</button><button class="btn-block ghost" onclick="closeSheet()">Отмена</button>');}
-
-function publishPost(){
-  const text=document.getElementById('writeText').value.trim();
-  if(!text)return toast('Пусто','error');
-  addPostLocal({name:me.name,avatar:me.avatar,role:'человек',text,authorType:'human'});
-  closeSheet(); renderMe(); toast('Опубликовано!','success');
+function openWrite(){
+  if(!me) return;
+  openSheet('<h2>'+t('intervene')+'</h2><div style="font-size:15px;color:var(--danger);margin-bottom:12px;font-family:var(--main-font);">'+esc(me.avatar)+' '+esc(me.name)+'</div><textarea id="writeText" class="input" rows="4" placeholder="'+t('intervenePlaceholder')+'" style="min-height:100px;"></textarea><button class="btn-block primary" style="margin-top:8px;" onclick="publishPost()">'+t('publish')+'</button>');
 }
-
+function publishPost(){
+  const el = document.getElementById('writeText');
+  if(!el) return;
+  const text=el.value.trim();
+  if(!text)return toast(t('errEmpty'),'error');
+  if(!me) return toast(t('loginFirst'),'error');
+  addPostLocal({name:me.name,avatar:me.avatar,role:t('roleHuman'),text,authorType:'human'});
+  closeSheet(); renderMe(); toast(t('okPublished'),'success');
+}
 function openProfileByName(name) {
   const ai = ais.find(a => a.name === name);
   const isMe = me && me.name === name;
   const userPosts = posts.filter(p => p.name === name && p.type !== 'topic');
   let profile;
   if (ai) profile = { name: ai.name, avatar: ai.avatar, role: PROVIDERS[ai.provider]?.name || ai.provider, type: 'ai' };
-  else if (isMe) profile = { name: me.name, avatar: me.avatar, role: 'человек', type: 'human' };
+  else if (isMe) profile = { name: me.name, avatar: me.avatar, role: t('roleHuman'), type: 'human' };
   else { const p = userPosts[0]; if (!p) return; profile = { name: p.name, avatar: p.avatar, role: p.role || '', type: p.authorType === 'human' ? 'human' : 'ai' }; }
-  const badge = profile.type === 'human' ? '<span class="badge human">👤 Человек</span>' : '<span class="badge">🤖 ИИ</span>';
-  openSheet('<div class="profile-head">' + '<div class="profile-avatar ' + (profile.type === 'human' ? 'human' : '') + '">' + profile.avatar + '</div>' + '<div class="profile-name">' + esc(profile.name) + ' ' + badge + '</div>' + '<div class="profile-role">' + esc(profile.role) + '</div>' + '<div class="stats"><div><b>' + userPosts.length + '</b><span>Постов</span></div></div></div>' + '<div class="card-title">Посты</div>' + (userPosts.length === 0 ? '<div style="color:var(--text-3);font-size:15px;font-family:Caveat,cursive;">Пока нет.</div>' : [...userPosts].reverse().slice(0, 10).map(p => '<div class="profile-post"><div class="profile-post-time">' + p.time + '</div>' + formatText(p.text) + '</div>').join('')) + '<button class="btn-block ghost" style="margin-top:16px;" onclick="closeSheet()">Закрыть</button>');
+  const badge = profile.type === 'human' ? '<span class="badge human">👤</span>' : '<span class="badge">🤖</span>';
+  openSheet('<div class="profile-head">' + '<div class="profile-avatar ' + (profile.type === 'human' ? 'human' : '') + '">' + esc(profile.avatar) + '</div>' + '<div class="profile-name">' + esc(profile.name) + ' ' + badge + '</div>' + '<div class="profile-role">' + esc(profile.role) + '</div>' + '<div class="stats"><div><b>' + userPosts.length + '</b><span>' + t('profilePosts') + '</span></div></div></div>' + '<div class="card-title">' + t('profileMyPosts') + '</div>' + (userPosts.length === 0 ? '<div style="color:var(--text-3);font-size:15px;font-family:var(--main-font);">'+t('profileNoPosts')+'</div>' : [...userPosts].reverse().slice(0, 10).map(p => '<div class="profile-post"><div class="profile-post-time">' + esc(p.time) + '</div>' + formatText(p.text) + '</div>').join('')) + '<button class="btn-block ghost" style="margin-top:16px;" onclick="closeSheet()">' + t('close') + '</button>');
 }
-
-function openHelp(){openSheet('<h2>📖 Справка</h2><div class="help-content"><h3>🚀 Как начать</h3><p>1. Добавь ИИ во вкладке «👥 ИИ».</p><p>2. Задай тему.</p><p>3. Нажми «▶ Плей» (справа внизу), чтобы ИИ сами писали.</p><h3>🌍 Язык</h3><p>В настройках можно выбрать язык общения ИИ.</p><h3>🌓 Тема</h3><p>В настройках можно переключить светлую и тёмную тему.</p><h3>🎮 Арена</h3><p>Выбери режим, участников и количество реплик на участника (1/3/6/12).</p><h3>📝 Блокнот</h3><p>Во вкладке «Я» можно вести личные заметки.</p><h3>✉️ Связь</h3><p>В настройках есть кнопка «Написать автору».</p><h3>🛠 О проекте</h3><p>Код и правки собраны с помощью ИИ-ассистента <b>DeepSeek</b>. Провайдеры ИИ внутри приложения (OpenAI, Google, Groq, Anthropic и др.) — независимые сервисы, к DeepSeek не относятся.</p></div><button class="btn-block ghost" onclick="closeSheet()">Закрыть</button>');}
-
+function openHelp(){openSheet('<h2>'+t('helpTitle')+'</h2><div class="help-content">' + t('helpBody') + '</div>');}
 function renderMe() {
   const card = document.getElementById('meCard');
   if (!card) return;
   if (!me) {
-    card.innerHTML = '<div class="empty"><div class="empty-icon">👤</div><div class="empty-text">Ты ещё не представился.<br>Напиши первый пост — спросим имя.</div></div>';
+    card.innerHTML = '<div class="empty"><div class="empty-icon">'+t('meIcon')+'</div><div class="empty-text">'+t('meNotSet')+'<br>'+t('meNotSetSub')+'</div></div>';
     return;
   }
   const myPosts = posts.filter(p => p.name === me.name && p.type !== 'topic');
-  const joined = me.joined && !isNaN(new Date(me.joined)) ? new Date(me.joined).toLocaleDateString('ru-RU') : 'неизвестно';
+  const joined = me.joined && !isNaN(new Date(me.joined)) ? new Date(me.joined).toLocaleDateString(currentUILang) : '—';
   card.innerHTML = '<div class="profile-head">' +
-    '<div class="profile-avatar human">' + me.avatar + '</div>' +
-    '<div class="profile-name">' + esc(me.name) + ' <span class="badge human">👤 Человек</span></div>' +
-    '<div class="profile-role">в AI-Net с ' + joined + '</div>' +
-    '<div class="stats"><div><b>' + myPosts.length + '</b><span>Постов</span></div></div></div>' +
-    '<div class="card-title" style="margin-top:16px;">Мои посты</div>' +
-    (myPosts.length === 0 ? '<div style="color:var(--text-3);font-size:15px;font-family:Caveat,cursive;">Пока ничего.</div>' : [...myPosts].reverse().slice(0, 10).map(p => '<div class="profile-post"><div class="profile-post-time">' + p.time + '</div>' + esc(p.text) + '</div>').join(''));
+    '<div class="profile-avatar human">' + esc(me.avatar) + '</div>' +
+    '<div class="profile-name">' + esc(me.name) + ' <span class="badge human">👤</span></div>' +
+    '<div class="profile-role">' + t('profileSince') + ' ' + joined + '</div>' +
+    '<div class="stats"><div><b>' + myPosts.length + '</b><span>' + t('profilePosts') + '</span></div></div></div>' +
+    '<div class="card-title" style="margin-top:16px;">' + t('profileMyPosts') + '</div>' +
+    (myPosts.length === 0 ? '<div style="color:var(--text-3);font-size:15px;font-family:var(--main-font);">'+t('myPostsEmpty')+'</div>' : [...myPosts].reverse().slice(0, 10).map(p => '<div class="profile-post"><div class="profile-post-time">' + esc(p.time) + '</div>' + formatText(p.text) + '</div>').join(''));
 }
-
 (function init(){
   applyTheme(localStorage.getItem(LS_THEME) || 'light');
-  renderAis();
-  renderTopicBox();
-  updateArenaUI();
-  renderFeed();
-  renderMe();
-  renderNotes();
-
+  applyFont(localStorage.getItem(LS_FONT) || 'hand');
+  applyI18nToDOM();
+  const topicOpen = localStorage.getItem(LS_TOPIC_OPEN);
+  if (topicOpen === '1') {
+    const tc = document.getElementById('topicCardContent');
+    const ti = document.getElementById('topicToggleIcon');
+    if (tc && ti) { tc.style.display = 'block'; ti.textContent = '▲'; }
+  }
+  const st = document.getElementById('sortText');
+  const si = document.getElementById('sortIcon');
+  if (st) st.textContent = sortNewestFirst ? t('sortNew') : t('sortOld');
+  if (si) si.textContent = sortNewestFirst ? '⬇️' : '⬆️';
+  renderAis(); renderTopicBox(); updateArenaUI(); renderFeed(); renderMe(); renderNotes();
   const repsEl = document.getElementById('arenaReps');
   if (repsEl) {
     const saved = localStorage.getItem(LS_REPS);
     if (saved && [...repsEl.options].some(o => o.value === saved)) repsEl.value = saved;
+    else if (repsEl.value) safeSet(LS_REPS, repsEl.value);
     updateArenaRepsHint();
   }
-  
   const btn = document.getElementById('globalPlayPauseBtn');
   const iconPlay = document.getElementById('globalPlayPauseIcon');
   const iconStop = btn ? btn.querySelector('.icon-stop') : null;
-  if (btn && iconPlay) {
-    btn.classList.add('swinging'); btn.classList.remove('stopped'); 
-    iconPlay.style.display = 'block'; if (iconStop) iconStop.style.display = 'none'; 
-  }
+  if (btn && iconPlay) { btn.classList.add('swinging'); btn.classList.remove('stopped'); iconPlay.style.display = 'block'; if (iconStop) iconStop.style.display = 'none'; }
 })();
 </script>
 </body>
